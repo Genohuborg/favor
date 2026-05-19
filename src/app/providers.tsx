@@ -1,9 +1,11 @@
 "use client";
 import { SearchProvider } from "@features/search";
+import { isUnreachableError } from "@infra/api";
 import { AuthProvider } from "@shared/hooks";
 import {
   defaultShouldDehydrateQuery,
   isServer,
+  QueryCache,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
@@ -11,10 +13,25 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type * as React from "react";
 
 function makeQueryClient() {
-  return new QueryClient({
+  // Lazy ref so onError can invalidate the platform-status query that lives
+  // on this same client without a circular constructor reference.
+  let clientRef: QueryClient | null = null;
+  const client = new QueryClient({
+    queryCache: new QueryCache({
+      onError: (err, query) => {
+        if (!isUnreachableError(err)) return;
+        if (query.queryKey[0] === "platform-status") return;
+        // A real "API unreachable" landed in a query. Force the
+        // platform-status poller to refresh so the banner and gated
+        // features react within a tick rather than waiting up to 60s.
+        clientRef?.invalidateQueries({ queryKey: ["platform-status"] });
+      },
+    }),
     defaultOptions: {
       queries: {
         staleTime: 60 * 1000,
+        retry: (failureCount, err) =>
+          isUnreachableError(err) ? false : failureCount < 2,
       },
       dehydrate: {
         // include pending queries in dehydration
@@ -24,6 +41,8 @@ function makeQueryClient() {
       },
     },
   });
+  clientRef = client;
+  return client;
 }
 
 let browserQueryClient: QueryClient | undefined;

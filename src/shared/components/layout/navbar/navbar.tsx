@@ -1,5 +1,6 @@
 "use client";
 
+import { useApiReachable } from "@features/platform-status";
 import { WhatsNewBell } from "@features/whats-new";
 import { cn } from "@infra/utils";
 import { Button } from "@shared/components/ui/button";
@@ -10,6 +11,11 @@ import {
   DropdownMenuTrigger,
 } from "@shared/components/ui/dropdown-menu";
 import { Logo } from "@shared/components/ui/logo";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@shared/components/ui/tooltip";
 import { useAuth } from "@shared/hooks";
 import {
   ChevronDown,
@@ -102,6 +108,7 @@ export function Navbar() {
   const scrolled = useScrolled();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { user, isAuthenticated, isLoading, login, logout } = useAuth();
+  const reachable = useApiReachable();
 
   return (
     <>
@@ -286,7 +293,7 @@ export function Navbar() {
                         </div>
                       </DropdownMenuContent>
                     </DropdownMenu>
-                  ) : (
+                  ) : reachable ? (
                     <Button
                       variant="outline"
                       onClick={() => login()}
@@ -298,6 +305,26 @@ export function Navbar() {
                       <User className="w-4 h-4" />
                       Sign in
                     </Button>
+                  ) : (
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant="outline"
+                          onClick={() => login()}
+                          aria-disabled
+                          className={cn(
+                            "h-10 rounded-full px-4 gap-1.5",
+                            "bg-muted/30 text-muted-foreground shadow-none cursor-not-allowed",
+                          )}
+                        >
+                          <User className="w-4 h-4" />
+                          Sign in
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent side="bottom" sideOffset={6}>
+                        Sign-in unavailable
+                      </TooltipContent>
+                    </Tooltip>
                   ))}
               </div>
 

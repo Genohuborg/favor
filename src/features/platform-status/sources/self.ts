@@ -1,5 +1,7 @@
 import type { ActiveIncident } from "../types";
 
+export const CORE_API_UNREACHABLE_ID = "self:api-unreachable";
+
 function healthUrl(): string | null {
   const base = process.env.NEXT_PUBLIC_API_URL;
   if (!base) return null;
@@ -46,22 +48,19 @@ export async function fetchSelf(): Promise<ActiveIncident[]> {
     if (await probeOnce(url)) return [];
   }
 
-  // Demoted from "major" → "minor". A failed health probe could mean
-  // genuine outage, but it could equally be a transient network condition
-  // between this Next process and the API. "Degraded service" yellow
-  // banner conveys the right ambiguity; sustained "Service disruption"
-  // red is reserved for confirmed-from-multiple-sources outages.
-  const startedAt = new Date().toISOString();
+  // Three consecutive failures with 800ms backoff is already the hedge
+  // against transient blips. Surface a red banner and gate CTAs via
+  // useApiReachable().
   return [
     {
-      id: "self:api-unreachable",
+      id: CORE_API_UNREACHABLE_ID,
       source: "self",
-      name: "FAVOR API health probe failed",
-      impact: "minor",
+      name: "FAVOR API unreachable",
+      impact: "major",
       state: "investigating",
       scopes: ["core-api"],
       url: "/",
-      startedAt,
+      startedAt: new Date().toISOString(),
     },
   ];
 }

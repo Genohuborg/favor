@@ -1,4 +1,9 @@
-import { ApiError, type AsyncData, type FetchOptions } from "./types";
+import {
+  ApiError,
+  type AsyncData,
+  type FetchOptions,
+  UNREACHABLE_CODE,
+} from "./types";
 
 const DEFAULT_REVALIDATE = 3600; // 1 hour
 
@@ -36,6 +41,13 @@ export async function fetchJson<T>(
   } catch (error) {
     if (error instanceof DOMException && error.name === "AbortError") {
       throw new ApiError(408, `Request timeout after ${timeout}ms`, url);
+    }
+    // A network-level failure (DNS, refused, fetch TypeError, undici
+    // connection error) reaches here as a generic TypeError on the
+    // browser fetch and a Node fetch error server-side. Classify so the
+    // platform-status fallback path knows the API is unreachable.
+    if (error instanceof TypeError) {
+      throw new ApiError(UNREACHABLE_CODE, "API unreachable", url);
     }
     throw error;
   } finally {

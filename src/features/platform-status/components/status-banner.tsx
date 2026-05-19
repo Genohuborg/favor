@@ -1,9 +1,11 @@
 "use client";
 
 import { cn } from "@infra/utils";
+import { useQueryClient } from "@tanstack/react-query";
 import { ArrowUpRight, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePlatformStatus } from "../hooks/use-platform-status";
+import { CORE_API_UNREACHABLE_ID } from "../sources/self";
 import {
   type ActiveIncident,
   IMPACT_RANK,
@@ -83,11 +85,28 @@ export function StatusBanner() {
   const { data } = usePlatformStatus();
   const [dismissed, setDismissed] = useState<DismissedMap>({});
   const [hydrated, setHydrated] = useState(false);
+  const queryClient = useQueryClient();
+  const wasUnreachableRef = useRef(false);
 
   useEffect(() => {
     setDismissed(readDismissed());
     setHydrated(true);
   }, []);
+
+  // Auto-recovery: when the core-api-unreachable incident clears, refetch
+  // every other query so features rehydrate without a manual reload.
+  useEffect(() => {
+    if (!data) return;
+    const unreachable = data.incidents.some(
+      (i) => i.id === CORE_API_UNREACHABLE_ID && i.impact === "major",
+    );
+    if (wasUnreachableRef.current && !unreachable) {
+      queryClient.invalidateQueries({
+        predicate: (q) => q.queryKey[0] !== "platform-status",
+      });
+    }
+    wasUnreachableRef.current = unreachable;
+  }, [data, queryClient]);
 
   const visible: ActiveIncident[] =
     hydrated && data

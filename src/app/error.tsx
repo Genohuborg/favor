@@ -1,5 +1,6 @@
 "use client";
 
+import { ServiceUnavailable } from "@features/platform-status";
 import { Button } from "@shared/components/ui/button";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -14,6 +15,10 @@ export default function GlobalError({
   useEffect(() => {
     console.error("[App Error]", error);
   }, [error]);
+
+  if (error.message === "API unreachable") {
+    return <ServiceUnavailable />;
+  }
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-6">

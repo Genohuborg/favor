@@ -38,6 +38,23 @@ export class ApiError extends Error {
   }
 }
 
+// 503 is used both by an upstream-reported Service Unavailable response and
+// by our client-side classification of connection failures (DNS, refused,
+// fetch TypeError). React Query and feature code can branch on this code
+// to skip retries and route through the platform-status fallback.
+export const UNREACHABLE_CODE = 503;
+export const UNREACHABLE_MESSAGE = "API unreachable";
+
+export function isUnreachableError(err: unknown): err is ApiError {
+  return err instanceof ApiError && err.code === UNREACHABLE_CODE;
+}
+
+// error.tsx receives serialized Error objects, so instanceof checks fail.
+// Match on the sentinel message instead.
+export function isUnreachableErrorMessage(err: { message?: string }): boolean {
+  return err.message === UNREACHABLE_MESSAGE;
+}
+
 export interface FetchOptions {
   revalidate?: number;
   timeout?: number;

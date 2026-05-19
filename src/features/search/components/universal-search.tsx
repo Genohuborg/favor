@@ -1,5 +1,6 @@
 "use client";
 
+import { useApiReachable } from "@features/platform-status";
 import {
   Combobox,
   ComboboxInput,
@@ -264,6 +265,7 @@ export function UniversalSearch() {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPending, startTransition] = useTransition();
+  const apiReachable = useApiReachable();
 
   // Derive query from state
   const query = searchState.query;
@@ -836,8 +838,18 @@ export function UniversalSearch() {
                   className="overflow-y-auto"
                   style={{ maxHeight: "calc(100vh - 400px)" }}
                 >
+                  {!apiReachable ? (
+                    <div className="px-6 py-12 text-center">
+                      <p className="text-sm font-medium text-foreground">
+                        Search unavailable
+                      </p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        FAVOR API is unreachable.
+                      </p>
+                    </div>
+                  ) : null}
                   {/* TYPING MODE: Show typeahead suggestions */}
-                  {searchState.mode === "typing" && (
+                  {apiReachable && searchState.mode === "typing" && (
                     <>
                       {/* Region query — show direct navigation prompt, skip typeahead */}
                       {isRegionQuery ? (
@@ -903,7 +915,8 @@ export function UniversalSearch() {
                   )}
 
                   {/* SELECTED MODE: Show pivot results (anchor chips are in input) */}
-                  {searchState.mode === "selected" &&
+                  {apiReachable &&
+                    searchState.mode === "selected" &&
                     searchState.anchors.length > 0 && (
                       <>
                         {/* Pivot Anchor Info Card */}
@@ -992,7 +1005,7 @@ export function UniversalSearch() {
                     )}
 
                   {/* IDLE MODE: Show recent searches (or empty-state suggestions) */}
-                  {searchState.mode === "idle" && (
+                  {apiReachable && searchState.mode === "idle" && (
                     <SearchHistoryPanel
                       onPickItem={handlePickHistoryItem}
                       onPickSuggestedQuery={handlePickSuggestedQuery}
@@ -1002,7 +1015,8 @@ export function UniversalSearch() {
                 </div>
 
                 {/* Hint bar — show when there are results */}
-                {searchState.mode === "typing" &&
+                {apiReachable &&
+                  searchState.mode === "typing" &&
                   (bestMatch || groupedTypeaheadSuggestions.length > 0) && (
                     <div className="flex items-center justify-end gap-4 px-4 py-2 border-t border-border bg-muted/50 text-xs text-muted-foreground">
                       <span className="inline-flex items-center gap-1.5">
@@ -1021,7 +1035,7 @@ export function UniversalSearch() {
                   )}
 
                 {/* Hint bar — idle mode */}
-                {searchState.mode === "idle" && (
+                {apiReachable && searchState.mode === "idle" && (
                   <div className="flex items-center justify-end gap-4 px-4 py-2 border-t border-border bg-muted/50 text-xs text-muted-foreground">
                     <span className="inline-flex items-center gap-1.5">
                       <kbd className="px-1.5 py-0.5 rounded bg-background border border-border font-mono text-[10px]">

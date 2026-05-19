@@ -1,5 +1,6 @@
 "use client";
 
+import { ServiceUnavailable, useApiReachable } from "@features/platform-status";
 import { Button } from "@shared/components/ui/button";
 import { useAuth } from "@shared/hooks";
 import { LogIn } from "lucide-react";
@@ -7,14 +8,19 @@ import { useEffect } from "react";
 
 export function RequireAuth({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading, login } = useAuth();
+  const reachable = useApiReachable();
 
   useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
+    if (!isLoading && !isAuthenticated && reachable) {
       // Auto-redirect after a short delay so users see the message
       const timer = setTimeout(() => login(), 2000);
       return () => clearTimeout(timer);
     }
-  }, [isLoading, isAuthenticated, login]);
+  }, [isLoading, isAuthenticated, login, reachable]);
+
+  if (!reachable) {
+    return <ServiceUnavailable />;
+  }
 
   if (isLoading) {
     return (

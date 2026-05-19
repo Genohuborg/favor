@@ -1,6 +1,13 @@
-export { fetchPlatformStatus } from "./client";
+export { fetchPlatformStatus, probeApiReachable } from "./client";
+export {
+  ServiceUnavailable,
+  ServiceUnavailableDialog,
+} from "./components/service-unavailable";
 export { StatusBanner } from "./components/status-banner";
-export { usePlatformStatus } from "./hooks/use-platform-status";
+export {
+  useApiReachable,
+  usePlatformStatus,
+} from "./hooks/use-platform-status";
 export type {
   ActiveIncident,
   Impact,
