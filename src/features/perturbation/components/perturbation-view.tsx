@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@infra/utils";
-import { Badge } from "@shared/components/ui/badge";
 import { Button } from "@shared/components/ui/button";
 import { Dash } from "@shared/components/ui/dash";
 import { DataSurface } from "@shared/components/ui/data-surface/data-surface";
@@ -16,12 +15,21 @@ import {
   TooltipTrigger,
 } from "@shared/components/ui/tooltip";
 import type { ColumnDef } from "@tanstack/react-table";
-import { Filter, Info, Loader2 } from "lucide-react";
+import { ArrowUpRight, Filter, Info, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { CrisprTissueFacet } from "../api";
 import { useCrispr } from "../hooks/use-crispr";
-import type { CrisprRow, PerturbSeqRow } from "../types";
+import type { CrisprRow, DatasetEntry, PerturbSeqRow } from "../types";
+
+type DatasetMap = ReadonlyMap<string, DatasetEntry>;
+
+function abbreviateTechnology(label: string | undefined): string | undefined {
+  if (!label) return undefined;
+  if (label === "single-cell rna-seq") return "scRNA-seq";
+  if (label === "population growth assay") return "growth assay";
+  return label;
+}
 
 const PERTURBATION_TYPES = ["CRISPRn", "CRISPRi", "CRISPRa"] as const;
 type PerturbationType = (typeof PERTURBATION_TYPES)[number];
@@ -143,31 +151,121 @@ function PvalueCell({ value }: { value: number | undefined }) {
   );
 }
 
-function StudyCell({
+function DatasetCell({
   datasetId,
-  studyTitle,
-  studyYear,
+  fallbackStudyTitle,
+  fallbackStudyYear,
+  fallbackTechnology,
+  datasets,
 }: {
   datasetId: string;
-  studyTitle?: string;
-  studyYear?: number;
+  fallbackStudyTitle?: string;
+  fallbackStudyYear?: number;
+  fallbackTechnology?: string;
+  datasets: DatasetMap;
 }) {
-  const label = (
-    <span className="text-xs text-muted-foreground truncate max-w-[140px] block">
-      {datasetId}
+  const ds = datasets.get(datasetId);
+  const studyTitle = ds?.study_title ?? fallbackStudyTitle;
+  const year = ds?.study_year ?? fallbackStudyYear;
+  const tech = abbreviateTechnology(
+    ds?.readout_technology_labels[0] ?? fallbackTechnology,
+  );
+
+  const stack = (
+    <span className="flex flex-col leading-tight max-w-[180px]">
+      <span className="text-xs text-foreground break-words block">
+        {datasetId}
+      </span>
+      {tech && (
+        <span className="text-[10px] text-muted-foreground break-words">
+          {tech}
+        </span>
+      )}
     </span>
   );
-  if (!studyTitle) return label;
+
+  if (!ds && !studyTitle) return stack;
+
   return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <span className="cursor-help">{label}</span>
-      </TooltipTrigger>
-      <TooltipContent side="top" className="max-w-sm text-xs">
-        <p className="font-medium">{studyTitle}</p>
-        {studyYear && <p className="opacity-70">{studyYear}</p>}
-      </TooltipContent>
-    </Tooltip>
+    <Popover>
+      <PopoverTrigger asChild>
+        <button
+          type="button"
+          className="text-left hover:underline underline-offset-2 decoration-muted-foreground/40"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {stack}
+        </button>
+      </PopoverTrigger>
+      <PopoverContent align="start" className="w-96 p-4 space-y-3">
+        <div>
+          <p className="text-sm font-semibold text-foreground leading-snug">
+            {studyTitle ?? datasetId}
+          </p>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            {[ds?.first_author, ds?.last_author].filter(Boolean).join(" · ")}
+            {year ? ` · ${year}` : ""}
+          </p>
+        </div>
+
+        {ds?.experiment_title && (
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-medium">
+              Experiment
+            </p>
+            <p className="text-xs text-foreground mt-0.5">
+              {ds.experiment_title}
+            </p>
+          </div>
+        )}
+
+        {ds?.experiment_summary && (
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-medium">
+              Summary
+            </p>
+            <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed whitespace-pre-line">
+              {ds.experiment_summary.trim()}
+            </p>
+          </div>
+        )}
+
+        {ds && <CohortLine ds={ds} />}
+
+        {ds?.study_uri && (
+          <a
+            href={
+              ds.study_uri.startsWith("http")
+                ? ds.study_uri
+                : `https://doi.org/${ds.study_uri}`
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-xs text-primary hover:underline"
+          >
+            Open paper
+            <ArrowUpRight className="h-3 w-3" />
+          </a>
+        )}
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+function CohortLine({ ds }: { ds: DatasetEntry }) {
+  const parts: string[] = [];
+  if (ds.sex_labels[0]) parts.push(ds.sex_labels[0]);
+  if (ds.developmental_stage_labels[0])
+    parts.push(ds.developmental_stage_labels[0]);
+  if (ds.method_name_labels[0]) parts.push(ds.method_name_labels[0]);
+  if (parts.length === 0) return null;
+  return (
+    <div>
+      <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-medium">
+        Cohort
+      </p>
+      <p className="text-xs text-foreground mt-0.5">{parts.join(" · ")}</p>
+    </div>
   );
 }
 
@@ -225,39 +323,48 @@ function ReadoutGroupHeader({ caption }: { caption: string }) {
   );
 }
 
-// Pull a coarse cell-context label out of a Perturb-seq dataset id slug
-// (e.g. nadig_2025_jurkat → "Jurkat"). Falls back to the raw id when the
-// slug doesn't end in a recognizable cell token.
-const DATASET_CELL_HINTS = new Set([
-  "jurkat",
-  "hct116",
-  "k562",
-  "hek293",
-  "hela",
-  "rpe1",
-  "a549",
-  "u2os",
-  "thp1",
-  "mcf7",
-  "h9",
-  "ips",
-]);
+// Resolve the perturbation technique for a Perturb-seq row. Rows have a
+// row-level perturbation_type but Perturb-seq rows leave it null today —
+// the dataset's perturbation_type_labels carry the real value.
+function resolvePerturbSeqTechnique(
+  row: PerturbSeqRow,
+  datasets: DatasetMap,
+): string {
+  if (row.perturbation_type) return row.perturbation_type;
+  return (
+    datasets.get(row.dataset_id)?.perturbation_type_labels[0] ?? "Perturb-seq"
+  );
+}
 
-function deriveCellContext(datasetId: string): string | null {
-  const tail = datasetId.split("_").pop()?.toLowerCase() ?? "";
-  if (DATASET_CELL_HINTS.has(tail)) {
-    return tail.toUpperCase() === tail
-      ? tail
-      : tail.charAt(0).toUpperCase() + tail.slice(1);
-  }
-  return null;
+// Resolve the system stack for a Perturb-seq row. The big atlases leave
+// row-level ontology null and put the context on the dataset instead.
+function resolvePerturbSeqSystem(
+  row: PerturbSeqRow,
+  datasets: DatasetMap,
+): { primary: string | null; secondary: string | null } {
+  const ds = datasets.get(row.dataset_id);
+  const primary =
+    row.cell_line ??
+    ds?.cell_line_labels[0] ??
+    row.cell_type ??
+    ds?.cell_type_labels[0] ??
+    null;
+  const tissue = row.tissue ?? ds?.tissue_labels[0] ?? null;
+  const disease = row.disease ?? ds?.disease_labels[0] ?? null;
+  const secondaryParts = [tissue, disease].filter(Boolean) as string[];
+  const secondary =
+    secondaryParts.length > 0 ? secondaryParts.join(" · ") : null;
+  return { primary, secondary };
 }
 
 // ---------------------------------------------------------------------------
 // Downstream (Perturb-seq) columns
 // ---------------------------------------------------------------------------
 
-function buildPerturbSeqColumns(maxLog2fc: number): ColumnDef<PerturbSeqRow>[] {
+function buildPerturbSeqColumns(
+  maxLog2fc: number,
+  datasets: DatasetMap,
+): ColumnDef<PerturbSeqRow>[] {
   return [
     {
       id: "perturbation_group",
@@ -268,7 +375,7 @@ function buildPerturbSeqColumns(maxLog2fc: number): ColumnDef<PerturbSeqRow>[] {
           id: "technique",
           header: "Technique",
           enableSorting: false,
-          accessorFn: (r) => r.perturbation_type ?? "Perturb-seq",
+          accessorFn: (r) => resolvePerturbSeqTechnique(r, datasets),
           cell: ({ getValue }) => (
             <TechniqueBadge value={getValue() as string} />
           ),
@@ -279,10 +386,12 @@ function buildPerturbSeqColumns(maxLog2fc: number): ColumnDef<PerturbSeqRow>[] {
           enableSorting: false,
           accessorKey: "dataset_id",
           cell: ({ row }) => (
-            <StudyCell
+            <DatasetCell
               datasetId={row.original.dataset_id}
-              studyTitle={row.original.study_title}
-              studyYear={row.original.study_year}
+              fallbackStudyTitle={row.original.study_title}
+              fallbackStudyYear={row.original.study_year}
+              fallbackTechnology={row.original.readout_technology_label}
+              datasets={datasets}
             />
           ),
         },
@@ -295,17 +404,26 @@ function buildPerturbSeqColumns(maxLog2fc: number): ColumnDef<PerturbSeqRow>[] {
       columns: [
         {
           id: "cell_context",
-          header: "Cell context",
+          header: "Cell line / tissue",
           enableSorting: false,
-          accessorFn: (r) =>
-            r.cell_type ?? r.cell_line ?? deriveCellContext(r.dataset_id),
-          cell: ({ getValue }) => {
-            const v = getValue() as string | null;
-            if (!v) return <Dash />;
+          accessorFn: (r) => resolvePerturbSeqSystem(r, datasets).primary,
+          cell: ({ row }) => {
+            const { primary, secondary } = resolvePerturbSeqSystem(
+              row.original,
+              datasets,
+            );
+            if (!primary && !secondary) return <Dash />;
             return (
-              <Badge variant="outline" className="text-[11px]">
-                {v}
-              </Badge>
+              <div className="flex flex-col leading-tight max-w-[240px]">
+                <span className="text-sm font-medium text-foreground">
+                  {primary ?? "—"}
+                </span>
+                {secondary && (
+                  <span className="text-[10px] text-muted-foreground break-words">
+                    {secondary}
+                  </span>
+                )}
+              </div>
             );
           },
         },
@@ -374,14 +492,15 @@ function SystemStackCell({ row }: { row: CrisprRow }) {
   const { cell_line, tissue, disease } = row;
   if (!cell_line && !tissue && !disease) return <Dash />;
   const subtitleParts = [tissue, disease].filter(Boolean) as string[];
+  const subtitle = subtitleParts.join(" · ");
   return (
-    <div className="flex flex-col leading-tight">
+    <div className="flex flex-col leading-tight max-w-[240px]">
       <span className="text-sm font-medium text-foreground">
         {cell_line ?? "—"}
       </span>
-      {subtitleParts.length > 0 && (
-        <span className="text-[10px] text-muted-foreground truncate max-w-[200px]">
-          {subtitleParts.join(" · ")}
+      {subtitle && (
+        <span className="text-[10px] text-muted-foreground break-words">
+          {subtitle}
         </span>
       )}
     </div>
@@ -390,12 +509,12 @@ function SystemStackCell({ row }: { row: CrisprRow }) {
 
 function ScoreCell({ row, max }: { row: CrisprRow; max: number }) {
   return (
-    <div className="flex flex-col gap-1 leading-tight">
+    <div className="flex flex-col gap-1 leading-tight max-w-[160px]">
       <span className="text-xs tabular-nums font-medium text-foreground">
         {row.score_value.toFixed(2)}
       </span>
       <MagnitudeBar value={row.score_value} max={max} />
-      <span className="text-[10px] text-muted-foreground truncate max-w-[140px]">
+      <span className="text-[10px] text-muted-foreground break-words">
         {row.score_name}
       </span>
     </div>
@@ -442,7 +561,10 @@ function RowInterpretationIcon({ row }: { row: CrisprRow }) {
   );
 }
 
-function buildCrisprColumns(maxScore: number): ColumnDef<CrisprRow>[] {
+function buildCrisprColumns(
+  maxScore: number,
+  datasets: DatasetMap,
+): ColumnDef<CrisprRow>[] {
   return [
     {
       id: "perturbation_group",
@@ -466,10 +588,12 @@ function buildCrisprColumns(maxScore: number): ColumnDef<CrisprRow>[] {
           accessorKey: "dataset_id",
           enableSorting: false,
           cell: ({ row }) => (
-            <StudyCell
+            <DatasetCell
               datasetId={row.original.dataset_id}
-              studyTitle={row.original.study_title}
-              studyYear={row.original.study_year}
+              fallbackStudyTitle={row.original.study_title}
+              fallbackStudyYear={row.original.study_year}
+              fallbackTechnology={row.original.readout_technology_label}
+              datasets={datasets}
             />
           ),
         },
@@ -529,16 +653,21 @@ function DownstreamSection({
   data,
   geneSymbol,
   totalCount,
+  datasets,
 }: {
   data: PerturbSeqRow[];
   geneSymbol: string;
   totalCount: number;
+  datasets: DatasetMap;
 }) {
   const maxLog2fc = useMemo(
     () => Math.max(...data.map((r) => Math.abs(r.log2fc)), 1),
     [data],
   );
-  const columns = useMemo(() => buildPerturbSeqColumns(maxLog2fc), [maxLog2fc]);
+  const columns = useMemo(
+    () => buildPerturbSeqColumns(maxLog2fc, datasets),
+    [maxLog2fc, datasets],
+  );
 
   return (
     <DataSurface
@@ -710,11 +839,13 @@ function KnockoutSection({
   geneSymbol,
   totalCount,
   tissueFacets,
+  datasets,
 }: {
   initialData: CrisprRow[];
   geneSymbol: string;
   totalCount: number;
   tissueFacets: CrisprTissueFacet[];
+  datasets: DatasetMap;
 }) {
   const [selectedTypes, setSelectedTypes] = useState<
     ReadonlySet<PerturbationType>
@@ -773,7 +904,10 @@ function KnockoutSection({
     () => Math.max(...data.map((r) => Math.abs(r.score_value)), 1),
     [data],
   );
-  const columns = useMemo(() => buildCrisprColumns(maxScore), [maxScore]);
+  const columns = useMemo(
+    () => buildCrisprColumns(maxScore, datasets),
+    [maxScore, datasets],
+  );
 
   const toggleType = (t: PerturbationType) => {
     setSelectedTypes((prev) => {
@@ -894,6 +1028,7 @@ interface PerturbationViewProps {
   crisprTotalCount: number;
   downstreamTotalCount: number;
   crisprTissueFacets: CrisprTissueFacet[];
+  datasets: DatasetEntry[];
 }
 
 export function PerturbationView({
@@ -904,7 +1039,13 @@ export function PerturbationView({
   crisprTotalCount,
   downstreamTotalCount,
   crisprTissueFacets,
+  datasets,
 }: PerturbationViewProps) {
+  const datasetMap = useMemo<DatasetMap>(
+    () => new Map(datasets.map((d) => [d.dataset_id, d])),
+    [datasets],
+  );
+
   return (
     <div className="space-y-8">
       <header className="space-y-2">
@@ -916,6 +1057,7 @@ export function PerturbationView({
           data={downstream}
           geneSymbol={geneSymbol}
           totalCount={downstreamTotalCount}
+          datasets={datasetMap}
         />
       )}
       {(crisprTotalCount > 0 || crispr.length > 0) && (
@@ -924,6 +1066,7 @@ export function PerturbationView({
           geneSymbol={geneSymbol}
           totalCount={crisprTotalCount}
           tissueFacets={crisprTissueFacets}
+          datasets={datasetMap}
         />
       )}
     </div>
