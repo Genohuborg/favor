@@ -27,40 +27,71 @@ const PERTURBATION_TYPES = ["CRISPRn", "CRISPRi", "CRISPRa"] as const;
 type PerturbationType = (typeof PERTURBATION_TYPES)[number];
 
 const PERTURBATION_TYPE_DESCRIPTIONS: Record<PerturbationType, string> = {
-  CRISPRn: "Knockout — gene fully disabled.",
-  CRISPRi: "Interference — gene expression suppressed.",
-  CRISPRa: "Activation — gene expression amplified.",
+  CRISPRn: "Knockout: gene fully disabled.",
+  CRISPRi: "Interference: gene expression suppressed.",
+  CRISPRa: "Activation: gene expression amplified.",
 };
+
+const PERTURBATION_TYPE_STYLE: Record<PerturbationType, string> = {
+  CRISPRn: "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20",
+  CRISPRi: "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20",
+  CRISPRa:
+    "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
+};
+
+const PERTURBATION_TYPE_FALLBACK_STYLE =
+  "bg-muted text-muted-foreground border-border";
 
 function isPerturbationType(value: string): value is PerturbationType {
   return (PERTURBATION_TYPES as readonly string[]).includes(value);
 }
 
 // ---------------------------------------------------------------------------
-// Stat cards
+// Story sentence
 // ---------------------------------------------------------------------------
 
-function StatCard({
-  label,
-  value,
-  highlight,
+function StoryLine({
+  geneSymbol,
+  summary,
 }: {
-  label: string;
-  value: string | number;
-  highlight?: boolean;
+  geneSymbol: string;
+  summary: PerturbationViewProps["summary"];
 }) {
+  const hasEssential = summary.crisprScreens > 0 || summary.essentialIn > 0;
+  const hasDownstream =
+    summary.perturbSeqDatasets > 0 || summary.downstreamTargets > 0;
+  if (!hasEssential && !hasDownstream) return null;
+
+  const fg = "text-foreground tabular-nums font-medium";
   return (
-    <div className="rounded-lg border border-border bg-card px-4 py-3">
-      <p className="text-xs text-muted-foreground">{label}</p>
-      <p
-        className={cn(
-          "text-2xl font-semibold tabular-nums mt-0.5",
-          highlight ? "text-destructive" : "text-foreground",
-        )}
-      >
-        {typeof value === "number" ? value.toLocaleString() : value}
-      </p>
-    </div>
+    <p className="text-sm text-muted-foreground leading-relaxed">
+      {hasEssential && (
+        <>
+          <strong className="text-foreground font-semibold">
+            {geneSymbol}
+          </strong>{" "}
+          is essential in{" "}
+          <span className={fg}>{summary.essentialIn.toLocaleString()}</span>{" "}
+          cell {summary.essentialIn === 1 ? "line" : "lines"} across{" "}
+          <span className={fg}>{summary.crisprScreens.toLocaleString()}</span>{" "}
+          CRISPR screen{summary.crisprScreens === 1 ? "" : "s"}.{" "}
+        </>
+      )}
+      {hasDownstream && (
+        <>
+          Perturbing it shifts expression of{" "}
+          <span className={fg}>
+            {summary.downstreamTargets.toLocaleString()}
+          </span>{" "}
+          downstream gene{summary.downstreamTargets === 1 ? "" : "s"} in{" "}
+          <span className={fg}>
+            {summary.perturbSeqDatasets.toLocaleString()}
+          </span>{" "}
+          Perturb-seq atlas
+          {summary.perturbSeqDatasets === 1 ? "" : "es"}.
+        </>
+      )}
+    </p>
   );
 }
 
@@ -71,15 +102,23 @@ function StatCard({
 function MagnitudeBar({ value, max }: { value: number; max: number }) {
   const pct = max > 0 ? Math.min((Math.abs(value) / max) * 100, 100) : 0;
   return (
-    <div className="w-16 h-1.5 rounded-full bg-muted overflow-hidden">
-      <div
-        className={cn(
-          "h-full rounded-full",
-          value < 0 ? "bg-blue-500" : "bg-red-500",
-        )}
-        style={{ width: `${pct}%` }}
-      />
-    </div>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <div className="w-16 h-1 rounded-full bg-muted overflow-hidden cursor-help">
+          <div
+            className={cn(
+              "h-full rounded-full",
+              value < 0 ? "bg-blue-500" : "bg-red-500",
+            )}
+            style={{ width: `${pct}%` }}
+          />
+        </div>
+      </TooltipTrigger>
+      <TooltipContent side="top" className="text-xs">
+        |value| = {Math.abs(value).toFixed(2)}, relative to {max.toFixed(2)}
+        {" (largest in view)"}
+      </TooltipContent>
+    </Tooltip>
   );
 }
 
@@ -104,344 +143,382 @@ function PvalueCell({ value }: { value: number | undefined }) {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Perturb-seq columns — shared between downstream and upstream
-// ---------------------------------------------------------------------------
-
-function buildPerturbSeqColumns(
-  geneColumn: {
-    id: string;
-    key: "effect_gene" | "perturbation_gene";
-    header: string;
-  },
-  maxLog2fc: number,
-  options: { hasCellType: boolean; includeDataset?: boolean },
-): ColumnDef<PerturbSeqRow, unknown>[] {
-  const cols: ColumnDef<PerturbSeqRow, unknown>[] = [
-    {
-      id: geneColumn.id,
-      accessorKey: geneColumn.key,
-      header: geneColumn.header,
-      enableSorting: false,
-      cell: ({ getValue }) => <GeneLink gene={getValue() as string} />,
-    },
-    {
-      id: "log2fc",
-      accessorKey: "log2fc",
-      header: "Log2 FC",
-      enableSorting: true,
-      sortDescFirst: true,
-      cell: ({ getValue }) => {
-        const v = getValue() as number;
-        return (
-          <span className="text-xs tabular-nums text-foreground">
-            {v > 0 ? "+" : ""}
-            {v.toFixed(2)}
-          </span>
-        );
-      },
-    },
-    {
-      id: "direction",
-      accessorFn: (r) => r.log2fc,
-      header: "Direction",
-      enableSorting: false,
-      cell: ({ row }) => (
-        <span
-          className={cn(
-            "text-xs font-medium",
-            row.original.log2fc < 0 ? "text-blue-600" : "text-red-600",
-          )}
-        >
-          {row.original.log2fc < 0 ? "down" : "up"}
-        </span>
-      ),
-    },
-    {
-      id: "magnitude",
-      accessorFn: (r) => Math.abs(r.log2fc),
-      header: "Magnitude",
-      enableSorting: true,
-      sortDescFirst: true,
-      cell: ({ row }) => (
-        <MagnitudeBar value={row.original.log2fc} max={maxLog2fc} />
-      ),
-    },
-    {
-      id: "padj",
-      accessorKey: "padj",
-      header: "Adj. P-Value",
-      enableSorting: true,
-      cell: ({ getValue }) => (
-        <PvalueCell value={getValue() as number | undefined} />
-      ),
-    },
-  ];
-
-  if (options.hasCellType) {
-    cols.push({
-      id: "cell_type",
-      accessorKey: "cell_type",
-      header: "Cell Type",
-      enableSorting: false,
-      cell: ({ getValue }) => {
-        const ct = getValue() as string | undefined;
-        if (!ct) return <Dash />;
-        return (
-          <Badge variant="outline" className="text-[11px]">
-            {ct}
-          </Badge>
-        );
-      },
-    });
-  }
-
-  if (options.includeDataset !== false) {
-    cols.push({
-      id: "dataset_id",
-      accessorKey: "dataset_id",
-      header: "Dataset",
-      enableSorting: false,
-      cell: ({ row }) => {
-        const id = row.original.dataset_id;
-        const title = row.original.study_title;
-        const year = row.original.study_year;
-        const label = (
-          <span className="text-xs text-muted-foreground truncate max-w-[140px] block">
-            {id}
-          </span>
-        );
-        if (!title) return label;
-        return (
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <span className="cursor-help">{label}</span>
-            </TooltipTrigger>
-            <TooltipContent side="top" className="max-w-sm text-xs">
-              <p className="font-medium">{title}</p>
-              {year && <p className="opacity-70">{year}</p>}
-            </TooltipContent>
-          </Tooltip>
-        );
-      },
-    });
-  }
-
-  return cols;
+function StudyCell({
+  datasetId,
+  studyTitle,
+  studyYear,
+}: {
+  datasetId: string;
+  studyTitle?: string;
+  studyYear?: number;
+}) {
+  const label = (
+    <span className="text-xs text-muted-foreground truncate max-w-[140px] block">
+      {datasetId}
+    </span>
+  );
+  if (!studyTitle) return label;
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <span className="cursor-help">{label}</span>
+      </TooltipTrigger>
+      <TooltipContent side="top" className="max-w-sm text-xs">
+        <p className="font-medium">{studyTitle}</p>
+        {studyYear && <p className="opacity-70">{studyYear}</p>}
+      </TooltipContent>
+    </Tooltip>
+  );
 }
 
-// ---------------------------------------------------------------------------
-// CRISPR columns
-// ---------------------------------------------------------------------------
-
-const PERTURBATION_TYPE_STYLE: Record<PerturbationType, string> = {
-  CRISPRn: "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20",
-  CRISPRi: "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20",
-  CRISPRa:
-    "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
-};
-
-const PERTURBATION_TYPE_FALLBACK_STYLE =
-  "bg-muted text-muted-foreground border-border";
-
-function buildCrisprColumns(
-  maxScore: number,
-  showPerturbationGene: boolean,
-): ColumnDef<CrisprRow, unknown>[] {
-  const cols: ColumnDef<CrisprRow, unknown>[] = [];
-
-  if (showPerturbationGene) {
-    cols.push({
-      id: "perturbation_gene",
-      accessorKey: "perturbation_gene",
-      header: "Gene",
-      enableSorting: false,
-      cell: ({ getValue }) => <GeneLink gene={getValue() as string} />,
-    });
-  }
-
-  cols.push(
-    {
-      id: "perturbation_type",
-      accessorKey: "perturbation_type",
-      header: "Type",
-      enableSorting: false,
-      cell: ({ getValue }) => {
-        const t = getValue() as string | undefined;
-        if (!t) return <Dash />;
-        const description = isPerturbationType(t)
-          ? PERTURBATION_TYPE_DESCRIPTIONS[t]
-          : t;
-        return (
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <span
-                className={cn(
-                  "inline-flex items-center rounded-md border px-1.5 py-0.5 text-[10px] font-semibold cursor-help",
-                  isPerturbationType(t)
-                    ? PERTURBATION_TYPE_STYLE[t]
-                    : PERTURBATION_TYPE_FALLBACK_STYLE,
-                )}
-              >
-                {t}
-              </span>
-            </TooltipTrigger>
-            <TooltipContent side="top" className="max-w-xs">
-              {description}
-            </TooltipContent>
-          </Tooltip>
-        );
-      },
-    },
-    {
-      id: "cell_line",
-      accessorKey: "cell_line",
-      header: "Cell Line",
-      enableSorting: false,
-      cell: ({ row }) => {
-        const cell = row.original.cell_line;
-        const tissue = row.original.tissue;
-        if (!cell && !tissue) return <Dash />;
-        return (
-          <div className="flex flex-col leading-tight">
-            <span className="text-sm font-medium text-foreground">
-              {cell ?? "\u2014"}
-            </span>
-            {tissue && (
-              <span className="text-[10px] text-muted-foreground">
-                {tissue}
-              </span>
-            )}
-          </div>
-        );
-      },
-    },
-    {
-      id: "disease",
-      accessorKey: "disease",
-      header: "Disease",
-      enableSorting: false,
-      cell: ({ getValue }) => {
-        const d = getValue() as string | undefined;
-        if (!d) return <Dash />;
-        return <span className="text-xs text-muted-foreground">{d}</span>;
-      },
-    },
-    {
-      id: "score",
-      accessorKey: "score_value",
-      header: "Score",
-      enableSorting: true,
-      sortDescFirst: true,
-      cell: ({ row }) => {
-        const value = row.original.score_value;
-        const name = row.original.score_name;
-        const interpretation = row.original.score_interpretation;
-        const numeric = (
-          <span className="text-xs tabular-nums text-foreground">
-            {value.toFixed(2)}
-          </span>
-        );
-        return (
-          <div className="flex items-center gap-1.5">
-            {numeric}
-            <span className="text-[10px] text-muted-foreground truncate max-w-[110px]">
-              {name}
-            </span>
-            {interpretation && (
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Info className="h-3 w-3 text-muted-foreground/60 cursor-help shrink-0" />
-                </TooltipTrigger>
-                <TooltipContent side="top" className="max-w-sm text-xs">
-                  {interpretation}
-                </TooltipContent>
-              </Tooltip>
-            )}
-          </div>
-        );
-      },
-    },
-    {
-      id: "magnitude",
-      accessorFn: (r) => Math.abs(r.score_value),
-      header: "Magnitude",
-      enableSorting: true,
-      sortDescFirst: true,
-      cell: ({ row }) => (
-        <MagnitudeBar value={row.original.score_value} max={maxScore} />
-      ),
-    },
-    {
-      id: "is_significant",
-      accessorKey: "is_significant",
-      header: "Significant",
-      enableSorting: true,
-      cell: ({ row }) => {
-        const sig = row.original.is_significant;
-        const criteria = row.original.significance_criteria;
-        const label = (
+function TechniqueBadge({ value }: { value: string }) {
+  if (isPerturbationType(value)) {
+    return (
+      <Tooltip>
+        <TooltipTrigger asChild>
           <span
             className={cn(
-              "text-xs font-medium",
-              sig ? "text-red-500" : "text-muted-foreground",
+              "inline-flex items-center rounded-md border px-1.5 py-0.5 text-[10px] font-semibold cursor-help",
+              PERTURBATION_TYPE_STYLE[value],
             )}
           >
-            {sig ? "Yes" : "No"}
+            {value}
           </span>
-        );
-        if (!criteria || criteria === "-") return label;
-        return (
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <span className="cursor-help">{label}</span>
-            </TooltipTrigger>
-            <TooltipContent side="top" className="text-xs">
-              Threshold: {criteria}
-            </TooltipContent>
-          </Tooltip>
-        );
-      },
-    },
+        </TooltipTrigger>
+        <TooltipContent side="top" className="max-w-xs">
+          {PERTURBATION_TYPE_DESCRIPTIONS[value]}
+        </TooltipContent>
+      </Tooltip>
+    );
+  }
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center rounded-md border px-1.5 py-0.5 text-[10px] font-semibold",
+        PERTURBATION_TYPE_FALLBACK_STYLE,
+      )}
+    >
+      {value}
+    </span>
   );
+}
 
-  return cols;
+function ReadoutGroupHeader({ caption }: { caption: string }) {
+  return (
+    <span className="inline-flex items-center gap-1 justify-center">
+      READOUT
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <button
+            type="button"
+            aria-label="Scoring conventions"
+            className="inline-flex"
+          >
+            <Info className="w-3 h-3 text-muted-foreground/60 hover:text-muted-foreground cursor-help" />
+          </button>
+        </TooltipTrigger>
+        <TooltipContent side="top" className="max-w-sm text-xs">
+          {caption}
+        </TooltipContent>
+      </Tooltip>
+    </span>
+  );
+}
+
+// Pull a coarse cell-context label out of a Perturb-seq dataset id slug
+// (e.g. nadig_2025_jurkat → "Jurkat"). Falls back to the raw id when the
+// slug doesn't end in a recognizable cell token.
+const DATASET_CELL_HINTS = new Set([
+  "jurkat",
+  "hct116",
+  "k562",
+  "hek293",
+  "hela",
+  "rpe1",
+  "a549",
+  "u2os",
+  "thp1",
+  "mcf7",
+  "h9",
+  "ips",
+]);
+
+function deriveCellContext(datasetId: string): string | null {
+  const tail = datasetId.split("_").pop()?.toLowerCase() ?? "";
+  if (DATASET_CELL_HINTS.has(tail)) {
+    return tail.toUpperCase() === tail
+      ? tail
+      : tail.charAt(0).toUpperCase() + tail.slice(1);
+  }
+  return null;
 }
 
 // ---------------------------------------------------------------------------
-// Cell type filter
+// Downstream (Perturb-seq) columns
 // ---------------------------------------------------------------------------
 
-function CellTypeTabs({
-  cellTypes,
-  selected,
-  onSelect,
-}: {
-  cellTypes: string[];
-  selected: string | null;
-  onSelect: (ct: string | null) => void;
-}) {
-  if (cellTypes.length <= 1) return null;
-  const btn = (label: string, active: boolean, onClick: () => void) => (
-    <button
-      key={label}
-      onClick={onClick}
-      className={cn(
-        "px-3 py-1.5 text-xs rounded-md transition-colors",
-        active
-          ? "bg-background shadow-sm text-foreground font-medium"
-          : "text-muted-foreground hover:text-foreground",
-      )}
-    >
-      {label}
-    </button>
-  );
+function buildPerturbSeqColumns(maxLog2fc: number): ColumnDef<PerturbSeqRow>[] {
+  return [
+    {
+      id: "perturbation_group",
+      header: "PERTURBATION",
+      meta: { align: "center" },
+      columns: [
+        {
+          id: "technique",
+          header: "Technique",
+          enableSorting: false,
+          accessorFn: (r) => r.perturbation_type ?? "Perturb-seq",
+          cell: ({ getValue }) => (
+            <TechniqueBadge value={getValue() as string} />
+          ),
+        },
+        {
+          id: "study",
+          header: "Study",
+          enableSorting: false,
+          accessorKey: "dataset_id",
+          cell: ({ row }) => (
+            <StudyCell
+              datasetId={row.original.dataset_id}
+              studyTitle={row.original.study_title}
+              studyYear={row.original.study_year}
+            />
+          ),
+        },
+      ],
+    },
+    {
+      id: "system_group",
+      header: "SYSTEM",
+      meta: { align: "center" },
+      columns: [
+        {
+          id: "cell_context",
+          header: "Cell context",
+          enableSorting: false,
+          accessorFn: (r) =>
+            r.cell_type ?? r.cell_line ?? deriveCellContext(r.dataset_id),
+          cell: ({ getValue }) => {
+            const v = getValue() as string | null;
+            if (!v) return <Dash />;
+            return (
+              <Badge variant="outline" className="text-[11px]">
+                {v}
+              </Badge>
+            );
+          },
+        },
+      ],
+    },
+    {
+      id: "readout_group",
+      header: () => (
+        <ReadoutGroupHeader caption="Each Perturb-seq screen reports its own statistic. Default convention: negative LFC means downregulation of the effect gene." />
+      ),
+      meta: { align: "center" },
+      columns: [
+        {
+          id: "effect_gene",
+          header: "Effect gene",
+          accessorKey: "effect_gene",
+          enableSorting: false,
+          cell: ({ getValue }) => <GeneLink gene={getValue() as string} />,
+        },
+        {
+          id: "log2fc",
+          header: "LFC",
+          accessorKey: "log2fc",
+          enableSorting: true,
+          sortDescFirst: true,
+          cell: ({ row }) => {
+            const v = row.original.log2fc;
+            const down = v < 0;
+            return (
+              <div className="flex flex-col gap-1">
+                <span
+                  className={cn(
+                    "text-xs tabular-nums font-medium inline-flex items-center gap-1",
+                    down ? "text-blue-600" : "text-red-600",
+                  )}
+                >
+                  <span aria-hidden>{down ? "↓" : "↑"}</span>
+                  <span className="sr-only">{down ? "down" : "up"}</span>
+                  {v > 0 ? "+" : ""}
+                  {v.toFixed(2)}
+                </span>
+                <MagnitudeBar value={v} max={maxLog2fc} />
+              </div>
+            );
+          },
+        },
+        {
+          id: "padj",
+          header: "Padj",
+          accessorKey: "padj",
+          enableSorting: true,
+          cell: ({ getValue }) => (
+            <PvalueCell value={getValue() as number | undefined} />
+          ),
+        },
+      ],
+    },
+  ];
+}
+
+// ---------------------------------------------------------------------------
+// Knockout (CRISPR) columns
+// ---------------------------------------------------------------------------
+
+function SystemStackCell({ row }: { row: CrisprRow }) {
+  const { cell_line, tissue, disease } = row;
+  if (!cell_line && !tissue && !disease) return <Dash />;
+  const subtitleParts = [tissue, disease].filter(Boolean) as string[];
   return (
-    <div className="inline-flex items-center p-0.5 bg-muted rounded-lg mb-4">
-      {btn("All cell", selected === null, () => onSelect(null))}
-      {cellTypes.map((ct) => btn(ct, selected === ct, () => onSelect(ct)))}
+    <div className="flex flex-col leading-tight">
+      <span className="text-sm font-medium text-foreground">
+        {cell_line ?? "—"}
+      </span>
+      {subtitleParts.length > 0 && (
+        <span className="text-[10px] text-muted-foreground truncate max-w-[200px]">
+          {subtitleParts.join(" · ")}
+        </span>
+      )}
     </div>
   );
+}
+
+function ScoreCell({ row, max }: { row: CrisprRow; max: number }) {
+  return (
+    <div className="flex flex-col gap-1 leading-tight">
+      <span className="text-xs tabular-nums font-medium text-foreground">
+        {row.score_value.toFixed(2)}
+      </span>
+      <MagnitudeBar value={row.score_value} max={max} />
+      <span className="text-[10px] text-muted-foreground truncate max-w-[140px]">
+        {row.score_name}
+      </span>
+    </div>
+  );
+}
+
+function SigCell({ row }: { row: CrisprRow }) {
+  const sig = row.is_significant;
+  const criteria = row.significance_criteria;
+  const label = (
+    <span
+      className={cn(
+        "text-xs font-medium",
+        sig ? "text-red-500" : "text-muted-foreground",
+      )}
+    >
+      {sig ? "✓" : "—"}
+    </span>
+  );
+  if (!criteria || criteria === "-") return label;
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <span className="cursor-help">{label}</span>
+      </TooltipTrigger>
+      <TooltipContent side="top" className="text-xs">
+        Threshold: {criteria}
+      </TooltipContent>
+    </Tooltip>
+  );
+}
+
+function RowInterpretationIcon({ row }: { row: CrisprRow }) {
+  if (!row.score_interpretation) return null;
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Info className="h-3 w-3 text-muted-foreground/60 cursor-help shrink-0" />
+      </TooltipTrigger>
+      <TooltipContent side="top" className="max-w-sm text-xs">
+        {row.score_interpretation}
+      </TooltipContent>
+    </Tooltip>
+  );
+}
+
+function buildCrisprColumns(maxScore: number): ColumnDef<CrisprRow>[] {
+  return [
+    {
+      id: "perturbation_group",
+      header: "PERTURBATION",
+      meta: { align: "center" },
+      columns: [
+        {
+          id: "technique",
+          header: "Technique",
+          accessorKey: "perturbation_type",
+          enableSorting: false,
+          cell: ({ getValue }) => {
+            const t = getValue() as string | undefined;
+            if (!t) return <Dash />;
+            return <TechniqueBadge value={t} />;
+          },
+        },
+        {
+          id: "study",
+          header: "Study",
+          accessorKey: "dataset_id",
+          enableSorting: false,
+          cell: ({ row }) => (
+            <StudyCell
+              datasetId={row.original.dataset_id}
+              studyTitle={row.original.study_title}
+              studyYear={row.original.study_year}
+            />
+          ),
+        },
+      ],
+    },
+    {
+      id: "system_group",
+      header: "SYSTEM",
+      meta: { align: "center" },
+      columns: [
+        {
+          id: "system",
+          header: "Cell line / tissue / disease",
+          enableSorting: false,
+          cell: ({ row }) => <SystemStackCell row={row.original} />,
+        },
+      ],
+    },
+    {
+      id: "readout_group",
+      header: () => (
+        <ReadoutGroupHeader caption="Scoring conventions vary by screen (FDR, Rho, Gamma, MAGeCK, etc.). Hover the info icon on a row for that screen's specific interpretation." />
+      ),
+      meta: { align: "center" },
+      columns: [
+        {
+          id: "score",
+          header: "Score",
+          accessorKey: "score_value",
+          enableSorting: true,
+          sortDescFirst: true,
+          cell: ({ row }) => <ScoreCell row={row.original} max={maxScore} />,
+        },
+        {
+          id: "is_significant",
+          header: "Sig",
+          accessorKey: "is_significant",
+          enableSorting: true,
+          cell: ({ row }) => <SigCell row={row.original} />,
+        },
+        {
+          id: "interpretation",
+          header: "",
+          enableSorting: false,
+          cell: ({ row }) => <RowInterpretationIcon row={row.original} />,
+        },
+      ],
+    },
+  ];
 }
 
 // ---------------------------------------------------------------------------
@@ -457,110 +534,24 @@ function DownstreamSection({
   geneSymbol: string;
   totalCount: number;
 }) {
-  const cellTypes = useMemo(
-    () =>
-      [
-        ...new Set(data.map((r) => r.cell_type).filter(Boolean) as string[]),
-      ].sort(),
+  const maxLog2fc = useMemo(
+    () => Math.max(...data.map((r) => Math.abs(r.log2fc)), 1),
     [data],
   );
-  const [selectedCellType, setSelectedCellType] = useState<string | null>(null);
-  const filtered = useMemo(
-    () =>
-      selectedCellType
-        ? data.filter((r) => r.cell_type === selectedCellType)
-        : data,
-    [data, selectedCellType],
-  );
-  const maxLog2fc = useMemo(
-    () => Math.max(...filtered.map((r) => Math.abs(r.log2fc)), 1),
-    [filtered],
-  );
-  const hasCellType = cellTypes.length > 0;
-  const columns = useMemo(
-    () =>
-      buildPerturbSeqColumns(
-        { id: "effect_gene", key: "effect_gene", header: "Effect Gene" },
-        maxLog2fc,
-        { hasCellType },
-      ),
-    [maxLog2fc, hasCellType],
-  );
-
-  return (
-    <div>
-      <CellTypeTabs
-        cellTypes={cellTypes}
-        selected={selectedCellType}
-        onSelect={setSelectedCellType}
-      />
-      <DataSurface
-        title={`Downstream effects of ${geneSymbol} knockout`}
-        subtitle={`${totalCount} genes significantly affected when ${geneSymbol} is knocked out (perturb-seq, padj < 0.05)`}
-        data={filtered}
-        columns={columns}
-        searchable={false}
-        defaultPageSize={25}
-        pageSizeOptions={[25, 50]}
-        exportable
-        exportFilename={`downstream-effects-${geneSymbol}`}
-        emptyMessage={`No perturb-seq downstream effects found for ${geneSymbol}`}
-      />
-    </div>
-  );
-}
-
-function UpstreamSection({
-  data,
-  geneSymbol,
-}: {
-  data: PerturbSeqRow[];
-  geneSymbol: string;
-}) {
-  // Drop self-perturbations (perturbation_gene === effect_gene === gene)
-  // — they're QC positives, not upstream regulators.
-  const filtered = useMemo(
-    () => data.filter((r) => r.perturbation_gene !== r.effect_gene),
-    [data],
-  );
-  const maxLog2fc = useMemo(
-    () => Math.max(...filtered.map((r) => Math.abs(r.log2fc)), 1),
-    [filtered],
-  );
-  const hasCellType = useMemo(
-    () => filtered.some((r) => r.cell_type),
-    [filtered],
-  );
-  const columns = useMemo(
-    () =>
-      buildPerturbSeqColumns(
-        {
-          id: "perturbation_gene",
-          key: "perturbation_gene",
-          header: "Perturbation Gene",
-        },
-        maxLog2fc,
-        { hasCellType, includeDataset: false },
-      ),
-    [maxLog2fc, hasCellType],
-  );
-
-  // Hide the section entirely when nothing survives the self-perturbation
-  // filter — an empty table tells the user nothing the absence wouldn't.
-  if (filtered.length === 0) return null;
+  const columns = useMemo(() => buildPerturbSeqColumns(maxLog2fc), [maxLog2fc]);
 
   return (
     <DataSurface
-      title={`Upstream regulators of ${geneSymbol}`}
-      subtitle={`Which gene knockouts significantly change ${geneSymbol} expression? (reverse lookup, self-perturbations excluded)`}
-      data={filtered}
+      title="Downstream expression effects"
+      subtitle={`${totalCount} gene${totalCount === 1 ? "" : "s"} significantly affected when ${geneSymbol} is perturbed (perturb-seq, padj < 0.05)`}
+      data={data}
       columns={columns}
       searchable={false}
       defaultPageSize={25}
       pageSizeOptions={[25, 50]}
       exportable
-      exportFilename={`upstream-regulators-${geneSymbol}`}
-      emptyMessage={`No upstream regulators found for ${geneSymbol}`}
+      exportFilename={`downstream-effects-${geneSymbol}`}
+      emptyMessage={`No perturb-seq downstream effects found for ${geneSymbol}`}
     />
   );
 }
@@ -714,7 +705,7 @@ function CrisprFilterBar({
   );
 }
 
-function CrisprSection({
+function KnockoutSection({
   initialData,
   geneSymbol,
   totalCount,
@@ -739,8 +730,7 @@ function CrisprSection({
   // Only seed react-query's initialData when filters are pristine AND we have
   // server-rendered rows. An empty seed (e.g. the SSR fetch was rate-limited
   // but the facet succeeded) would mark the query "successful with no data"
-  // and react-query wouldn't refetch — keeping the table empty even though
-  // the gene clearly has CRISPR data.
+  // and react-query wouldn't refetch.
   const canSeedInitialData = !filtersDirty && initialData.length > 0;
 
   const { rows, hasMore, isLoading, isFetching } = useCrispr({
@@ -768,9 +758,8 @@ function CrisprSection({
 
   const data = rows;
 
-  // Best-effort precise total when only tissue filters are active — sum the
-  // facet counts. The API doesn't expose `total_count` on filtered queries,
-  // so otherwise we rely on `hasMore` to indicate "100+".
+  // Best-effort precise total when only tissue filters are active: sum the
+  // facet counts. Filtered queries don't expose total_count.
   const tissueOnlyFilter =
     selectedTissues.size > 0 && selectedTypes.size === 0 && !significantOnly;
   const tissueFilterTotal = useMemo(() => {
@@ -784,14 +773,7 @@ function CrisprSection({
     () => Math.max(...data.map((r) => Math.abs(r.score_value)), 1),
     [data],
   );
-  const showPerturbationGene = useMemo(
-    () => new Set(data.map((r) => r.perturbation_gene)).size > 1,
-    [data],
-  );
-  const columns = useMemo(
-    () => buildCrisprColumns(maxScore, showPerturbationGene),
-    [maxScore, showPerturbationGene],
-  );
+  const columns = useMemo(() => buildCrisprColumns(maxScore), [maxScore]);
 
   const toggleType = (t: PerturbationType) => {
     setSelectedTypes((prev) => {
@@ -815,8 +797,6 @@ function CrisprSection({
   const shownText = shown.toLocaleString();
   const shownPlus = hasMore ? `${shownText}+` : shownText;
 
-  // Single source of truth: pick the count label that matches the filter
-  // state. Each branch returns explicitly so the cases stay flat.
   const countLabel = (() => {
     if (tissueFilterTotal != null) {
       return `${shownText} of ${tissueFilterTotal.toLocaleString()}`;
@@ -826,12 +806,12 @@ function CrisprSection({
 
   const subtitle = (() => {
     if (tissueFilterTotal != null) {
-      return `${geneSymbol} — ${tissueFilterTotal.toLocaleString()} screens match the selected tissues, showing ${shownText}`;
+      return `${geneSymbol}: ${tissueFilterTotal.toLocaleString()} screens match the selected tissues, showing ${shownText}`;
     }
     if (filtersDirty) {
-      return `${geneSymbol} — ${shownPlus} screens match the current filters`;
+      return `${geneSymbol}: ${shownPlus} screens match the current filters`;
     }
-    return `${geneSymbol} — first ${shownPlus} CRISPR screens (filter to narrow)`;
+    return `${geneSymbol}: first ${shownPlus} CRISPR screens (filter to narrow)`;
   })();
 
   return (
@@ -849,7 +829,7 @@ function CrisprSection({
         countLabel={countLabel}
       />
       <DataSurface
-        title="CRISPR essentiality across cell lines"
+        title="Knockout phenotype across cell systems"
         subtitle={subtitle}
         data={data}
         columns={columns}
@@ -869,6 +849,34 @@ function CrisprSection({
   );
 }
 
+function SourceLine() {
+  const linkClass =
+    "text-foreground/80 hover:text-foreground underline-offset-2 hover:underline";
+  return (
+    <p className="text-xs text-muted-foreground">
+      Sources:{" "}
+      <a
+        href="https://www.ebi.ac.uk/perturbation-catalogue/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={linkClass}
+      >
+        EBI Perturbation Catalogue
+      </a>
+      {" · "}
+      <a
+        href="https://orcs.thebiogrid.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={linkClass}
+      >
+        BioGRID ORCS
+      </a>
+      {" · "}published Perturb-seq atlases
+    </p>
+  );
+}
+
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
@@ -882,7 +890,6 @@ interface PerturbationViewProps {
     essentialIn: number;
   };
   downstream: PerturbSeqRow[];
-  upstream: PerturbSeqRow[];
   crispr: CrisprRow[];
   crisprTotalCount: number;
   downstreamTotalCount: number;
@@ -893,7 +900,6 @@ export function PerturbationView({
   geneSymbol,
   summary,
   downstream,
-  upstream,
   crispr,
   crisprTotalCount,
   downstreamTotalCount,
@@ -901,23 +907,10 @@ export function PerturbationView({
 }: PerturbationViewProps) {
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        <StatCard
-          label="Perturb-seq datasets"
-          value={summary.perturbSeqDatasets}
-        />
-        <StatCard
-          label="Downstream targets"
-          value={summary.downstreamTargets}
-        />
-        <StatCard label="CRISPR screens" value={summary.crisprScreens} />
-        <StatCard
-          label="Essential in"
-          value={`${summary.essentialIn} lines`}
-          highlight
-        />
-      </div>
-      <SourceLine />
+      <header className="space-y-2">
+        <StoryLine geneSymbol={geneSymbol} summary={summary} />
+        <SourceLine />
+      </header>
       {downstream.length > 0 && (
         <DownstreamSection
           data={downstream}
@@ -925,50 +918,14 @@ export function PerturbationView({
           totalCount={downstreamTotalCount}
         />
       )}
-      {upstream.length > 0 && (
-        <UpstreamSection data={upstream} geneSymbol={geneSymbol} />
-      )}
-      {/* Show the section if either the facet sum OR the SSR slice indicates
-          data — that way a missing facet doesn't suppress a section that has
-          rows, and an empty SSR slice doesn't suppress a section the facet
-          knows is non-empty. */}
       {(crisprTotalCount > 0 || crispr.length > 0) && (
-        <CrisprSection
+        <KnockoutSection
           initialData={crispr}
           geneSymbol={geneSymbol}
           totalCount={crisprTotalCount}
           tissueFacets={crisprTissueFacets}
         />
       )}
-    </div>
-  );
-}
-
-function SourceLine() {
-  const linkClass = "text-primary hover:underline";
-  return (
-    <div className="rounded-lg border border-border bg-muted/30 px-4 py-3 text-xs text-muted-foreground leading-relaxed">
-      <span className="font-medium text-foreground">Data sources.</span> CRISPR
-      essentiality screens and Perturb-seq differential expression are
-      aggregated from the{" "}
-      <a
-        href="https://www.ebi.ac.uk/perturbation-catalogue/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={linkClass}
-      >
-        EBI Perturbation Catalogue
-      </a>
-      , which itself pools{" "}
-      <a
-        href="https://orcs.thebiogrid.org/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={linkClass}
-      >
-        BioGRID ORCS
-      </a>{" "}
-      and published Perturb-seq atlases.
     </div>
   );
 }

@@ -10,7 +10,6 @@ import { CRISPR_PAGE_LIMIT } from "@features/perturbation/constants";
 import { notFound } from "next/navigation";
 
 const PERTURB_SEQ_DOWNSTREAM_LIMIT = 100;
-const PERTURB_SEQ_UPSTREAM_LIMIT = 50;
 
 interface PerturbationPageProps {
   params: Promise<{ id: string }>;
@@ -43,28 +42,17 @@ export default async function PerturbationPage({
 
   const geneSymbol = gene.gene_symbol || id;
 
-  const [downstreamRes, upstreamRes, crisprRes, crisprTissueFacets] =
-    await Promise.all([
-      fetchPerturbSeq(geneSymbol, {
-        significant_only: true,
-        limit: PERTURB_SEQ_DOWNSTREAM_LIMIT,
-      }).catch(() => null),
-      fetchPerturbSeq(geneSymbol, {
-        effect_gene: geneSymbol,
-        significant_only: true,
-        limit: PERTURB_SEQ_UPSTREAM_LIMIT,
-      }).catch(() => null),
-      fetchCrispr(geneSymbol, { limit: CRISPR_PAGE_LIMIT }).catch(() => null),
-      fetchCrisprTissueFacets(geneSymbol).catch(
-        () => [] as CrisprTissueFacet[],
-      ),
-    ]);
+  const [downstreamRes, crisprRes, crisprTissueFacets] = await Promise.all([
+    fetchPerturbSeq(geneSymbol, {
+      significant_only: true,
+      limit: PERTURB_SEQ_DOWNSTREAM_LIMIT,
+    }).catch(() => null),
+    fetchCrispr(geneSymbol, { limit: CRISPR_PAGE_LIMIT }).catch(() => null),
+    fetchCrisprTissueFacets(geneSymbol).catch(() => [] as CrisprTissueFacet[]),
+  ]);
 
-  // Sort by magnitude — highest impact first
+  // Sort by magnitude, highest impact first.
   const downstream = (downstreamRes?.data ?? []).sort(
-    (a, b) => Math.abs(b.log2fc) - Math.abs(a.log2fc),
-  );
-  const upstream = (upstreamRes?.data ?? []).sort(
     (a, b) => Math.abs(b.log2fc) - Math.abs(a.log2fc),
   );
   const crispr = (crisprRes?.data ?? []).sort(
@@ -98,7 +86,6 @@ export default async function PerturbationPage({
         essentialIn,
       }}
       downstream={downstream}
-      upstream={upstream}
       crispr={crispr}
       crisprTotalCount={crisprTotalCount}
       downstreamTotalCount={downstreamTotalCount}
