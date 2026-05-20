@@ -47,7 +47,6 @@ export default async function PerturbationPage({
         essentialIn: crispr.filter((r) => r.is_significant).length,
       }}
       downstream={downstream}
-      upstream={[]}
       crispr={crispr}
       crisprTotalCount={crisprTotalCount}
       downstreamTotalCount={downstreamTotalCount}
