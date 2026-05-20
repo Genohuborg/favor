@@ -3,10 +3,12 @@ import {
   type CrisprTissueFacet,
   fetchCrispr,
   fetchCrisprTissueFacets,
+  fetchDatasets,
   fetchPerturbSeq,
 } from "@features/perturbation/api";
 import { PerturbationView } from "@features/perturbation/components/perturbation-view";
 import { CRISPR_PAGE_LIMIT } from "@features/perturbation/constants";
+import type { DatasetEntry } from "@features/perturbation/types";
 import { notFound } from "next/navigation";
 
 const PERTURB_SEQ_DOWNSTREAM_LIMIT = 100;
@@ -42,14 +44,23 @@ export default async function PerturbationPage({
 
   const geneSymbol = gene.gene_symbol || id;
 
-  const [downstreamRes, crisprRes, crisprTissueFacets] = await Promise.all([
+  const [
+    downstreamRes,
+    crisprRes,
+    crisprTissueFacets,
+    crisprDatasets,
+    perturbSeqDatasets,
+  ] = await Promise.all([
     fetchPerturbSeq(geneSymbol, {
       significant_only: true,
       limit: PERTURB_SEQ_DOWNSTREAM_LIMIT,
     }).catch(() => null),
     fetchCrispr(geneSymbol, { limit: CRISPR_PAGE_LIMIT }).catch(() => null),
     fetchCrisprTissueFacets(geneSymbol).catch(() => [] as CrisprTissueFacet[]),
+    fetchDatasets(geneSymbol, "crispr").catch(() => [] as DatasetEntry[]),
+    fetchDatasets(geneSymbol, "perturb-seq").catch(() => [] as DatasetEntry[]),
   ]);
+  const datasets = [...crisprDatasets, ...perturbSeqDatasets];
 
   // Sort by magnitude, highest impact first.
   const downstream = (downstreamRes?.data ?? []).sort(
@@ -90,6 +101,7 @@ export default async function PerturbationPage({
       crisprTotalCount={crisprTotalCount}
       downstreamTotalCount={downstreamTotalCount}
       crisprTissueFacets={crisprTissueFacets}
+      datasets={datasets}
     />
   );
 }

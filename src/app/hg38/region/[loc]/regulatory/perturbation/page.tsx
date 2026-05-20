@@ -1,9 +1,11 @@
 import {
   fetchCrispr,
   fetchCrisprTissueFacets,
+  fetchDatasets,
   fetchPerturbSeq,
 } from "@features/perturbation/api";
 import { PerturbationView } from "@features/perturbation/components/perturbation-view";
+import type { DatasetEntry } from "@features/perturbation/types";
 import { parseRegion } from "@features/region/utils/parse-region";
 import { notFound } from "next/navigation";
 
@@ -18,13 +20,22 @@ export default async function PerturbationPage({
   const region = parseRegion(loc);
   if (!region) notFound();
 
-  const [downstreamRes, crisprRes, crisprTissueFacets] = await Promise.all([
+  const [
+    downstreamRes,
+    crisprRes,
+    crisprTissueFacets,
+    crisprDatasets,
+    perturbSeqDatasets,
+  ] = await Promise.all([
     fetchPerturbSeq(region.loc, { significant_only: true, limit: 100 }).catch(
       () => null,
     ),
     fetchCrispr(region.loc, { limit: 100 }).catch(() => null),
     fetchCrisprTissueFacets(region.loc).catch(() => []),
+    fetchDatasets(region.loc, "crispr").catch(() => [] as DatasetEntry[]),
+    fetchDatasets(region.loc, "perturb-seq").catch(() => [] as DatasetEntry[]),
   ]);
+  const datasets = [...crisprDatasets, ...perturbSeqDatasets];
 
   const downstream = (downstreamRes?.data ?? []).sort(
     (a, b) => Math.abs(b.log2fc) - Math.abs(a.log2fc),
@@ -51,6 +62,7 @@ export default async function PerturbationPage({
       crisprTotalCount={crisprTotalCount}
       downstreamTotalCount={downstreamTotalCount}
       crisprTissueFacets={crisprTissueFacets}
+      datasets={datasets}
     />
   );
 }

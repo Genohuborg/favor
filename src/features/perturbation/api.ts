@@ -7,6 +7,7 @@ import { fetchJson } from "@infra/api";
 import { API_BASE } from "@/config/api";
 import type {
   CrisprRow,
+  DatasetEntry,
   FetchCrisprParams,
   FetchPerturbSeqParams,
   PerturbSeqRow,
@@ -37,6 +38,17 @@ export async function fetchPerturbSeq(
   return fetchJson(
     perturbUrl(loc, "perturb-seq", params as Record<string, unknown>),
   );
+}
+
+export type DatasetAssay = "crispr" | "perturb-seq" | "mave";
+
+export async function fetchDatasets(
+  loc: string,
+  assay: DatasetAssay,
+): Promise<DatasetEntry[]> {
+  const url = perturbUrl(loc, "datasets", { assay });
+  const res = await fetchJson<{ data: DatasetEntry[] }>(url);
+  return res.data;
 }
 
 export async function fetchCrisprByTissueGroup(
