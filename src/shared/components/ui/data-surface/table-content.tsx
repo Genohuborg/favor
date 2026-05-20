@@ -82,6 +82,7 @@ export function TableContent<TData>({
                   <th
                     key={header.id}
                     scope="col"
+                    colSpan={header.colSpan}
                     onClick={
                       canSort
                         ? header.column.getToggleSortingHandler()
