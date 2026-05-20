@@ -19,74 +19,108 @@ interface VariantKeyPickerProps {
   className?: string;
 }
 
+type SpeedLevel = "fastest" | "fast" | "slow";
+type KeyKind = "vcf_columns" | "spdi" | "rsid" | "vid";
+
+interface KindDescriptor {
+  label: string;
+  speed: { label: string; level: SpeedLevel };
+  detail: string;
+}
+
+/**
+ * Single source of truth for kind → presentation mapping.
+ * All UI-visible strings for a key kind live here.
+ */
+const KIND_DESCRIPTORS: Record<KeyKind, KindDescriptor> = {
+  vcf_columns: {
+    label: "chromosome-position-ref-alt",
+    speed: { label: "Fastest", level: "fastest" },
+    detail: "Covers variants that have no rsID.",
+  },
+  spdi: {
+    label: "SPDI",
+    speed: { label: "Fast", level: "fast" },
+    detail: "Resolved to chromosome-position-ref-alt internally.",
+  },
+  rsid: {
+    label: "rsID",
+    speed: { label: "Slow", level: "slow" },
+    detail:
+      "Every variant requires an rsID lookup, and not all variants have one. Prefer VCF coordinates when available.",
+  },
+  vid: {
+    label: "Variant ID",
+    speed: { label: "Fast", level: "fast" },
+    detail: "",
+  },
+};
+
+function kindOf(alt: VariantKeyAlternative): KeyKind {
+  if (alt.strategy === "vcf_columns") return "vcf_columns";
+  switch (alt.key_type) {
+    case "VCF":
+      return "spdi";
+    case "RSID":
+      return "rsid";
+    case "VID":
+    case "AUTO":
+    case "UNKNOWN":
+      return "vid";
+  }
+}
+
 interface Describable {
   /** Stable identity for radio state. */
   id: string;
-  /** Column names to render as the primary line. */
+  /** Source columns from the user's file backing this key. */
   columns: string[];
-  /** One example row assembled from schema_preview. */
+  /** One concrete value assembled from schema_preview, or null when unknowable. */
   example: string | null;
-  /** Rows where every referenced column is populated (worst of the set). */
+  /** Rows where every referenced column is populated, or null when unknowable. */
   coveredRows: number | null;
-  /** Short mechanism description ("Database lookup", etc.). Empty string if none. */
-  mechanism: string;
+  /** Presentation for this key kind. */
+  kind: KindDescriptor;
 }
 
 function identityOf(alt: VariantKeyAlternative): string {
   return `${alt.strategy}:${alt.columns.join("|")}`;
 }
 
-function mechanismFor(alt: VariantKeyAlternative): string {
-  if (alt.strategy === "vcf_columns") return "Direct coordinates";
-  // single_column — differentiate by key_type
-  switch (alt.key_type) {
-    case "VCF":
-      // SPDI parses as VCF on the backend; label it accordingly.
-      return "Direct coordinates (compact form)";
-    case "RSID":
-      return "Database lookup";
-    case "VID":
-      return "Internal variant ID";
-    default:
-      return "";
+/** Min populated-row count across columns; null if any column is empty. */
+function minNonNullCount(cols: SchemaPreviewColumn[]): number | null {
+  const counts = cols.map((c) => c.non_null_count);
+  if (counts.some((n) => n <= 0)) return null;
+  return Math.min(...counts);
+}
+
+/** First row index 0..2 where every column has a non-empty sample value. */
+function buildExample(cols: SchemaPreviewColumn[]): string | null {
+  const maxRow = Math.min(...cols.map((c) => c.sample_values.length), 3);
+  for (let i = 0; i < maxRow; i++) {
+    const parts = cols.map((c) => c.sample_values[i]);
+    if (parts.every((v): v is string => Boolean(v))) return parts.join("-");
   }
+  return null;
 }
 
 function describe(
   alt: VariantKeyAlternative,
   schemaByName: Map<string, SchemaPreviewColumn>,
 ): Describable {
-  const cols = alt.columns
-    .map((name) => schemaByName.get(name))
-    .filter((c): c is SchemaPreviewColumn => c !== undefined);
-
-  const counts = cols.map((c) => c.non_null_count);
-  const coveredRows =
-    counts.length > 0 && counts.every((n) => n > 0)
-      ? Math.min(...counts)
-      : null;
-
-  // Assemble one example row. Multi-column alternatives read like "1 · 100001 · A · T".
-  // We try rows 0..2 in case the first one has a null.
-  let example: string | null = null;
-  const maxRow = Math.min(
-    ...cols.map((c) => c.sample_values.length).filter((n) => n > 0),
-    3,
-  );
-  for (let i = 0; i < maxRow; i++) {
-    const parts = cols.map((c) => c.sample_values[i]).filter((v) => v);
-    if (parts.length === cols.length && parts.length > 0) {
-      example = parts.join(" · ");
-      break;
-    }
-  }
+  const lookups = alt.columns.map((name) => schemaByName.get(name));
+  // If any referenced column is absent from the schema preview, we can't
+  // honestly report coverage or build an example. Surface as unknown.
+  const cols = lookups.every((c): c is SchemaPreviewColumn => c !== undefined)
+    ? lookups
+    : null;
 
   return {
     id: identityOf(alt),
     columns: alt.columns,
-    example,
-    coveredRows,
-    mechanism: mechanismFor(alt),
+    example: cols ? buildExample(cols) : null,
+    coveredRows: cols ? minNonNullCount(cols) : null,
+    kind: KIND_DESCRIPTORS[kindOf(alt)],
   };
 }
 
@@ -134,15 +168,9 @@ export function VariantKeyPicker({
 
   return (
     <div className={cn("space-y-6", className)}>
-      <div className="space-y-1.5">
-        <h2 className="text-lg font-semibold text-foreground">
-          Which column identifies each variant?
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Favor found several columns that could work. Pick the one with the
-          coverage and format that fit your data.
-        </p>
-      </div>
+      <h2 className="text-lg font-semibold text-foreground">
+        Which column identifies each variant?
+      </h2>
 
       <RadioGroup
         value={selectedId}
@@ -158,57 +186,87 @@ export function VariantKeyPicker({
             opt.coveredRows === bestCoverage;
           const coverageText =
             opt.coveredRows !== null
-              ? `${formatNumber(opt.coveredRows)} of ${formatNumber(rowTotal)} rows`
+              ? `${formatNumber(opt.coveredRows)} of ${formatNumber(rowTotal)}`
               : null;
+          const speedClass =
+            opt.kind.speed.level === "fastest"
+              ? "text-emerald-700"
+              : opt.kind.speed.level === "slow"
+                ? "text-amber-700"
+                : "text-muted-foreground";
 
           return (
             <Label
               key={opt.id}
               htmlFor={inputId}
               className={cn(
-                "flex items-start gap-3 rounded-lg border p-4 cursor-pointer transition-colors",
+                "flex items-center gap-3 rounded-lg border px-4 py-3 cursor-pointer transition-colors",
                 isActive
-                  ? "border-primary bg-primary/5"
+                  ? "border-primary bg-primary/[0.03]"
                   : "border-border hover:bg-muted/40",
               )}
             >
-              <RadioGroupItem id={inputId} value={opt.id} className="mt-1" />
-              <div className="flex-1 min-w-0 space-y-1.5">
-                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 font-mono text-sm text-foreground">
-                  {opt.columns.map((col, i) => (
-                    <span key={col} className="inline-flex items-baseline">
-                      <span>{col}</span>
-                      {i < opt.columns.length - 1 && (
-                        <span
-                          className="text-muted-foreground px-1.5"
-                          aria-hidden="true"
-                        >
-                          ·
-                        </span>
-                      )}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                  {coverageText && (
-                    <span
-                      className={cn(
-                        "tabular-nums",
-                        isBest && "text-emerald-700 font-medium",
-                      )}
-                    >
-                      {coverageText}
-                    </span>
-                  )}
-                  {opt.mechanism && <span>{opt.mechanism}</span>}
-                </div>
-                {opt.example && (
-                  <div className="text-xs text-muted-foreground">
-                    e.g.{" "}
-                    <span className="font-mono text-foreground">
-                      {opt.example}
-                    </span>
+              <RadioGroupItem id={inputId} value={opt.id} />
+              <div className="flex-1 min-w-0">
+                <div className="flex items-baseline justify-between gap-4">
+                  <div className="font-mono text-sm font-medium text-foreground truncate">
+                    {opt.kind.label}
                   </div>
+                  <div
+                    className={cn(
+                      "shrink-0 text-xs font-medium tracking-tight",
+                      speedClass,
+                    )}
+                  >
+                    {opt.kind.speed.label}
+                  </div>
+                </div>
+                <div className="mt-1 grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 gap-y-0.5 text-xs items-baseline">
+                  <span className="uppercase tracking-wider text-[10px] text-muted-foreground/70">
+                    {opt.columns.length === 1 ? "Column" : "Columns"}
+                  </span>
+                  <span className="font-mono text-muted-foreground truncate">
+                    {opt.columns.join(", ")}
+                  </span>
+                  {opt.example && (
+                    <>
+                      <span className="uppercase tracking-wider text-[10px] text-muted-foreground/70">
+                        Example
+                      </span>
+                      <span className="font-mono text-muted-foreground truncate">
+                        {opt.example}
+                      </span>
+                    </>
+                  )}
+                  {coverageText && (
+                    <>
+                      <span className="uppercase tracking-wider text-[10px] text-muted-foreground/70">
+                        Coverage
+                      </span>
+                      <span
+                        className={cn(
+                          "tabular-nums",
+                          isBest
+                            ? "text-emerald-700 font-medium"
+                            : "text-muted-foreground",
+                        )}
+                      >
+                        {coverageText}
+                      </span>
+                    </>
+                  )}
+                </div>
+                {opt.kind.detail && (
+                  <p
+                    className={cn(
+                      "mt-1.5 text-xs leading-relaxed",
+                      opt.kind.speed.level === "slow"
+                        ? "text-amber-700/80"
+                        : "text-muted-foreground",
+                    )}
+                  >
+                    {opt.kind.detail}
+                  </p>
                 )}
               </div>
             </Label>
