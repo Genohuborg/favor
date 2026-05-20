@@ -75,8 +75,8 @@ export function parseRegion(query: string): ParsedRegion | null {
   const end = parseInt(endRaw, 10);
 
   if (!Number.isInteger(start) || !Number.isInteger(end)) return null;
-  if (start < 0 || end < 1) return null;
-  if (start >= end) return null;
+  if (start < 1 || end < 1) return null;
+  if (start > end) return null;
   if (end > MAX_POSITION) return null;
 
   return {
@@ -106,6 +106,7 @@ export function looksLikeRegion(query: string): boolean {
  * Format a region size in human-readable form.
  */
 export function formatRegionSize(start: number, end: number): string {
+  if (start === end) return "1 bp";
   const size = end - start;
   if (size >= 1_000_000) return `${(size / 1_000_000).toFixed(1)} Mb`;
   if (size >= 1_000) return `${(size / 1_000).toFixed(1)} kb`;
