@@ -770,9 +770,7 @@ interface GeneResponseRow {
   geneSymbol: string;
   geneId: string;
   evidenceOrigin: string;
-  ampCategory: string;
   bestEvidenceLevel: string;
-  fdaCompanion: boolean;
   confidence: string;
   sources: string[];
   evidenceCount: number;
@@ -785,17 +783,12 @@ function transformGeneResponse(rows: EdgeRow[]): GeneResponseRow[] {
       geneSymbol: String(ep(r, "gene_symbol") ?? nb(r, "symbol") ?? ""),
       geneId: r.neighbor.id,
       evidenceOrigin: String(ep(r, "evidence_origin") ?? ""),
-      ampCategory: String(ep(r, "amp_category") ?? ""),
       bestEvidenceLevel: String(ep(r, "best_evidence_level") ?? ""),
-      fdaCompanion: Boolean(ep(r, "fda_companion_test")),
       confidence: String(ep(r, "confidence_class") ?? ""),
       sources: ep<string[]>(r, "sources") ?? [],
       evidenceCount: Number(ep(r, "evidence_count") ?? 0),
     }))
-    .sort((a, b) => {
-      if (a.fdaCompanion !== b.fdaCompanion) return a.fdaCompanion ? -1 : 1;
-      return b.evidenceCount - a.evidenceCount;
-    });
+    .sort((a, b) => b.evidenceCount - a.evidenceCount);
 }
 
 const geneResponseColumns: ColumnDef<GeneResponseRow>[] = [
@@ -826,18 +819,6 @@ const geneResponseColumns: ColumnDef<GeneResponseRow>[] = [
     cell: ({ row }) => row.original.evidenceOrigin || "—",
   },
   {
-    id: "ampCategory",
-    accessorKey: "ampCategory",
-    header: () => (
-      <span className="inline-flex items-center gap-1">
-        AMP Category
-        <Hint text="AMP/ASCO/CAP somatic variant clinical actionability tier. Tier I = guideline-level" />
-      </span>
-    ),
-    enableSorting: true,
-    cell: ({ row }) => row.original.ampCategory || "—",
-  },
-  {
     id: "bestEvidenceLevel",
     accessorKey: "bestEvidenceLevel",
     header: () => (
@@ -848,25 +829,6 @@ const geneResponseColumns: ColumnDef<GeneResponseRow>[] = [
     ),
     enableSorting: true,
     cell: ({ row }) => row.original.bestEvidenceLevel || "—",
-  },
-  {
-    id: "fdaCompanion",
-    accessorKey: "fdaCompanion",
-    header: () => (
-      <span className="inline-flex items-center gap-1">
-        FDA Companion
-        <Hint text="FDA-approved companion diagnostic test exists. Highest level of clinical validation" />
-      </span>
-    ),
-    enableSorting: true,
-    cell: ({ row }) =>
-      row.original.fdaCompanion ? (
-        <Badge variant="secondary" className="text-xs">
-          FDA
-        </Badge>
-      ) : (
-        "—"
-      ),
   },
   {
     id: "confidence",

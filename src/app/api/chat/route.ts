@@ -82,7 +82,7 @@ export async function POST(req: Request) {
     });
   }
 
-  const { user, error } = await requireAuth(req);
+  const { error } = await requireAuth(req);
   if (error) return error;
 
   const raw = await req.json();

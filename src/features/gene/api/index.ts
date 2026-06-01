@@ -36,6 +36,12 @@ export {
   searchEntities,
 } from "@features/graph/api";
 
+export {
+  fetchGeneEdgeRows,
+  type GeneEdgeRow,
+  type GeneEdgeRowsOptions,
+} from "./graph-tables";
+
 import { API_BASE } from "@/config/api";
 
 /**

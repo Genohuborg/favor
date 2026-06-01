@@ -142,16 +142,21 @@ function ConfidenceBadge({ value }: { value: string }) {
   );
 }
 
+// ClinGen-style gene-disease validity tiers (from edge `validity_tier`).
 const CAUSALITY_COLORS: Record<string, string> = {
-  confirmed: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-  implicated: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
-  associated: "bg-muted text-muted-foreground",
+  definitive: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  strong: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  moderate: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+  limited: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+  disputed: "bg-muted text-muted-foreground",
+  refuted: "bg-muted text-muted-foreground",
 };
 
-/** Map legacy "causal" from the API to "confirmed" for display */
+/** Normalize the validity tier; map legacy "causal" to "definitive". */
 function normalizeCausality(value: string): string {
-  if (value.toLowerCase() === "causal") return "confirmed";
-  return value;
+  const v = value.toLowerCase();
+  if (v === "causal") return "definitive";
+  return v;
 }
 
 function CausalityBadge({ value }: { value: string }) {
@@ -161,7 +166,7 @@ function CausalityBadge({ value }: { value: string }) {
     <span
       className={cn(
         "inline-flex px-1.5 py-0.5 rounded text-xs font-medium capitalize",
-        CAUSALITY_COLORS[display] ?? CAUSALITY_COLORS.associated,
+        CAUSALITY_COLORS[display] ?? "bg-muted text-muted-foreground",
       )}
     >
       {display}
@@ -432,8 +437,6 @@ interface GeneRow {
   geneName: string;
   causality: string;
   otScore: number | null;
-  gwasP: number | null;
-  gwasStudies: number | null;
   confidence: string;
   sources: string[];
   evidenceCount: number;
@@ -446,16 +449,8 @@ function transformGenes(rows: EdgeRow[]): GeneRow[] {
       symbol: String(ep(r, "gene_symbol") ?? nb(r, "symbol") ?? ""),
       geneId: r.neighbor.id,
       geneName: String(nb(r, "name") ?? ""),
-      causality: String(ep(r, "causality_level") ?? ""),
+      causality: String(ep(r, "validity_tier") ?? ""),
       otScore: ep(r, "ot_score") != null ? Number(ep(r, "ot_score")) : null,
-      gwasP:
-        ep(r, "gwas_best_p_value_mlog") != null
-          ? Number(ep(r, "gwas_best_p_value_mlog"))
-          : null,
-      gwasStudies:
-        ep(r, "gwas_n_studies") != null
-          ? Number(ep(r, "gwas_n_studies"))
-          : null,
       confidence: String(ep(r, "confidence_class") ?? ""),
       sources: ep<string[]>(r, "sources") ?? [],
       evidenceCount: Number(ep(r, "evidence_count") ?? 0),
@@ -493,7 +488,7 @@ const geneColumns: ColumnDef<GeneRow>[] = [
     header: () => (
       <span className="inline-flex items-center">
         Causality
-        <Hint text="'confirmed' = established Mendelian cause with curated human evidence. 'implicated' = functional/clinical evidence short of definitive. 'associated' = statistical only." />
+        <Hint text="ClinGen-style gene-disease validity. 'definitive'/'strong' = well-established cause; 'moderate'/'limited' = emerging evidence; 'disputed'/'refuted' = contradicted." />
       </span>
     ),
     enableSorting: true,
@@ -522,35 +517,6 @@ const geneColumns: ColumnDef<GeneRow>[] = [
           </div>
           <span className="font-mono text-xs">{v.toFixed(2)}</span>
         </div>
-      );
-    },
-  },
-  {
-    id: "gwasP",
-    accessorKey: "gwasP",
-    header: () => (
-      <span className="inline-flex items-center">
-        -log₁₀(P)
-        <Hint text="Strongest GWAS signal for this gene-disease pair. ≥7.3 = genome-wide significant. ≥100 = extremely strong locus." />
-      </span>
-    ),
-    enableSorting: true,
-    cell: ({ row }) => {
-      const v = row.original.gwasP;
-      if (v == null) return "—";
-      return (
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <span className="font-mono text-[13px] cursor-help">
-              {v.toFixed(1)}
-            </span>
-          </TooltipTrigger>
-          <TooltipContent>
-            p = 10⁻{v.toFixed(1)}
-            {row.original.gwasStudies != null &&
-              ` across ${row.original.gwasStudies} studies`}
-          </TooltipContent>
-        </Tooltip>
       );
     },
   },
@@ -1085,7 +1051,7 @@ export function DiseasePage({ disease, counts, relations }: DiseasePageProps) {
 
   return (
     <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-2">
-      <div className="border-b border-border overflow-x-auto">
+      <div className="border-b border-border overflow-x-auto overflow-y-hidden">
         <TabsList variant="line" className="w-full justify-start p-0 h-auto">
           {tabs.map((tab) => (
             <TabsTrigger

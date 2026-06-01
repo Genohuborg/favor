@@ -36,16 +36,6 @@ interface DiseasePortfolioOverviewProps {
   className?: string;
 }
 
-type EvidenceScores = {
-  genetic_association: number | null;
-  somatic_mutation: number | null;
-  known_drug: number | null;
-  affected_pathway: number | null;
-  literature: number | null;
-  rna_expression: number | null;
-  animal_model: number | null;
-};
-
 type DiseaseEdge = {
   id: string;
   label: string;
@@ -55,7 +45,6 @@ type DiseaseEdge = {
   causalityLevel: string | null;
   confidenceClass: string | null;
   sources: string[];
-  evidenceScores: EvidenceScores;
   modeOfInheritance: string | null;
   clingenClassification: string | null;
   genccClassification: string | null;
@@ -139,40 +128,6 @@ const INHERITANCE_LABELS: Record<string, string> = {
   IC: "Isolated cases",
 };
 
-const EVIDENCE_TYPE_LABELS: Record<
-  keyof EvidenceScores,
-  { label: string; tip: string }
-> = {
-  genetic_association: {
-    label: "Genetic studies",
-    tip: "Evidence from GWAS and other genetic association studies linking variants in this gene to the disease.",
-  },
-  somatic_mutation: {
-    label: "Somatic mutations",
-    tip: "Evidence from cancer genomics showing this gene is somatically mutated in this disease.",
-  },
-  known_drug: {
-    label: "Drug evidence",
-    tip: "Drugs targeting this gene are used or tested for this disease, supporting a functional link.",
-  },
-  affected_pathway: {
-    label: "Pathway involvement",
-    tip: "This gene participates in biological pathways known to be disrupted in this disease.",
-  },
-  literature: {
-    label: "Literature",
-    tip: "How frequently this gene and disease are mentioned together in published research.",
-  },
-  rna_expression: {
-    label: "Expression",
-    tip: "This gene shows altered expression levels in tissues or samples affected by this disease.",
-  },
-  animal_model: {
-    label: "Animal models",
-    tip: "Experiments in animal models support a role for this gene in this disease.",
-  },
-};
-
 const SYSTEM_LABELS: Record<string, string> = {
   integumentary: "Skin & Tissue",
   oncology: "Oncology",
@@ -234,49 +189,6 @@ function formatScore(value: number | null) {
   return value.toFixed(2);
 }
 
-/** Evidence score bars — thin, muted, proportional. */
-function EvidenceBreakdown({ scores }: { scores: EvidenceScores }) {
-  const entries = (
-    Object.entries(scores) as [keyof EvidenceScores, number | null][]
-  )
-    .filter(([, v]) => v !== null && v > 0)
-    .sort((a, b) => (b[1] ?? 0) - (a[1] ?? 0));
-
-  if (entries.length === 0) return null;
-
-  return (
-    <div className="space-y-1.5">
-      {entries.map(([key, value]) => {
-        const percent = Math.round((value ?? 0) * 100);
-        const meta = EVIDENCE_TYPE_LABELS[key];
-        return (
-          <Tooltip key={key}>
-            <TooltipTrigger asChild>
-              <div className="flex items-center gap-2 cursor-default group">
-                <span className="w-24 text-[11px] text-muted-foreground truncate">
-                  {meta.label}
-                </span>
-                <div className="flex-1 h-1 rounded-full bg-border overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-foreground/20 group-hover:bg-foreground/30 transition-colors"
-                    style={{ width: `${percent}%` }}
-                  />
-                </div>
-                <span className="w-7 text-right text-[11px] text-muted-foreground tabular-nums">
-                  {(value ?? 0).toFixed(2)}
-                </span>
-              </div>
-            </TooltipTrigger>
-            <TooltipContent side="top" className="max-w-64">
-              <p className="text-xs leading-relaxed">{meta.tip}</p>
-            </TooltipContent>
-          </Tooltip>
-        );
-      })}
-    </div>
-  );
-}
-
 // ---------------------------------------------------------------------------
 // Data extraction
 // ---------------------------------------------------------------------------
@@ -328,18 +240,14 @@ function extractDiseaseEdges(
           typeof props.evidence_count === "number"
             ? props.evidence_count
             : null,
-        causalityLevel: props.causality_level ?? null,
+        causalityLevel:
+          typeof props.validity_tier === "string"
+            ? props.validity_tier.replace(/\b\w/g, (c: string) =>
+                c.toUpperCase(),
+              )
+            : null,
         confidenceClass: props.confidence_class ?? null,
         sources: Array.isArray(props.sources) ? props.sources : [],
-        evidenceScores: {
-          genetic_association: props.ot_genetic_association_score ?? null,
-          somatic_mutation: props.ot_somatic_mutation_score ?? null,
-          known_drug: props.ot_known_drug_score ?? null,
-          affected_pathway: props.ot_affected_pathway_score ?? null,
-          literature: props.ot_literature_score ?? null,
-          rna_expression: props.ot_rna_expression_score ?? null,
-          animal_model: props.ot_animal_model_score ?? null,
-        },
         modeOfInheritance: props.mode_of_inheritance ?? null,
         clingenClassification: props.clingen_classification ?? null,
         genccClassification: props.gencc_best_classification ?? null,
@@ -846,20 +754,6 @@ export function DiseasePortfolioOverview({
                             </div>
                           )}
                         </div>
-                      </div>
-                    )}
-
-                    {/* ─ Evidence breakdown ─ */}
-                    {Object.values(selected.evidenceScores).some(
-                      (v) => v !== null && v > 0,
-                    ) && (
-                      <div className="space-y-2">
-                        <Tip content="Breakdown of the overall association score by evidence type. Each bar shows how strong the evidence is from that data source (0–1 scale).">
-                          <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
-                            Evidence breakdown
-                          </span>
-                        </Tip>
-                        <EvidenceBreakdown scores={selected.evidenceScores} />
                       </div>
                     )}
 

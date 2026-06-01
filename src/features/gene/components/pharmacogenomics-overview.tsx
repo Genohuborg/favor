@@ -36,9 +36,7 @@ type PgxEdge = {
   variantNames: string[];
   hgvsExpressions: string[];
   evidenceStatements: string[];
-  ampCategory: string | null;
   bestEvidenceLevel: string | null;
-  fdaCompanionTest: boolean;
   evidenceCount: number;
   confidenceClass: string | null;
   pubmedIds: string[];
@@ -84,33 +82,6 @@ const EVIDENCE_LEVELS: Record<
     tip: "Inferential — indirect evidence based on related genes or pathways.",
     color: "bg-muted-foreground/20",
     rank: 1,
-  },
-};
-
-const AMP_TIERS: Record<string, { label: string; tip: string }> = {
-  "Tier I - Level A": {
-    label: "Tier I-A",
-    tip: "Strongest clinical significance. FDA-approved therapy or professional guideline recommendation.",
-  },
-  "Tier I - Level B": {
-    label: "Tier I-B",
-    tip: "Strong clinical significance. Well-powered studies with expert consensus.",
-  },
-  "Tier II - Level C": {
-    label: "Tier II-C",
-    tip: "Potential clinical significance. FDA-approved for different tumor, clinical trials.",
-  },
-  "Tier II - Level D": {
-    label: "Tier II-D",
-    tip: "Potential clinical significance. Preclinical or case study support.",
-  },
-  "Tier III": {
-    label: "Tier III",
-    tip: "Unknown clinical significance. Not enough evidence for actionability.",
-  },
-  "Tier IV": {
-    label: "Tier IV",
-    tip: "Benign or likely benign. No clinical significance.",
   },
 };
 
@@ -182,9 +153,7 @@ function extractPgxEdges(relations: unknown, edges?: unknown): PgxEdge[] {
       evidenceStatements: Array.isArray(props.evidence_statements)
         ? props.evidence_statements.filter(Boolean)
         : [],
-      ampCategory: props.amp_category ?? null,
       bestEvidenceLevel: props.best_evidence_level ?? null,
-      fdaCompanionTest: props.fda_companion_test === true,
       evidenceCount:
         typeof props.evidence_count === "number" ? props.evidence_count : 0,
       confidenceClass: props.confidence_class ?? null,
@@ -214,7 +183,6 @@ function extractPgxEdges(relations: unknown, edges?: unknown): PgxEdge[] {
     const nRank = EVIDENCE_LEVELS[edge.bestEvidenceLevel ?? ""]?.rank ?? 0;
     if (nRank > eRank) existing.bestEvidenceLevel = edge.bestEvidenceLevel;
     existing.evidenceCount += edge.evidenceCount;
-    if (edge.fdaCompanionTest) existing.fdaCompanionTest = true;
     existing.cancerTypes = [
       ...new Set([...existing.cancerTypes, ...edge.cancerTypes]),
     ];
@@ -234,8 +202,6 @@ function extractPgxEdges(relations: unknown, edges?: unknown): PgxEdge[] {
     existing.sources = [...new Set([...existing.sources, ...edge.sources])];
     if (!existing.nccnGuideline && edge.nccnGuideline)
       existing.nccnGuideline = edge.nccnGuideline;
-    if (!existing.ampCategory && edge.ampCategory)
-      existing.ampCategory = edge.ampCategory;
     if (!existing.evidenceOrigin && edge.evidenceOrigin)
       existing.evidenceOrigin = edge.evidenceOrigin;
     if (!existing.drugSubtitle && edge.drugSubtitle)
@@ -468,11 +434,6 @@ export function PharmacogenomicsOverview({
                                 {level.label}
                               </span>
                             )}
-                            {d.fdaCompanionTest && (
-                              <span className="text-[10px] text-emerald-600 font-medium">
-                                FDA Dx
-                              </span>
-                            )}
                             {d.variantNames.length > 0 && (
                               <span className="text-[10px] text-muted-foreground truncate max-w-[120px]">
                                 {d.variantNames[0]}
@@ -553,31 +514,11 @@ export function PharmacogenomicsOverview({
                               </span>
                             </Tip>
                           )}
-                        {selected.fdaCompanionTest && (
-                          <Tip content="An FDA-approved companion diagnostic test exists for this drug-gene pair.">
-                            <span className="text-xs text-emerald-600 font-medium">
-                              FDA companion Dx
-                            </span>
-                          </Tip>
-                        )}
                       </div>
                     </div>
 
                     {/* ─ Key metrics ─ */}
                     <div className="flex flex-wrap gap-x-6 gap-y-2">
-                      {selected.ampCategory &&
-                        AMP_TIERS[selected.ampCategory] && (
-                          <div>
-                            <Tip content={AMP_TIERS[selected.ampCategory].tip}>
-                              <span className="text-[11px] text-muted-foreground">
-                                AMP/ASCO/CAP
-                              </span>
-                            </Tip>
-                            <div className="text-sm font-semibold text-foreground">
-                              {AMP_TIERS[selected.ampCategory].label}
-                            </div>
-                          </div>
-                        )}
                       {selected.evidenceCount > 0 && (
                         <div>
                           <span className="text-[11px] text-muted-foreground">

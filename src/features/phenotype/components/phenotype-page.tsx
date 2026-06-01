@@ -624,7 +624,6 @@ export function PhenotypePage({
           emptyMessage="No disease associations available"
         />
       </TabsContent>
-
     </Tabs>
   );
 }

@@ -9,7 +9,14 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { API_BASE } from "@/config/api";
 
 export { assignDomainColors, domainColor } from "./colors";
-export type { ProteinDomain, ProteinStructureViewProps } from "./types";
+export { ProteinHeader, ProteinPanels } from "./protein-object";
+export type {
+  ComplexRow,
+  ProteinDomain,
+  ProteinStructureViewProps,
+  ProteinSummary,
+  TranscriptRow,
+} from "./types";
 
 import type { ProteinDomain, ProteinStructureViewProps } from "./types";
 
