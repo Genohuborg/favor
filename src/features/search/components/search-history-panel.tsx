@@ -26,7 +26,6 @@ const TYPE_LABEL: Record<string, string> = {
   drug: "drug",
   pathways: "pathway",
   phenotypes: "phenotype",
-  studies: "study",
   go_terms: "GO term",
   side_effects: "side effect",
   ccre: "cCRE",

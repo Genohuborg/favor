@@ -8,8 +8,6 @@ export type EdgeType =
   | "GENE_ALTERED_IN_DISEASE"
   // Gene → Drug
   | "GENE_AFFECTS_DRUG_RESPONSE"
-  // Gene → Entity (was Trait)
-  | "GENE_ASSOCIATED_WITH_ENTITY"
   // Gene → Pathway
   | "GENE_PARTICIPATES_IN_PATHWAY"
   // Gene → GOTerm
@@ -38,14 +36,10 @@ export type EdgeType =
   // Variant → Gene
   | "VARIANT_IMPLIES_GENE"
   | "VARIANT_AFFECTS_GENE"
-  // Variant → Entity/Disease/Phenotype (trait associations)
-  | "VARIANT_ASSOCIATED_WITH_TRAIT__Entity"
-  | "VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype"
-  | "VARIANT_ASSOCIATED_WITH_TRAIT__Disease"
+  // Variant → Disease (trait association; ClinVar/PGx)
+  | "VARIANT_ASSOCIATED_WITH_TRAIT"
   // Variant → Drug
   | "VARIANT_ASSOCIATED_WITH_DRUG"
-  // Variant → Study
-  | "VARIANT_ASSOCIATED_WITH_STUDY"
   // Variant → SideEffect
   | "VARIANT_LINKED_TO_SIDE_EFFECT"
   // Variant → cCRE
@@ -58,19 +52,12 @@ export type EdgeType =
   | "PHENOTYPE_EQUIVALENT_TO"
   | "PHENOTYPE_HIERARCHY"
   | "PHENOTYPE_CLOSURE"
-  // Study → Entity/Disease/Phenotype
-  | "STUDY_INVESTIGATES_TRAIT__Entity"
-  | "STUDY_INVESTIGATES_TRAIT__Disease"
-  | "STUDY_INVESTIGATES_TRAIT__Phenotype"
   // Disease → Disease
   | "DISEASE_SUBCLASS_OF_DISEASE"
   | "DISEASE_ANCESTOR_OF_DISEASE"
   // Pathway → Pathway
   | "PATHWAY_PART_OF_PATHWAY"
   | "PATHWAY_ANCESTOR_OF_PATHWAY"
-  // Entity → Entity (was EFO)
-  | "ENTITY_HIERARCHY"
-  | "ENTITY_CLOSURE"
   // GO → GO
   | "GO_HIERARCHY"
   | "GO_CLOSURE"
@@ -79,7 +66,6 @@ export type EdgeType =
   | "METABOLITE_IS_A_METABOLITE"
   // Signal (all new)
   | "SIGNAL_ASSOCIATED_WITH_TRAIT__Disease"
-  | "SIGNAL_ASSOCIATED_WITH_TRAIT__Entity"
   | "SIGNAL_ASSOCIATED_WITH_TRAIT__Phenotype"
   | "SIGNAL_HAS_VARIANT"
   | "SIGNAL_IMPLIES_GENE"
@@ -97,8 +83,6 @@ export const EDGE_TYPE_DATABASE: Record<EdgeType, string> = {
   GENE_ALTERED_IN_DISEASE: "COSMIC",
   // Gene → Drug
   GENE_AFFECTS_DRUG_RESPONSE: "PharmGKB",
-  // Gene → Entity
-  GENE_ASSOCIATED_WITH_ENTITY: "GWAS Catalog",
   // Gene → Pathway
   GENE_PARTICIPATES_IN_PATHWAY: "Reactome",
   // Gene → GOTerm
@@ -127,14 +111,10 @@ export const EDGE_TYPE_DATABASE: Record<EdgeType, string> = {
   // Variant → Gene (multi-source — per-edge `source` field is more accurate)
   VARIANT_IMPLIES_GENE: "ClinVar + OpenTargets",
   VARIANT_AFFECTS_GENE: "GENCODE + AlphaMissense",
-  // Variant → Entity/Disease/Phenotype
-  VARIANT_ASSOCIATED_WITH_TRAIT__Entity: "GWAS Catalog",
-  VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype: "GWAS Catalog",
-  VARIANT_ASSOCIATED_WITH_TRAIT__Disease: "ClinVar",
+  // Variant → Disease (trait association)
+  VARIANT_ASSOCIATED_WITH_TRAIT: "ClinVar",
   // Variant → Drug
   VARIANT_ASSOCIATED_WITH_DRUG: "PharmGKB",
-  // Variant → Study
-  VARIANT_ASSOCIATED_WITH_STUDY: "GWAS Catalog",
   // Variant → SideEffect
   VARIANT_LINKED_TO_SIDE_EFFECT: "PharmGKB",
   // Variant → cCRE
@@ -147,19 +127,12 @@ export const EDGE_TYPE_DATABASE: Record<EdgeType, string> = {
   PHENOTYPE_EQUIVALENT_TO: "HPO",
   PHENOTYPE_HIERARCHY: "HPO",
   PHENOTYPE_CLOSURE: "HPO",
-  // Study → trait
-  STUDY_INVESTIGATES_TRAIT__Entity: "GWAS Catalog",
-  STUDY_INVESTIGATES_TRAIT__Disease: "GWAS Catalog",
-  STUDY_INVESTIGATES_TRAIT__Phenotype: "GWAS Catalog",
   // Disease → Disease
   DISEASE_SUBCLASS_OF_DISEASE: "MONDO",
   DISEASE_ANCESTOR_OF_DISEASE: "MONDO",
   // Pathway → Pathway
   PATHWAY_PART_OF_PATHWAY: "Reactome",
   PATHWAY_ANCESTOR_OF_PATHWAY: "Reactome",
-  // Entity → Entity
-  ENTITY_HIERARCHY: "EFO",
-  ENTITY_CLOSURE: "EFO",
   // GO → GO
   GO_HIERARCHY: "Gene Ontology",
   GO_CLOSURE: "Gene Ontology",
@@ -168,7 +141,6 @@ export const EDGE_TYPE_DATABASE: Record<EdgeType, string> = {
   METABOLITE_IS_A_METABOLITE: "ChEBI",
   // Signal
   SIGNAL_ASSOCIATED_WITH_TRAIT__Disease: "GWAS Catalog",
-  SIGNAL_ASSOCIATED_WITH_TRAIT__Entity: "GWAS Catalog",
   SIGNAL_ASSOCIATED_WITH_TRAIT__Phenotype: "GWAS Catalog",
   SIGNAL_HAS_VARIANT: "GWAS Catalog",
   SIGNAL_IMPLIES_GENE: "OpenTargets",
@@ -205,12 +177,6 @@ export const EDGE_TYPE_CONFIG: Record<
     label: "Gene Affects Drug Response",
     color: "#06b6d4",
     description: "Pharmacogenomic gene–drug interaction",
-  },
-  // Gene → Entity (Amber family)
-  GENE_ASSOCIATED_WITH_ENTITY: {
-    label: "Gene–Trait Association",
-    color: "#f59e0b",
-    description: "Gene associated with trait via GWAS",
   },
   // Gene → Pathway (Purple family)
   GENE_PARTICIPATES_IN_PATHWAY: {
@@ -304,18 +270,8 @@ export const EDGE_TYPE_CONFIG: Record<
     color: "#ea580c",
     description: "Variant molecular impact on gene",
   },
-  // Variant → Entity/Disease/Phenotype (Yellow family)
-  VARIANT_ASSOCIATED_WITH_TRAIT__Entity: {
-    label: "Variant–Trait GWAS",
-    color: "#eab308",
-    description: "Variant GWAS associated with trait",
-  },
-  VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype: {
-    label: "Variant–Phenotype GWAS",
-    color: "#ca8a04",
-    description: "Variant GWAS associated with phenotype",
-  },
-  VARIANT_ASSOCIATED_WITH_TRAIT__Disease: {
+  // Variant → Disease (Yellow family)
+  VARIANT_ASSOCIATED_WITH_TRAIT: {
     label: "Variant–Disease Association",
     color: "#d97706",
     description: "Variant associated with disease (ClinVar/PGx)",
@@ -325,12 +281,6 @@ export const EDGE_TYPE_CONFIG: Record<
     label: "Variant–Drug Response",
     color: "#fbbf24",
     description: "Variant associated with drug response",
-  },
-  // Variant → Study
-  VARIANT_ASSOCIATED_WITH_STUDY: {
-    label: "Reported in Study",
-    color: "#f59e0b",
-    description: "Variant reported in GWAS study",
   },
   // Variant → SideEffect
   VARIANT_LINKED_TO_SIDE_EFFECT: {
@@ -372,22 +322,6 @@ export const EDGE_TYPE_CONFIG: Record<
     color: "#9ca3af",
     description: "Phenotype ancestor of",
   },
-  // Study → trait (Teal family)
-  STUDY_INVESTIGATES_TRAIT__Entity: {
-    label: "Investigates Trait",
-    color: "#14b8a6",
-    description: "Study investigates trait",
-  },
-  STUDY_INVESTIGATES_TRAIT__Disease: {
-    label: "Investigates Disease",
-    color: "#0d9488",
-    description: "Study investigates disease",
-  },
-  STUDY_INVESTIGATES_TRAIT__Phenotype: {
-    label: "Investigates Phenotype",
-    color: "#115e59",
-    description: "Study investigates phenotype",
-  },
   // Disease → Disease (Gray family)
   DISEASE_SUBCLASS_OF_DISEASE: {
     label: "Disease Subclass",
@@ -409,17 +343,6 @@ export const EDGE_TYPE_CONFIG: Record<
     label: "Pathway Ancestor",
     color: "#818cf8",
     description: "Pathway ancestor of",
-  },
-  // Entity → Entity (Gray family)
-  ENTITY_HIERARCHY: {
-    label: "Trait Hierarchy",
-    color: "#6b7280",
-    description: "Trait subclass hierarchy (EFO)",
-  },
-  ENTITY_CLOSURE: {
-    label: "Trait Closure",
-    color: "#9ca3af",
-    description: "Trait ancestor (transitive closure)",
   },
   // GO → GO
   GO_HIERARCHY: {
@@ -448,11 +371,6 @@ export const EDGE_TYPE_CONFIG: Record<
     label: "Signal–Disease",
     color: "#4f46e5",
     description: "Signal associated with disease",
-  },
-  SIGNAL_ASSOCIATED_WITH_TRAIT__Entity: {
-    label: "Signal–Trait",
-    color: "#6366f1",
-    description: "Signal associated with trait",
   },
   SIGNAL_ASSOCIATED_WITH_TRAIT__Phenotype: {
     label: "Signal–Phenotype",

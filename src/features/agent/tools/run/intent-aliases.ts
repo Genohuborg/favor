@@ -40,7 +40,6 @@ export const INTENT_CONFIG: Record<TargetIntent, IntentConfig> = {
   side_effects: { nodeType: "SideEffect", canonicalIntent: "adverse_effects" },
   go_terms: { nodeType: "GOTerm" },
   metabolites: { nodeType: "Metabolite" },
-  studies: { nodeType: "Study" },
   signals: { nodeType: "Signal" },
   drug_interactions: {
     nodeType: "Drug",
@@ -181,20 +180,12 @@ const EDGE_PREFERENCE: Record<string, string[]> = {
   // Variant→Drug (PGx): direct edge exists, prefer it for Variant seeds
   "Variant→Drug": ["VARIANT_ASSOCIATED_WITH_DRUG"],
   "Drug→Variant": ["VARIANT_ASSOCIATED_WITH_DRUG"],
-  // Variant→Disease/Phenotype GWAS trait associations
-  "Variant→Disease": ["VARIANT_ASSOCIATED_WITH_TRAIT__Disease"],
-  "Disease→Variant": ["VARIANT_ASSOCIATED_WITH_TRAIT__Disease"],
-  "Variant→Phenotype": ["VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype"],
-  "Phenotype→Variant": ["VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype"],
+  // Variant→Disease trait associations (ClinVar/PGx)
+  "Variant→Disease": ["VARIANT_ASSOCIATED_WITH_TRAIT"],
+  "Disease→Variant": ["VARIANT_ASSOCIATED_WITH_TRAIT"],
   // Variant→SideEffect PGx link
   "Variant→SideEffect": ["VARIANT_LINKED_TO_SIDE_EFFECT"],
   "SideEffect→Variant": ["VARIANT_LINKED_TO_SIDE_EFFECT"],
-  // Gene→Entity GWAS trait associations (biomarkers, measurements)
-  "Gene→Entity": ["GENE_ASSOCIATED_WITH_ENTITY"],
-  "Entity→Gene": ["GENE_ASSOCIATED_WITH_ENTITY"],
-  // Variant→Entity GWAS trait associations
-  "Variant→Entity": ["VARIANT_ASSOCIATED_WITH_TRAIT__Entity"],
-  "Entity→Variant": ["VARIANT_ASSOCIATED_WITH_TRAIT__Entity"],
   // Pathway→Metabolite containment
   "Pathway→Metabolite": ["PATHWAY_CONTAINS_METABOLITE"],
   "Metabolite→Pathway": ["PATHWAY_CONTAINS_METABOLITE"],

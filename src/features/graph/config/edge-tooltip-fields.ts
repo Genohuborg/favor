@@ -18,9 +18,9 @@ export interface TooltipField {
 export const EDGE_TOOLTIP_FIELDS: Record<EdgeType, TooltipField[]> = {
   // ── Gene → Disease ──────────────────────────────────────────────────────
   GENE_ASSOCIATED_WITH_DISEASE: [
-    { key: "overall_score", label: "Score", format: "score" },
+    { key: "ot_score", label: "Score", format: "score" },
     { key: "evidence_count", label: "Evidence", format: "number" },
-    { key: "num_datatypes", label: "Data Types", format: "number" },
+    { key: "ot_num_datatypes", label: "Data Types", format: "number" },
   ],
   GENE_ALTERED_IN_DISEASE: [
     { key: "alteration_type", label: "Alteration" },
@@ -33,13 +33,6 @@ export const EDGE_TOOLTIP_FIELDS: Record<EdgeType, TooltipField[]> = {
     { key: "clinical_significance", label: "Significance" },
     { key: "evidence_level", label: "Evidence Level" },
     { key: "n_evidence", label: "Evidence Count", format: "number" },
-  ],
-
-  // ── Gene → Trait (Entity) ──────────────────────────────────────────────
-  GENE_ASSOCIATED_WITH_ENTITY: [
-    { key: "best_p_value_mlog", label: "-log10(p)", format: "score" },
-    { key: "total_score", label: "Total Score", format: "score" },
-    { key: "n_studies", label: "Studies", format: "number" },
   ],
 
   // ── Gene → Pathway ─────────────────────────────────────────────────────
@@ -142,18 +135,8 @@ export const EDGE_TOOLTIP_FIELDS: Record<EdgeType, TooltipField[]> = {
     { key: "review_status", label: "Review" },
   ],
 
-  // ── Variant → Trait/Disease/Phenotype ──────────────────────────────────
-  VARIANT_ASSOCIATED_WITH_TRAIT__Entity: [
-    { key: "p_value_mlog", label: "-log10(p)", format: "score" },
-    { key: "or_beta", label: "Beta", format: "score" },
-    { key: "risk_allele", label: "Risk Allele" },
-  ],
-  VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype: [
-    { key: "p_value_mlog", label: "-log10(p)", format: "score" },
-    { key: "or_beta", label: "Beta", format: "score" },
-    { key: "risk_allele", label: "Risk Allele" },
-  ],
-  VARIANT_ASSOCIATED_WITH_TRAIT__Disease: [
+  // ── Variant → Disease (trait association) ──────────────────────────────
+  VARIANT_ASSOCIATED_WITH_TRAIT: [
     { key: "clinical_significance", label: "Significance" },
     { key: "review_status", label: "Review" },
     { key: "significance", label: "Direction" },
@@ -164,13 +147,6 @@ export const EDGE_TOOLTIP_FIELDS: Record<EdgeType, TooltipField[]> = {
     { key: "significance", label: "Significance" },
     { key: "evidence_level", label: "Evidence Level" },
     { key: "direction_of_effect", label: "Effect Direction" },
-  ],
-
-  // ── Variant → Study ────────────────────────────────────────────────────
-  VARIANT_ASSOCIATED_WITH_STUDY: [
-    { key: "p_value_mlog", label: "-log10(p)", format: "score" },
-    { key: "or_beta", label: "Beta", format: "score" },
-    { key: "risk_allele", label: "Risk Allele" },
   ],
 
   // ── Variant → Side Effect ──────────────────────────────────────────────
@@ -213,20 +189,6 @@ export const EDGE_TOOLTIP_FIELDS: Record<EdgeType, TooltipField[]> = {
     { key: "relationship_type", label: "Relation" },
   ],
 
-  // ── Study → Trait ──────────────────────────────────────────────────────
-  STUDY_INVESTIGATES_TRAIT__Entity: [
-    { key: "study_title", label: "Study" },
-    { key: "trait_name", label: "Trait" },
-  ],
-  STUDY_INVESTIGATES_TRAIT__Disease: [
-    { key: "study_title", label: "Study" },
-    { key: "trait_name", label: "Trait" },
-  ],
-  STUDY_INVESTIGATES_TRAIT__Phenotype: [
-    { key: "study_title", label: "Study" },
-    { key: "trait_name", label: "Trait" },
-  ],
-
   // ── Disease hierarchy ──────────────────────────────────────────────────
   DISEASE_SUBCLASS_OF_DISEASE: [
     { key: "distance", label: "Distance", format: "number" },
@@ -242,13 +204,6 @@ export const EDGE_TOOLTIP_FIELDS: Record<EdgeType, TooltipField[]> = {
     { key: "distance", label: "Distance", format: "number" },
   ],
   PATHWAY_ANCESTOR_OF_PATHWAY: [
-    { key: "distance", label: "Distance", format: "number" },
-    { key: "relationship_type", label: "Relation" },
-  ],
-
-  // ── Trait (Entity) hierarchy ───────────────────────────────────────────
-  ENTITY_HIERARCHY: [{ key: "distance", label: "Distance", format: "number" }],
-  ENTITY_CLOSURE: [
     { key: "distance", label: "Distance", format: "number" },
     { key: "relationship_type", label: "Relation" },
   ],
@@ -272,10 +227,6 @@ export const EDGE_TOOLTIP_FIELDS: Record<EdgeType, TooltipField[]> = {
 
   // ── Signal ─────────────────────────────────────────────────────────────
   SIGNAL_ASSOCIATED_WITH_TRAIT__Disease: [
-    { key: "p_value_mlog", label: "-log10(p)", format: "score" },
-    { key: "or_beta", label: "Beta", format: "score" },
-  ],
-  SIGNAL_ASSOCIATED_WITH_TRAIT__Entity: [
     { key: "p_value_mlog", label: "-log10(p)", format: "score" },
     { key: "or_beta", label: "Beta", format: "score" },
   ],

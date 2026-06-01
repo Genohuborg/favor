@@ -41,12 +41,6 @@ export function getEntityUrl(
     case "phenotypes":
       return `/phenotype/${id}`;
 
-    case "studies":
-      return `/study/${id}`;
-
-    case "entities":
-      return `/entity/${id}`;
-
     case "go_terms":
       return `/go-term/${id}`;
 

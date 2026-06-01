@@ -68,7 +68,7 @@ const INTENT_GUIDE = `## EDGE TABLE & COMPOSABILITY
 
 **Disease →** genes (→Gene), drug_indications (→Drug), phenotypes (→Phenotype), variants (→Variant), signals (→Signal)
 
-**Variant →** genes (→Gene), diseases (→Disease), ccres (→cCRE), drugs (→Drug), studies (→Study), signals (→Signal)
+**Variant →** genes (→Gene), diseases (→Disease), ccres (→cCRE), drugs (→Drug), signals (→Signal)
 
 **Drug →** drug_targets (→Gene), drug_indications (→Disease), adverse_effects (→AdverseEffect), drug_interactions (→Drug or SideEffect — cascade tries Drug-producing edge first)
 
@@ -80,7 +80,7 @@ const INTENT_GUIDE = `## EDGE TABLE & COMPOSABILITY
 
 **cCRE →** genes (→Gene) _(terminal — no outbound edges)_
 
-⚠ **Terminal types**: ProteinDomain, GOTerm, Study, Signal, cCRE, Metabolite, AdverseEffect are leaf types — they have inbound edges only. Do NOT chain FROM these types.
+⚠ **Terminal types**: ProteinDomain, GOTerm, Signal, cCRE, Metabolite, AdverseEffect are leaf types — they have inbound edges only. Do NOT chain FROM these types.
 ⚠ **Disease hierarchy**: subtypes/parent diseases are NOT available via explore/traverse. Use Read entity/{type}/{id} with ontology endpoints for hierarchy.
 
 ### Composing chains
@@ -442,7 +442,7 @@ const ANTI_PATTERNS = `## ANTI-PATTERNS
 ❌ \`limit\` in traverse steps / \`top\` in explore → ✅ traverse uses \`top\` (per-step cap), explore uses \`limit\` (total cap). Using \`limit\` on traverse is silently ignored. Using \`top\` on explore is stripped by validation.
 ❌ \`top:0\` or \`top:-1\` → ✅ Always use positive integers for top/limit (minimum 1)
 ❌ Guessing entity IDs or type/id format → ✅ Use {label:"X"} for fuzzy lookup, or extract exact {type, id} from a prior result
-❌ Chaining FROM terminal types (ProteinDomain, GOTerm, Study, etc.) → ✅ These are leaf types with no outbound edges
+❌ Chaining FROM terminal types (ProteinDomain, GOTerm, Signal, etc.) → ✅ These are leaf types with no outbound edges
 
 ### Output
 ❌ Labeled sections: "Convergence:", "Strength gaps:" → ✅ Direct observations without labels

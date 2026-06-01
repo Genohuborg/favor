@@ -514,10 +514,9 @@ export interface GraphSchemaResponse {
         }
     >;
     edgeTypes: Array<{
-      type: string;
-      count: number;
-      sourceTypes: string[];
-      targetTypes: string[];
+      edgeType: string;
+      fromType?: string;
+      toType?: string;
       label?: string;
       defaultScoreField?: string;
       scoreFields?: string[];

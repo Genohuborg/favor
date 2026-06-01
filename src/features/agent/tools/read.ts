@@ -608,7 +608,16 @@ async function readArtifact(artifactId: string, offset: number, limit: number) {
   );
 }
 
+// Node types removed from the graph — /graph/{type}/{id} returns 400 for these.
+const UNSUPPORTED_ENTITY_TYPES = new Set(["Study", "Entity"]);
+
 async function readEntityProfile(type: string, id: string) {
+  if (UNSUPPORTED_ENTITY_TYPES.has(type)) {
+    return {
+      error: true,
+      message: `Entity type '${type}' is no longer available in the graph.`,
+    };
+  }
   // M10: Support richer includes — counts, edges, rollups, agreements
   try {
     const resp = await agentFetch<{

@@ -26,13 +26,10 @@ export interface TraitPoint {
   studyId?: string | null;
 }
 
-const EDGE_TYPES = [
-  "VARIANT_ASSOCIATED_WITH_TRAIT__Entity",
-  "VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype",
-  "VARIANT_ASSOCIATED_WITH_TRAIT__Disease",
-] as const;
-
-type Origin = "Entity" | "Phenotype" | "Disease";
+// The graph collapsed the per-trait-bucket edges into a single Variant→Disease
+// edge. Non-disease GWAS associations now surface through the REST-backed
+// catalog table; this scatter plots the disease-trait associations.
+const EDGE_TYPES = ["VARIANT_ASSOCIATED_WITH_TRAIT"] as const;
 
 function numOrNull(v: unknown): number | null {
   if (v === null || v === undefined) return null;
@@ -101,23 +98,16 @@ async function fetchDiseaseCategories(
 
 function transformRow(
   row: EdgeRow,
-  origin: Origin,
   index: number,
   diseaseCategories: Map<string, string>,
 ): TraitPoint {
   const traitId = row.neighbor.id;
-  const category =
-    origin === "Entity"
-      ? nb<string>(row, "semantic_class") || "other"
-      : origin === "Disease"
-        ? (diseaseCategories.get(traitId) ?? "disease")
-        : "phenotype";
 
   return {
-    id: `${origin}-${traitId}-${index}`,
+    id: `${traitId}-${index}`,
     traitName:
       strOrNull(ep(row, "trait_name")) ?? strOrNull(nb(row, "name")) ?? traitId,
-    category,
+    category: diseaseCategories.get(traitId) ?? "disease",
     yValue: numOrNull(ep(row, "p_value_mlog")),
     orBeta: numOrNull(ep(row, "or_beta")),
     riskAlleleFreq: numOrNull(ep(row, "risk_allele_freq")),
@@ -138,32 +128,11 @@ export async function fetchVariantTraitAssociations(
   );
   if (!response) return [];
 
-  const entityRows = getEdgeRows(
-    response,
-    "VARIANT_ASSOCIATED_WITH_TRAIT__Entity",
-  );
-  const phenoRows = getEdgeRows(
-    response,
-    "VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype",
-  );
-  const diseaseRows = getEdgeRows(
-    response,
-    "VARIANT_ASSOCIATED_WITH_TRAIT__Disease",
-  );
+  const diseaseRows = getEdgeRows(response, "VARIANT_ASSOCIATED_WITH_TRAIT");
 
   const diseaseCategories = await fetchDiseaseCategories(
     Array.from(new Set(diseaseRows.map((r) => r.neighbor.id))),
   );
 
-  return [
-    ...entityRows.map((r, i) =>
-      transformRow(r, "Entity", i, diseaseCategories),
-    ),
-    ...phenoRows.map((r, i) =>
-      transformRow(r, "Phenotype", i, diseaseCategories),
-    ),
-    ...diseaseRows.map((r, i) =>
-      transformRow(r, "Disease", i, diseaseCategories),
-    ),
-  ];
+  return diseaseRows.map((r, i) => transformRow(r, i, diseaseCategories));
 }

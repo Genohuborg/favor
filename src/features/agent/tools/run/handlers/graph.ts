@@ -84,7 +84,7 @@ let edgeHumanLabels: Record<string, string> = {
   DRUG_PAIR_CAUSES_SIDE_EFFECT: "drug-pair side effect",
   VARIANT_OVERLAPS_CCRE: "cis-regulatory element overlap",
   CCRE_REGULATES_GENE: "cis-regulatory element–gene regulation",
-  VARIANT_ASSOCIATED_WITH_STUDY: "GWAS study association",
+  VARIANT_ASSOCIATED_WITH_TRAIT: "variant–disease trait association",
 };
 
 /** Map raw score field names → what they measure */
@@ -95,7 +95,6 @@ export const SCORE_HUMAN_LABEL: Record<string, string> = {
   max_clinical_phase: "most advanced clinical trial phase",
   pValue: "statistical significance (p-value)",
   combined_score: "combined interaction confidence",
-  overall_score: "overall association score",
   score: "association score",
   max_score: "maximum regulatory evidence score",
   affinity_median: "binding affinity (pKi/pIC50, higher = stronger)",

@@ -698,7 +698,7 @@ const drugColumns: ColumnDef<DrugRow>[] = [
 ];
 
 // ============================================================================
-// Variants — VARIANT_ASSOCIATED_WITH_TRAIT__Disease
+// Variants — VARIANT_ASSOCIATED_WITH_TRAIT
 // ============================================================================
 
 interface VariantRow {
@@ -837,60 +837,6 @@ const variantColumns: ColumnDef<VariantRow>[] = [
     id: "source",
     accessorKey: "source",
     header: "Source",
-    enableSorting: true,
-  },
-];
-
-// ============================================================================
-// Studies — STUDY_INVESTIGATES_TRAIT__Disease
-// ============================================================================
-
-interface StudyRow {
-  id: string;
-  title: string;
-  trait: string;
-  author: string;
-  journal: string;
-}
-
-function transformStudies(rows: EdgeRow[]): StudyRow[] {
-  return rows.map((r, i) => ({
-    id: `study-${i}`,
-    title: String(ep(r, "study_title") ?? nb(r, "title") ?? ""),
-    trait: String(ep(r, "trait_name") ?? nb(r, "trait") ?? ""),
-    author: String(nb(r, "author") ?? ""),
-    journal: String(nb(r, "journal") ?? ""),
-  }));
-}
-
-const studyColumns: ColumnDef<StudyRow>[] = [
-  {
-    id: "title",
-    accessorKey: "title",
-    header: "Study Title",
-    enableSorting: true,
-    cell: ({ row }) => (
-      <span className="text-[13px] line-clamp-2">
-        {row.original.title || "—"}
-      </span>
-    ),
-  },
-  {
-    id: "trait",
-    accessorKey: "trait",
-    header: "Trait",
-    enableSorting: true,
-  },
-  {
-    id: "author",
-    accessorKey: "author",
-    header: "Author",
-    enableSorting: true,
-  },
-  {
-    id: "journal",
-    accessorKey: "journal",
-    header: "Journal",
     enableSorting: true,
   },
 ];
@@ -1092,14 +1038,7 @@ export function DiseasePage({ disease, counts, relations }: DiseasePageProps) {
   );
   const variants = useMemo(
     () =>
-      transformVariants(
-        getRows(relations, "VARIANT_ASSOCIATED_WITH_TRAIT__Disease"),
-      ),
-    [relations],
-  );
-  const studies = useMemo(
-    () =>
-      transformStudies(getRows(relations, "STUDY_INVESTIGATES_TRAIT__Disease")),
+      transformVariants(getRows(relations, "VARIANT_ASSOCIATED_WITH_TRAIT")),
     [relations],
   );
   const phenotypes = useMemo(
@@ -1130,12 +1069,7 @@ export function DiseasePage({ disease, counts, relations }: DiseasePageProps) {
     {
       value: "variants",
       label: "Variants",
-      count: counts?.VARIANT_ASSOCIATED_WITH_TRAIT__Disease,
-    },
-    {
-      value: "studies",
-      label: "Studies",
-      count: counts?.STUDY_INVESTIGATES_TRAIT__Disease,
+      count: counts?.VARIANT_ASSOCIATED_WITH_TRAIT,
     },
     {
       value: "phenotypes",
@@ -1220,9 +1154,9 @@ export function DiseasePage({ disease, counts, relations }: DiseasePageProps) {
           data={variants}
           title="GWAS Variants"
           subtitle={
-            counts?.VARIANT_ASSOCIATED_WITH_TRAIT__Disease &&
-            counts.VARIANT_ASSOCIATED_WITH_TRAIT__Disease > 200
-              ? `Showing top 200 of ${fmtCount(counts.VARIANT_ASSOCIATED_WITH_TRAIT__Disease)} — most significant first`
+            counts?.VARIANT_ASSOCIATED_WITH_TRAIT &&
+            counts.VARIANT_ASSOCIATED_WITH_TRAIT > 200
+              ? `Showing top 200 of ${fmtCount(counts.VARIANT_ASSOCIATED_WITH_TRAIT)} — most significant first`
               : "Sorted by -log₁₀(P), most significant first"
           }
           searchPlaceholder="Search variants..."
@@ -1231,21 +1165,6 @@ export function DiseasePage({ disease, counts, relations }: DiseasePageProps) {
           exportFilename={`${disease.id}-variants`}
           defaultPageSize={25}
           emptyMessage="No variant association data available"
-        />
-      </TabsContent>
-
-      <TabsContent value="studies" className="pt-6">
-        <DataSurface
-          columns={studyColumns}
-          data={studies}
-          title="Studies"
-          subtitle="GWAS and clinical studies investigating this disease"
-          searchPlaceholder="Search studies..."
-          searchColumn="title"
-          exportable
-          exportFilename={`${disease.id}-studies`}
-          defaultPageSize={25}
-          emptyMessage="No study data available"
         />
       </TabsContent>
 

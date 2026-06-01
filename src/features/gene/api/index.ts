@@ -239,12 +239,12 @@ export interface PathwayEnrichmentResponse {
 }
 
 interface PathwayRelationRows {
-  PART_OF?: {
+  PATHWAY_PART_OF_PATHWAY?: {
     rows: Array<{
       neighbor: { id: string; name?: string; label?: string; type: string };
     }>;
   };
-  PARTICIPATES_IN?: {
+  GENE_PARTICIPATES_IN_PATHWAY?: {
     rows: Array<{
       neighbor: {
         id: string;
@@ -284,15 +284,15 @@ export async function fetchPathwayEnrichment(
     const opts = { revalidate: 300 };
     const [parentData, childrenData, genesData] = await Promise.all([
       fetchOrNull<PathwayRelationsResponse>(
-        `${base}?include=edges&edgeTypes=PART_OF&direction=out&limitPerEdgeType=5`,
+        `${base}?include=edges&edgeTypes=PATHWAY_PART_OF_PATHWAY&direction=out&limitPerEdgeType=5`,
         opts,
       ),
       fetchOrNull<PathwayRelationsResponse>(
-        `${base}?include=edges&edgeTypes=PART_OF&direction=in&limitPerEdgeType=20`,
+        `${base}?include=edges&edgeTypes=PATHWAY_PART_OF_PATHWAY&direction=in&limitPerEdgeType=20`,
         opts,
       ),
       fetchOrNull<PathwayRelationsResponse>(
-        `${base}?include=edges&edgeTypes=PARTICIPATES_IN&direction=in&limitPerEdgeType=100`,
+        `${base}?include=edges&edgeTypes=GENE_PARTICIPATES_IN_PATHWAY&direction=in&limitPerEdgeType=100`,
         opts,
       ),
     ]);
@@ -301,11 +301,11 @@ export async function fetchPathwayEnrichment(
     const childRelations = getRelations(childrenData);
     const geneRelations = getRelations(genesData);
 
-    // Extract parent: PART_OF direction=out means this pathway is the child (source),
-    // neighbors are the parents. Filter out self-references.
-    const parentRows = (parentRelations?.PART_OF?.rows ?? []).filter(
-      (row) => row?.neighbor?.id && row.neighbor.id !== pathwayId,
-    );
+    // Extract parent: PATHWAY_PART_OF_PATHWAY direction=out means this pathway is
+    // the child (source), neighbors are the parents. Filter out self-references.
+    const parentRows = (
+      parentRelations?.PATHWAY_PART_OF_PATHWAY?.rows ?? []
+    ).filter((row) => row?.neighbor?.id && row.neighbor.id !== pathwayId);
     const firstParent = parentRows[0]?.neighbor;
     const parentPathway = firstParent
       ? {
@@ -314,17 +314,17 @@ export async function fetchPathwayEnrichment(
         }
       : null;
 
-    // Extract children: PART_OF direction=in means this pathway is the parent (target),
-    // neighbors are the children. Filter out self-references.
-    const childRows = (childRelations?.PART_OF?.rows ?? []).filter(
-      (row) => row?.neighbor?.id && row.neighbor.id !== pathwayId,
-    );
+    // Extract children: PATHWAY_PART_OF_PATHWAY direction=in means this pathway is
+    // the parent (target), neighbors are the children. Filter out self-references.
+    const childRows = (
+      childRelations?.PATHWAY_PART_OF_PATHWAY?.rows ?? []
+    ).filter((row) => row?.neighbor?.id && row.neighbor.id !== pathwayId);
     const childPathways = childRows.map((row) => ({
       id: row.neighbor.id,
       name: row.neighbor.name ?? row.neighbor.label ?? row.neighbor.id,
     }));
 
-    const geneRows = geneRelations?.PARTICIPATES_IN?.rows ?? [];
+    const geneRows = geneRelations?.GENE_PARTICIPATES_IN_PATHWAY?.rows ?? [];
     const genes = geneRows.filter((row) => row?.neighbor?.type === "Gene");
     const geneCount = genes.length;
 
@@ -340,7 +340,7 @@ export async function fetchPathwayEnrichment(
           g.neighbor.id,
       }));
 
-    // Pathway→Gene→Disease requires depth 2 via PARTICIPATES_IN + ASSOCIATED_WITH_DISEASE
+    // Pathway→Gene→Disease requires depth 2 via GENE_PARTICIPATES_IN_PATHWAY + GENE_ASSOCIATED_WITH_DISEASE
     const subgraphResponse = await fetchSubgraph({
       seeds: [{ type: "Pathway", id: pathwayId }],
       maxDepth: 2,

@@ -21,8 +21,6 @@ const NODE_META: Record<string, { bg: string; border: string; label: string }> =
     Drug: { bg: "#d1fae5", border: "#10b981", label: "Drug" },
     Phenotype: { bg: "#fae8ff", border: "#d946ef", label: "Phenotype" },
     Signal: { bg: "#e0e7ff", border: "#6366f1", label: "Signal" },
-    Study: { bg: "#e0f2fe", border: "#0284c7", label: "Study" },
-    Entity: { bg: "#fce7f3", border: "#ec4899", label: "Entity" },
     Pathway: { bg: "#ede9fe", border: "#8b5cf6", label: "Pathway" },
     GOTerm: { bg: "#dcfce7", border: "#16a34a", label: "GO Term" },
     Tissue: { bg: "#ccfbf1", border: "#14b8a6", label: "Tissue" },
@@ -71,12 +69,6 @@ const SCHEMA_EDGES: SchemaEdge[] = [
     sources: ["HPO", "OMIM", "Orphanet"],
   },
   { from: "Gene", to: "Phenotype", label: "associated with", sources: ["HPO"] },
-  {
-    from: "Variant",
-    to: "Phenotype",
-    label: "associated with",
-    sources: ["GWAS Catalog"],
-  },
 
   // Pharmacogenomics
   {
@@ -169,24 +161,6 @@ const SCHEMA_EDGES: SchemaEdge[] = [
 
   // GWAS provenance
   {
-    from: "Study",
-    to: "Disease",
-    label: "investigates",
-    sources: ["GWAS Catalog"],
-  },
-  {
-    from: "Study",
-    to: "Phenotype",
-    label: "investigates",
-    sources: ["GWAS Catalog"],
-  },
-  {
-    from: "Study",
-    to: "Entity",
-    label: "investigates",
-    sources: ["GWAS Catalog"],
-  },
-  {
     from: "Signal",
     to: "Disease",
     label: "associated with",
@@ -195,12 +169,6 @@ const SCHEMA_EDGES: SchemaEdge[] = [
   {
     from: "Signal",
     to: "Phenotype",
-    label: "associated with",
-    sources: ["GWAS Catalog"],
-  },
-  {
-    from: "Signal",
-    to: "Entity",
     label: "associated with",
     sources: ["GWAS Catalog"],
   },
@@ -215,24 +183,6 @@ const SCHEMA_EDGES: SchemaEdge[] = [
     to: "Gene",
     label: "implies gene",
     sources: ["OpenTargets L2G"],
-  },
-  {
-    from: "Variant",
-    to: "Study",
-    label: "reported in",
-    sources: ["GWAS Catalog"],
-  },
-  {
-    from: "Variant",
-    to: "Entity",
-    label: "associated with",
-    sources: ["GWAS Catalog"],
-  },
-  {
-    from: "Gene",
-    to: "Entity",
-    label: "associated with",
-    sources: ["GWAS Catalog"],
   },
 
   // Regulatory

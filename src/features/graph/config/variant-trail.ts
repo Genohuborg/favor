@@ -52,7 +52,7 @@ export const VARIANT_TRAIL_CONFIG: Partial<
       {
         steps: [
           {
-            edgeTypes: ["VARIANT_ASSOCIATED_WITH_TRAIT__Disease"],
+            edgeTypes: ["VARIANT_ASSOCIATED_WITH_TRAIT"],
             direction: "in",
             limit: 25,
           },
@@ -71,40 +71,6 @@ export const VARIANT_TRAIL_CONFIG: Partial<
             edgeTypes: ["VARIANT_ASSOCIATED_WITH_DRUG"],
             direction: "in",
             limit: 25,
-          },
-        ],
-        routeBadge: "Direct",
-      },
-    ],
-    maxNodes: 140,
-    maxEdges: 260,
-  },
-  Entity: {
-    routes: [
-      {
-        steps: [
-          {
-            edgeTypes: ["VARIANT_ASSOCIATED_WITH_TRAIT__Entity"],
-            direction: "in",
-            limit: 25,
-            sort: "-p_value_mlog",
-          },
-        ],
-        routeBadge: "Direct",
-      },
-    ],
-    maxNodes: 140,
-    maxEdges: 260,
-  },
-  Study: {
-    routes: [
-      {
-        steps: [
-          {
-            edgeTypes: ["VARIANT_ASSOCIATED_WITH_STUDY"],
-            direction: "in",
-            limit: 25,
-            sort: "-p_value_mlog",
           },
         ],
         routeBadge: "Direct",
@@ -161,7 +127,7 @@ export const VARIANT_TRAIL_CONFIG: Partial<
         steps: [
           { edgeTypes: ["DISEASE_HAS_PHENOTYPE"], direction: "in", limit: 10 },
           {
-            edgeTypes: ["VARIANT_ASSOCIATED_WITH_TRAIT__Disease"],
+            edgeTypes: ["VARIANT_ASSOCIATED_WITH_TRAIT"],
             direction: "in",
             limit: 15,
           },

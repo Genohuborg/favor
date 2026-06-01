@@ -33,9 +33,6 @@ export function errorState<T>(error: string): FetchState<T> {
 
 export interface EdgeTypeStats {
   edgeType: EdgeType;
-  count: number;
-  sourceTypes: EntityType[];
-  targetTypes: EntityType[];
   label?: string;
   defaultScoreField?: string;
   scoreFields?: string[];
