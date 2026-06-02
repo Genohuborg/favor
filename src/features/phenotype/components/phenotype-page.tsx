@@ -561,7 +561,7 @@ export function PhenotypePage({
 
   return (
     <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-2">
-      <div className="border-b border-border overflow-x-auto">
+      <div className="border-b border-border overflow-x-auto overflow-y-hidden">
         <TabsList variant="line" className="w-full justify-start p-0 h-auto">
           {tabs.map((tab) => {
             if (
