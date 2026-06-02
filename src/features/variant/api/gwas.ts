@@ -166,7 +166,8 @@ export async function fetchAllGwasAssociations(
   maxResults = 1000,
 ): Promise<GwasAssociationRow[]> {
   try {
-    const normalizedVcf = vcf.startsWith("chr") ? vcf : `chr${vcf}`;
+    // Pass the reference as-is (rsID or VCF); prefixing "chr" onto an rsID
+    // makes the API reject it. See buildGwasUrl.
     const allRows: GwasAssociationRow[] = [];
     let cursor: string | null = null;
     const pageSize = 100;
@@ -193,7 +194,7 @@ export async function fetchAllGwasAssociations(
         params.set("cursor", cursor);
       }
 
-      const fetchUrl = `${API_BASE}/gwas/${encodeURIComponent(normalizedVcf)}?${params.toString()}`;
+      const fetchUrl = `${API_BASE}/gwas/${encodeURIComponent(vcf)}?${params.toString()}`;
       const response: GwasApiResponse | null =
         await fetchOrNull<GwasApiResponse>(fetchUrl);
 
