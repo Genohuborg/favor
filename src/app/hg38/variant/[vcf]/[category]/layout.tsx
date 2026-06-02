@@ -31,18 +31,20 @@ export default async function VariantLayout({
     notFound();
   }
 
-  // Fetch variant + tab-availability counts in parallel. The four graph-
-  // backed tabs (credible-sets, l2g-scores, pharmacogenomics, gwas-catalog)
-  // can't be resolved from the Variant payload alone — fetchTabAvailability
-  // hits the graph + GWAS endpoints with limit=1 and returns slugs to disable.
-  const [result, externalDisabledSlugs] = await Promise.all([
-    fetchVariantWithCookie(vcf),
-    fetchTabAvailability(vcf).catch(() => [] as string[]),
-  ]);
+  const result = await fetchVariantWithCookie(vcf);
 
   if (!result) {
     notFound();
   }
+
+  // Tab-availability hits the graph + GWAS endpoints for the four graph-backed
+  // tabs (credible-sets, l2g-scores, pharmacogenomics, gwas-catalog). Those
+  // endpoints need the canonical VCF: the [vcf] route param may be an rsID
+  // (e.g. "rs7412") that /graph/Variant/{id} rejects, so resolve it from the
+  // variant payload first instead of passing the raw param.
+  const externalDisabledSlugs = await fetchTabAvailability(
+    result.selected.variant_vcf,
+  ).catch(() => [] as string[]);
 
   const disabledSlugs = [
     ...getDisabledSlugs(result.selected, variantDataChecks),

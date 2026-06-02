@@ -62,7 +62,9 @@ function transformGwasRow(row: GwasApiRow): GwasAssociationRow {
  * Build URL with query parameters for GWAS API
  */
 function buildGwasUrl(vcf: string, options: GwasFilterOptions = {}): string {
-  const normalizedVcf = vcf.startsWith("chr") ? vcf : `chr${vcf}`;
+  // The endpoint accepts an rsID or a VCF (with or without a "chr" prefix).
+  // Pass the reference through as-is; prefixing "chr" onto an rsID (e.g.
+  // "chrrs7412") makes the API reject it.
   const params = new URLSearchParams();
 
   params.set("limit", String(options.limit ?? 100));
@@ -83,7 +85,7 @@ function buildGwasUrl(vcf: string, options: GwasFilterOptions = {}): string {
     params.set("pubmedid", options.pubmedId);
   }
 
-  return `${API_BASE}/gwas/${encodeURIComponent(normalizedVcf)}?${params.toString()}`;
+  return `${API_BASE}/gwas/${encodeURIComponent(vcf)}?${params.toString()}`;
 }
 
 /**
