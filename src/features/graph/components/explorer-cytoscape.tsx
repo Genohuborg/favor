@@ -161,27 +161,11 @@ const STYLESHEET: StylesheetStyle[] = [
     },
   },
   {
-    selector: "node.entity-entity",
-    style: {
-      "background-color": NODE_TYPE_COLORS.Entity.background,
-      "border-color": NODE_TYPE_COLORS.Entity.border,
-      color: NODE_TYPE_COLORS.Entity.text,
-    },
-  },
-  {
     selector: "node.entity-phenotype",
     style: {
       "background-color": NODE_TYPE_COLORS.Phenotype.background,
       "border-color": NODE_TYPE_COLORS.Phenotype.border,
       color: NODE_TYPE_COLORS.Phenotype.text,
-    },
-  },
-  {
-    selector: "node.entity-study",
-    style: {
-      "background-color": NODE_TYPE_COLORS.Study.background,
-      "border-color": NODE_TYPE_COLORS.Study.border,
-      color: NODE_TYPE_COLORS.Study.text,
     },
   },
   {
@@ -369,7 +353,7 @@ function dataToEdge(data: Record<string, unknown>): ExplorerEdge {
     id: String(data.id ?? ""),
     key: "" as ExplorerEdge["key"],
     type: String(
-      data.type ?? "ASSOCIATED_WITH_DISEASE",
+      data.type ?? "GENE_ASSOCIATED_WITH_DISEASE",
     ) as ExplorerEdge["type"],
     sourceId: String(data.source ?? ""),
     targetId: String(data.target ?? ""),

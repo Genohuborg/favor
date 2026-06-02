@@ -1,6 +1,5 @@
 import { fetchGene, fetchSubgraph } from "@features/gene/api";
 import {
-  type PathwayEdgeProps,
   type PathwayHierarchyEdge,
   PathwayLeverageView,
   parsePathwayFromNode,
@@ -45,8 +44,6 @@ export default async function PathwayLeverageMapPage({
   const edges = subgraphResponse?.data?.graph?.edges ?? [];
 
   // Extract pathways from PARTICIPATES_IN edges (Gene → Pathway)
-  // Build map of pathwayId -> edge props for evidence metadata
-  const pathwayEdgePropsMap = new Map<string, PathwayEdgeProps>();
   const participatingPathwayIds = new Set<string>();
 
   for (const edge of edges) {
@@ -54,17 +51,7 @@ export default async function PathwayLeverageMapPage({
       edge.type === "GENE_PARTICIPATES_IN_PATHWAY" &&
       edge.from.id === geneId
     ) {
-      const pathwayId = edge.to.id;
-      participatingPathwayIds.add(pathwayId);
-
-      // Extract edge props for evidence
-      if (edge.props) {
-        pathwayEdgePropsMap.set(pathwayId, {
-          numSources: edge.props.num_sources,
-          numExperiments: edge.props.num_experiments,
-          confidenceScores: edge.props.confidence_scores,
-        });
-      }
+      participatingPathwayIds.add(edge.to.id);
     }
   }
 
@@ -91,11 +78,7 @@ export default async function PathwayLeverageMapPage({
 
   // Build pathway nodes with API-provided category and source
   const pathways = pathwayNodes.map((n) =>
-    parsePathwayFromNode(
-      n,
-      pathwayEdgePropsMap.get(n.id),
-      pathwayFields.get(n.id),
-    ),
+    parsePathwayFromNode(n, undefined, pathwayFields.get(n.id)),
   );
 
   // Extract hierarchy edges from PART_OF relationships

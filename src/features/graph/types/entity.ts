@@ -38,19 +38,9 @@ export interface VariantEntity extends BaseEntity {
   position?: number;
 }
 
-export interface EntityEntity extends BaseEntity {
-  type: "Entity";
-  efoId?: string;
-}
-
 export interface PhenotypeEntity extends BaseEntity {
   type: "Phenotype";
   definition?: string;
-}
-
-export interface StudyEntity extends BaseEntity {
-  type: "Study";
-  pubmedId?: string;
 }
 
 export interface GOTermEntity extends BaseEntity {
@@ -99,9 +89,7 @@ export type ExplorerEntity =
   | DrugEntity
   | PathwayEntity
   | VariantEntity
-  | EntityEntity
   | PhenotypeEntity
-  | StudyEntity
   | GOTermEntity
   | SideEffectEntity
   | cCREEntity
@@ -119,9 +107,7 @@ export const ENTITY_TYPES: EntityType[] = [
   "Drug",
   "Pathway",
   "Variant",
-  "Entity",
   "Phenotype",
-  "Study",
   "GOTerm",
   "SideEffect",
   "cCRE",

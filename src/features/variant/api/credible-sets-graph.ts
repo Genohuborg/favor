@@ -1,18 +1,14 @@
-import { API_BASE } from "@/config/api";
 import type { TraitPoint } from "./gwas-graph";
 import { ep, fetchVariantGraph, getEdgeRows, nb } from "./variant-graph";
 
 /**
  * Fetch fine-mapped credible set memberships for a variant.
  *
- * Two calls, ~1s total for 500 signals:
- *   1. /graph/Variant/{vcf}?edgeTypes=SIGNAL_HAS_VARIANT&neighborMode=full
- *      — returns every edge with the full Signal node inlined (method_name,
- *      num_credible_95, study_id, study_type, region, log_bayes_factor, …).
- *      No need to batch-fetch Signal details separately.
- *   2. /graph/entities (Study, chunked at 200) — resolves the GCST study_id
- *      to its reported_trait. The endpoint promotes reported_trait into
- *      entity.label, so we read it from there.
+ * One call: /graph/Variant/{vcf}?edgeTypes=SIGNAL_HAS_VARIANT&neighborMode=full
+ * returns every edge with the full Signal node inlined (method_name,
+ * num_credible_95, study_id, study_type, region, log_bayes_factor, …).
+ * The Study node type was removed from the graph, so the reported trait is no
+ * longer resolvable; callers fall back to the study id.
  */
 
 // ---------------------------------------------------------------------------
@@ -34,18 +30,9 @@ export interface CredibleSetSignal {
   isLead: boolean;
 }
 
-// /graph/entities caps id__in at 200 per request.
-const ENTITIES_BATCH_CAP = 200;
-
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
-
-function chunk<T>(arr: T[], size: number): T[][] {
-  const out: T[][] = [];
-  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
-  return out;
-}
 
 function numOrNull(v: unknown): number | null {
   if (v === null || v === undefined) return null;
@@ -57,58 +44,6 @@ function strOrNull(v: unknown): string | null {
   if (v === null || v === undefined) return null;
   const s = String(v);
   return s.length > 0 ? s : null;
-}
-
-/**
- * Batch-resolve GCST-style study ids to their reported_trait (stored as
- * entity.label). Chunks parallel batches of 200 to work around the
- * /graph/entities id__in cap. FINNGEN / UKB_PPP / etc. ids don't resolve —
- * they're not indexed as Study nodes, and callers show "—" for those.
- */
-async function fetchStudyTraits(
-  studyIds: string[],
-): Promise<Map<string, string>> {
-  const out = new Map<string, string>();
-  if (studyIds.length === 0) return out;
-
-  const batches = chunk(studyIds, ENTITIES_BATCH_CAP);
-  const responses = await Promise.all(
-    batches.map(async (batch) => {
-      try {
-        const res = await fetch(`${API_BASE}/graph/entities`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
-          body: JSON.stringify({
-            type: "Study",
-            filters: { id__in: batch },
-            fields: ["id", "reported_trait"],
-            mode: "standard",
-            limit: batch.length,
-          }),
-        });
-        if (!res.ok) return [];
-        const json = (await res.json()) as {
-          data?: {
-            items?: Array<{
-              entity: { id: string; label?: string };
-            }>;
-          };
-        };
-        return json.data?.items ?? [];
-      } catch {
-        return [];
-      }
-    }),
-  );
-
-  for (const batch of responses) {
-    for (const item of batch) {
-      const label = item.entity.label;
-      if (label) out.set(item.entity.id, label);
-    }
-  }
-  return out;
 }
 
 // ---------------------------------------------------------------------------
@@ -157,17 +92,6 @@ export async function fetchVariantSignals(
   const edgeRows = getEdgeRows(graph, "SIGNAL_HAS_VARIANT");
   if (edgeRows.length === 0) return [];
 
-  // Collect unique GCST-prefixed study ids for trait resolution. Non-GCST
-  // studies (FINNGEN, UKB_PPP, etc.) aren't in the Study index, so skip them.
-  const gcstStudyIds = Array.from(
-    new Set(
-      edgeRows
-        .map((r) => nb<string>(r, "study_id"))
-        .filter((id): id is string => !!id && id.startsWith("GCST")),
-    ),
-  );
-  const studyTraits = await fetchStudyTraits(gcstStudyIds);
-
   return edgeRows.map((row) => {
     const n = row.neighbor;
     const studyId = nb<string>(row, "study_id") ?? n.id;
@@ -178,7 +102,7 @@ export async function fetchVariantSignals(
       studyId,
       studyType:
         nb<string>(row, "study_type") ?? nb<string>(row, "type") ?? "other",
-      reportedTrait: studyTraits.get(studyId) ?? null,
+      reportedTrait: null,
       methodName: strOrNull(nb(row, "method_name")),
       numCredible95: numOrNull(nb(row, "num_credible_95")),
       numVariants: numOrNull(nb(row, "num_variants")),

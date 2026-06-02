@@ -17,3 +17,33 @@ export interface ProteinStructureViewProps {
   /** Label for the variant marker, e.g. "p.R175H" */
   variantLabel?: string;
 }
+
+// ---------------------------------------------------------------------------
+// Protein layer (UniProt protein / GENCODE transcripts / Complex Portal)
+// ---------------------------------------------------------------------------
+
+export interface ProteinSummary {
+  uniprotId: string;
+  name: string | null;
+  mnemonic: string | null;
+  lengthAa: number | null;
+  massDa: number | null;
+  functionDescription: string | null;
+}
+
+export interface TranscriptRow {
+  transcriptId: string;
+  name: string;
+  transcriptType: string | null;
+  isCanonical: boolean;
+  isManeSelect: boolean;
+  supportLevel: string | null;
+}
+
+export interface ComplexRow {
+  complexId: string;
+  name: string;
+  assembly: string | null;
+  nComponents: number | null;
+  stoichiometry: string | null;
+}

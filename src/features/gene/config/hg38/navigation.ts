@@ -21,6 +21,7 @@ export const GENE_NAVIGATION_CONFIG: GeneNavigationSection[] = [
       },
       { text: "Perturbation", slug: "perturbation" },
       { text: "Variant Effect Maps", slug: "mave" },
+      { text: "Functional Partners", slug: "functional-partners" },
 
       { text: "Graph Explorer", slug: "graph-explorer" },
       { text: "Interaction Neighborhood", slug: "interaction-neighborhood" },
@@ -52,6 +53,7 @@ export const GENE_NAVIGATION_CONFIG: GeneNavigationSection[] = [
           },
           { text: "Perturbation", slug: "perturbation" },
           { text: "Variant Effect Maps", slug: "mave" },
+          { text: "Functional Partners", slug: "functional-partners" },
         ],
       },
       {

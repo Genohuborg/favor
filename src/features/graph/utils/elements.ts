@@ -10,13 +10,6 @@ import type { EntityType } from "../types/entity";
 import type { GraphFilters } from "../types/filters";
 import type { ExplorerEdge, ExplorerNode } from "../types/node";
 
-/** Max characters for node labels on the canvas. Full label remains in node.label for panels. */
-const CANVAS_LABEL_MAX = 28;
-
-function truncateLabel(label: string, max: number): string {
-  return label.length > max ? `${label.slice(0, max - 1)}\u2026` : label;
-}
-
 /**
  * Convert ExplorerNode to Cytoscape element data
  */
@@ -26,10 +19,7 @@ export function nodeToElementData(node: ExplorerNode): Record<string, unknown> {
 
   return {
     id: node.id,
-    label:
-      node.type === "Study"
-        ? truncateLabel(node.label, CANVAS_LABEL_MAX)
-        : node.label,
+    label: node.label,
     type: node.type,
     subtitle: node.subtitle,
     isSeed: node.isSeed,

@@ -854,10 +854,7 @@ function compactOneProfile(raw: unknown): Record<string, unknown> {
 
   // — Top relations per edge type (from included.relations)
   // Skip noisy edge types that waste context budget
-  const SKIP_EDGE_TYPES = new Set([
-    "SIGNAL_HAS_VARIANT",
-    "VARIANT_ASSOCIATED_WITH_STUDY",
-  ]);
+  const SKIP_EDGE_TYPES = new Set(["SIGNAL_HAS_VARIANT"]);
   const topRelations: Record<string, unknown[]> = {};
   for (const [edgeType, group] of Object.entries(relations)) {
     if (SKIP_EDGE_TYPES.has(edgeType)) continue;
@@ -1199,12 +1196,6 @@ const SCORE_THRESHOLDS: Record<string, ScoreThreshold[]> = {
     { min: 0.7, label: "high confidence" },
     { min: 0.4, label: "medium confidence" },
     { min: 0, label: "low confidence" },
-  ],
-  overall_score: [
-    { min: 0.8, label: "very strong" },
-    { min: 0.5, label: "strong" },
-    { min: 0.3, label: "moderate" },
-    { min: 0, label: "weak" },
   ],
   score: [
     { min: 0.8, label: "very strong" },

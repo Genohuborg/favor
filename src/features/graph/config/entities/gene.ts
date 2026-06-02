@@ -18,9 +18,9 @@ export const GENE_EXPLORER_CONFIG: ExplorerConfig = {
       color: "#ef4444",
       targetEntityType: "Disease",
       rankBy: {
-        field: "overall_score",
+        field: "ot_score",
         direction: "desc",
-        label: "Overall Score",
+        label: "Score",
       },
       steps: [
         {
@@ -157,45 +157,6 @@ export const GENE_EXPLORER_CONFIG: ExplorerConfig = {
       ],
       limits: { maxNodes: 200, maxEdges: 600 },
     },
-
-    // 6) Gene → GWAS Entity
-    {
-      id: "gene-gwas",
-      name: "Gene \u2192 GWAS Trait",
-      description: "Trait associations, GWAS variants, and study evidence",
-      icon: "bar-chart",
-      color: "#3b82f6",
-      targetEntityType: "Entity",
-      rankBy: { field: "p_value_mlog", direction: "desc", label: "-log10(p)" },
-      steps: [
-        {
-          edgeTypes: ["GENE_ASSOCIATED_WITH_ENTITY"],
-          direction: "out",
-          limit: 15,
-        },
-        {
-          branch: [
-            {
-              edgeTypes: ["VARIANT_ASSOCIATED_WITH_TRAIT__Entity"],
-              direction: "in",
-              limit: 12,
-            },
-            {
-              edgeTypes: ["VARIANT_ASSOCIATED_WITH_STUDY"],
-              direction: "out",
-              limit: 10,
-            },
-          ],
-        },
-        {
-          edgeTypes: ["STUDY_INVESTIGATES_TRAIT__Entity"],
-          direction: "out",
-          limit: 15,
-          overlayOnly: true,
-        },
-      ],
-      limits: { maxNodes: 250, maxEdges: 800 },
-    },
   ],
 
   defaultTemplateId: "gene-disease",
@@ -218,7 +179,6 @@ export const GENE_EXPLORER_CONFIG: ExplorerConfig = {
       types: [
         "GENE_PARTICIPATES_IN_PATHWAY",
         "GENE_ASSOCIATED_WITH_PHENOTYPE",
-        "GENE_ASSOCIATED_WITH_ENTITY",
         "GENE_ANNOTATED_WITH_GO_TERM",
         "GENE_ASSOCIATED_WITH_SIDE_EFFECT",
         "GENE_HAS_PROTEIN_DOMAIN",
@@ -241,11 +201,8 @@ export const GENE_EXPLORER_CONFIG: ExplorerConfig = {
       types: [
         "VARIANT_IMPLIES_GENE",
         "VARIANT_AFFECTS_GENE",
-        "VARIANT_ASSOCIATED_WITH_TRAIT__Entity",
-        "VARIANT_ASSOCIATED_WITH_TRAIT__Disease",
-        "VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype",
+        "VARIANT_ASSOCIATED_WITH_TRAIT",
         "VARIANT_ASSOCIATED_WITH_DRUG",
-        "VARIANT_ASSOCIATED_WITH_STUDY",
         "VARIANT_LINKED_TO_SIDE_EFFECT",
         "VARIANT_OVERLAPS_CCRE",
       ],
@@ -254,7 +211,6 @@ export const GENE_EXPLORER_CONFIG: ExplorerConfig = {
       label: "Signal",
       types: [
         "SIGNAL_ASSOCIATED_WITH_TRAIT__Disease",
-        "SIGNAL_ASSOCIATED_WITH_TRAIT__Entity",
         "SIGNAL_ASSOCIATED_WITH_TRAIT__Phenotype",
         "SIGNAL_HAS_VARIANT",
         "SIGNAL_IMPLIES_GENE",
@@ -268,17 +224,12 @@ export const GENE_EXPLORER_CONFIG: ExplorerConfig = {
         "PHENOTYPE_EQUIVALENT_TO",
         "PHENOTYPE_HIERARCHY",
         "PHENOTYPE_CLOSURE",
-        "STUDY_INVESTIGATES_TRAIT__Entity",
-        "STUDY_INVESTIGATES_TRAIT__Disease",
-        "STUDY_INVESTIGATES_TRAIT__Phenotype",
         "DISEASE_SUBCLASS_OF_DISEASE",
         "DISEASE_ANCESTOR_OF_DISEASE",
         "PATHWAY_PART_OF_PATHWAY",
         "PATHWAY_ANCESTOR_OF_PATHWAY",
         "PATHWAY_CONTAINS_METABOLITE",
         "METABOLITE_IS_A_METABOLITE",
-        "ENTITY_HIERARCHY",
-        "ENTITY_CLOSURE",
         "GO_HIERARCHY",
         "GO_CLOSURE",
         "DOMAIN_SUBCLASS_OF_DOMAIN",

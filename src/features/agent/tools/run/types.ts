@@ -64,7 +64,6 @@ const targetIntentSchema = z.enum([
   "side_effects",
   "go_terms",
   "metabolites",
-  "studies",
   "signals",
   "drug_interactions",
   "adverse_effects",

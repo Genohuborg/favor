@@ -695,6 +695,8 @@ export function UniversalSearch() {
 
   if (typeaheadResults && typeaheadResults.total_count > 0) {
     for (const group of typeaheadResults.groups) {
+      // Skip entity types the UI has no page/config for yet.
+      if (!Object.hasOwn(ENTITY_CONFIG, group.entity_type)) continue;
       if (group.suggestions.length > 0) {
         // First suggestion of first group is best match
         if (!bestMatch) {
@@ -730,6 +732,8 @@ export function UniversalSearch() {
 
   if (pivotResults && pivotResults.total_count > 0) {
     for (const group of pivotResults.groups) {
+      // Skip entity types the UI has no page/config for yet.
+      if (!Object.hasOwn(ENTITY_CONFIG, group.entity_type)) continue;
       if (group.suggestions.length > 0) {
         pivotGroups.push({
           type: group.entity_type,

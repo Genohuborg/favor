@@ -28,7 +28,7 @@ export function buildEdgeTypeStatsMap(
 
 /**
  * Resolve the sort field for an edge type using the schema's `defaultScoreField`.
- * Returns a sort string like `"-overall_score"` or `undefined` if none.
+ * Returns a sort string like `"-ot_score"` or `undefined` if none.
  * The backend gracefully skips sort when undefined.
  */
 export function resolveSortField(

@@ -100,7 +100,7 @@ export default async function VariantProteinStructurePage({
         },
       ],
       select: {
-        nodeFields: ["domain_name", "description", "interpro_type"],
+        nodeFields: ["domain_name", "description", "domain_type"],
         edgeFields: ["start_residue", "end_residue", "mean_plddt"],
       },
       limits: { maxNodes: 100, maxEdges: 200 },
@@ -137,7 +137,7 @@ export default async function VariantProteinStructurePage({
           name,
           start,
           end,
-          type: (node?.fields?.interpro_type as string) ?? undefined,
+          type: (node?.fields?.domain_type as string) ?? undefined,
         });
 
         if (end > proteinLength) proteinLength = end;

@@ -30,14 +30,7 @@ export const HANDLER_EDGE_FIELDS: Record<string, string[] | null> = {
     "gene_full_name",
     "sources",
   ],
-  VARIANT_ASSOCIATED_WITH_TRAIT__Entity: [
-    "p_value_mlog",
-    "or_beta",
-    "risk_allele",
-    "clinical_significance",
-    "trait_name",
-  ],
-  VARIANT_ASSOCIATED_WITH_TRAIT__Disease: [
+  VARIANT_ASSOCIATED_WITH_TRAIT: [
     "p_value_mlog",
     "or_beta",
     "risk_allele",
@@ -45,25 +38,11 @@ export const HANDLER_EDGE_FIELDS: Record<string, string[] | null> = {
     "review_status",
     "trait_name",
   ],
-  VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype: [
-    "p_value_mlog",
-    "or_beta",
-    "risk_allele",
-    "trait_name",
-  ],
   VARIANT_ASSOCIATED_WITH_DRUG: [
     "clinical_significance",
     "evidence_count",
     "direction_of_effect",
     "drug_name",
-  ],
-  VARIANT_ASSOCIATED_WITH_STUDY: [
-    "p_value_mlog",
-    "or_beta",
-    "risk_allele",
-    "study_title",
-    "study_trait",
-    "trait_name",
   ],
   VARIANT_LINKED_TO_SIDE_EFFECT: [
     "side_effect_name",
@@ -94,33 +73,16 @@ export const COMPACT_EDGE_FIELDS: Record<string, string[]> = {
     "gene_symbol",
   ],
   VARIANT_AFFECTS_GENE: ["variant_consequence", "region_type", "gene_symbol"],
-  VARIANT_ASSOCIATED_WITH_TRAIT__Entity: [
-    "p_value_mlog",
-    "or_beta",
-    "risk_allele",
-    "clinical_significance",
-  ],
-  VARIANT_ASSOCIATED_WITH_TRAIT__Disease: [
+  VARIANT_ASSOCIATED_WITH_TRAIT: [
     "p_value_mlog",
     "clinical_significance",
     "review_status",
-  ],
-  VARIANT_ASSOCIATED_WITH_TRAIT__Phenotype: [
-    "p_value_mlog",
-    "or_beta",
-    "risk_allele",
   ],
   VARIANT_ASSOCIATED_WITH_DRUG: [
     "clinical_significance",
     "evidence_count",
     "direction_of_effect",
     "drug_name",
-  ],
-  VARIANT_ASSOCIATED_WITH_STUDY: [
-    "p_value_mlog",
-    "or_beta",
-    "risk_allele",
-    "trait_name",
   ],
   VARIANT_LINKED_TO_SIDE_EFFECT: [
     "side_effect_name",

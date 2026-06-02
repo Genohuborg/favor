@@ -302,7 +302,7 @@ function collectStepEntities(
 
     const f = edge.fields ?? {};
     const score = ((scoreField ? f[scoreField] : undefined) ??
-      f.overall_score ??
+      f.ot_score ??
       f.score ??
       f.evidence_count) as number | undefined;
 

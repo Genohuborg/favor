@@ -720,7 +720,6 @@ const targetIntents = z.enum([
   "side_effects",
   "go_terms",
   "metabolites",
-  "studies",
   "signals",
   "drug_interactions",
   "adverse_effects",
@@ -784,7 +783,7 @@ const flatTraverseStep = z.object({
     .string()
     .optional()
     .describe(
-      "Sort field, prefix '-' for desc (e.g. '-overall_score'). Default: best score for edge type",
+      "Sort field, prefix '-' for desc (e.g. '-ot_score'). Default: best score for edge type",
     ),
   filters: z
     .record(z.unknown())

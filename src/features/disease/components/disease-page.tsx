@@ -142,16 +142,21 @@ function ConfidenceBadge({ value }: { value: string }) {
   );
 }
 
+// ClinGen-style gene-disease validity tiers (from edge `validity_tier`).
 const CAUSALITY_COLORS: Record<string, string> = {
-  confirmed: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-  implicated: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
-  associated: "bg-muted text-muted-foreground",
+  definitive: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  strong: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  moderate: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+  limited: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+  disputed: "bg-muted text-muted-foreground",
+  refuted: "bg-muted text-muted-foreground",
 };
 
-/** Map legacy "causal" from the API to "confirmed" for display */
+/** Normalize the validity tier; map legacy "causal" to "definitive". */
 function normalizeCausality(value: string): string {
-  if (value.toLowerCase() === "causal") return "confirmed";
-  return value;
+  const v = value.toLowerCase();
+  if (v === "causal") return "definitive";
+  return v;
 }
 
 function CausalityBadge({ value }: { value: string }) {
@@ -161,7 +166,7 @@ function CausalityBadge({ value }: { value: string }) {
     <span
       className={cn(
         "inline-flex px-1.5 py-0.5 rounded text-xs font-medium capitalize",
-        CAUSALITY_COLORS[display] ?? CAUSALITY_COLORS.associated,
+        CAUSALITY_COLORS[display] ?? "bg-muted text-muted-foreground",
       )}
     >
       {display}
@@ -432,8 +437,6 @@ interface GeneRow {
   geneName: string;
   causality: string;
   otScore: number | null;
-  gwasP: number | null;
-  gwasStudies: number | null;
   confidence: string;
   sources: string[];
   evidenceCount: number;
@@ -446,16 +449,8 @@ function transformGenes(rows: EdgeRow[]): GeneRow[] {
       symbol: String(ep(r, "gene_symbol") ?? nb(r, "symbol") ?? ""),
       geneId: r.neighbor.id,
       geneName: String(nb(r, "name") ?? ""),
-      causality: String(ep(r, "causality_level") ?? ""),
+      causality: String(ep(r, "validity_tier") ?? ""),
       otScore: ep(r, "ot_score") != null ? Number(ep(r, "ot_score")) : null,
-      gwasP:
-        ep(r, "gwas_best_p_value_mlog") != null
-          ? Number(ep(r, "gwas_best_p_value_mlog"))
-          : null,
-      gwasStudies:
-        ep(r, "gwas_n_studies") != null
-          ? Number(ep(r, "gwas_n_studies"))
-          : null,
       confidence: String(ep(r, "confidence_class") ?? ""),
       sources: ep<string[]>(r, "sources") ?? [],
       evidenceCount: Number(ep(r, "evidence_count") ?? 0),
@@ -493,7 +488,7 @@ const geneColumns: ColumnDef<GeneRow>[] = [
     header: () => (
       <span className="inline-flex items-center">
         Causality
-        <Hint text="'confirmed' = established Mendelian cause with curated human evidence. 'implicated' = functional/clinical evidence short of definitive. 'associated' = statistical only." />
+        <Hint text="ClinGen-style gene-disease validity. 'definitive'/'strong' = well-established cause; 'moderate'/'limited' = emerging evidence; 'disputed'/'refuted' = contradicted." />
       </span>
     ),
     enableSorting: true,
@@ -522,35 +517,6 @@ const geneColumns: ColumnDef<GeneRow>[] = [
           </div>
           <span className="font-mono text-xs">{v.toFixed(2)}</span>
         </div>
-      );
-    },
-  },
-  {
-    id: "gwasP",
-    accessorKey: "gwasP",
-    header: () => (
-      <span className="inline-flex items-center">
-        -log₁₀(P)
-        <Hint text="Strongest GWAS signal for this gene-disease pair. ≥7.3 = genome-wide significant. ≥100 = extremely strong locus." />
-      </span>
-    ),
-    enableSorting: true,
-    cell: ({ row }) => {
-      const v = row.original.gwasP;
-      if (v == null) return "—";
-      return (
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <span className="font-mono text-[13px] cursor-help">
-              {v.toFixed(1)}
-            </span>
-          </TooltipTrigger>
-          <TooltipContent>
-            p = 10⁻{v.toFixed(1)}
-            {row.original.gwasStudies != null &&
-              ` across ${row.original.gwasStudies} studies`}
-          </TooltipContent>
-        </Tooltip>
       );
     },
   },
@@ -698,7 +664,7 @@ const drugColumns: ColumnDef<DrugRow>[] = [
 ];
 
 // ============================================================================
-// Variants — VARIANT_ASSOCIATED_WITH_TRAIT__Disease
+// Variants — VARIANT_ASSOCIATED_WITH_TRAIT
 // ============================================================================
 
 interface VariantRow {
@@ -837,60 +803,6 @@ const variantColumns: ColumnDef<VariantRow>[] = [
     id: "source",
     accessorKey: "source",
     header: "Source",
-    enableSorting: true,
-  },
-];
-
-// ============================================================================
-// Studies — STUDY_INVESTIGATES_TRAIT__Disease
-// ============================================================================
-
-interface StudyRow {
-  id: string;
-  title: string;
-  trait: string;
-  author: string;
-  journal: string;
-}
-
-function transformStudies(rows: EdgeRow[]): StudyRow[] {
-  return rows.map((r, i) => ({
-    id: `study-${i}`,
-    title: String(ep(r, "study_title") ?? nb(r, "title") ?? ""),
-    trait: String(ep(r, "trait_name") ?? nb(r, "trait") ?? ""),
-    author: String(nb(r, "author") ?? ""),
-    journal: String(nb(r, "journal") ?? ""),
-  }));
-}
-
-const studyColumns: ColumnDef<StudyRow>[] = [
-  {
-    id: "title",
-    accessorKey: "title",
-    header: "Study Title",
-    enableSorting: true,
-    cell: ({ row }) => (
-      <span className="text-[13px] line-clamp-2">
-        {row.original.title || "—"}
-      </span>
-    ),
-  },
-  {
-    id: "trait",
-    accessorKey: "trait",
-    header: "Trait",
-    enableSorting: true,
-  },
-  {
-    id: "author",
-    accessorKey: "author",
-    header: "Author",
-    enableSorting: true,
-  },
-  {
-    id: "journal",
-    accessorKey: "journal",
-    header: "Journal",
     enableSorting: true,
   },
 ];
@@ -1092,14 +1004,7 @@ export function DiseasePage({ disease, counts, relations }: DiseasePageProps) {
   );
   const variants = useMemo(
     () =>
-      transformVariants(
-        getRows(relations, "VARIANT_ASSOCIATED_WITH_TRAIT__Disease"),
-      ),
-    [relations],
-  );
-  const studies = useMemo(
-    () =>
-      transformStudies(getRows(relations, "STUDY_INVESTIGATES_TRAIT__Disease")),
+      transformVariants(getRows(relations, "VARIANT_ASSOCIATED_WITH_TRAIT")),
     [relations],
   );
   const phenotypes = useMemo(
@@ -1130,12 +1035,7 @@ export function DiseasePage({ disease, counts, relations }: DiseasePageProps) {
     {
       value: "variants",
       label: "Variants",
-      count: counts?.VARIANT_ASSOCIATED_WITH_TRAIT__Disease,
-    },
-    {
-      value: "studies",
-      label: "Studies",
-      count: counts?.STUDY_INVESTIGATES_TRAIT__Disease,
+      count: counts?.VARIANT_ASSOCIATED_WITH_TRAIT,
     },
     {
       value: "phenotypes",
@@ -1151,7 +1051,7 @@ export function DiseasePage({ disease, counts, relations }: DiseasePageProps) {
 
   return (
     <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-2">
-      <div className="border-b border-border overflow-x-auto">
+      <div className="border-b border-border overflow-x-auto overflow-y-hidden">
         <TabsList variant="line" className="w-full justify-start p-0 h-auto">
           {tabs.map((tab) => (
             <TabsTrigger
@@ -1220,9 +1120,9 @@ export function DiseasePage({ disease, counts, relations }: DiseasePageProps) {
           data={variants}
           title="GWAS Variants"
           subtitle={
-            counts?.VARIANT_ASSOCIATED_WITH_TRAIT__Disease &&
-            counts.VARIANT_ASSOCIATED_WITH_TRAIT__Disease > 200
-              ? `Showing top 200 of ${fmtCount(counts.VARIANT_ASSOCIATED_WITH_TRAIT__Disease)} — most significant first`
+            counts?.VARIANT_ASSOCIATED_WITH_TRAIT &&
+            counts.VARIANT_ASSOCIATED_WITH_TRAIT > 200
+              ? `Showing top 200 of ${fmtCount(counts.VARIANT_ASSOCIATED_WITH_TRAIT)} — most significant first`
               : "Sorted by -log₁₀(P), most significant first"
           }
           searchPlaceholder="Search variants..."
@@ -1231,21 +1131,6 @@ export function DiseasePage({ disease, counts, relations }: DiseasePageProps) {
           exportFilename={`${disease.id}-variants`}
           defaultPageSize={25}
           emptyMessage="No variant association data available"
-        />
-      </TabsContent>
-
-      <TabsContent value="studies" className="pt-6">
-        <DataSurface
-          columns={studyColumns}
-          data={studies}
-          title="Studies"
-          subtitle="GWAS and clinical studies investigating this disease"
-          searchPlaceholder="Search studies..."
-          searchColumn="title"
-          exportable
-          exportFilename={`${disease.id}-studies`}
-          defaultPageSize={25}
-          emptyMessage="No study data available"
         />
       </TabsContent>
 
