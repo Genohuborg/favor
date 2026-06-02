@@ -99,8 +99,8 @@ export default async function GeneProteinStructurePage({
         direction: "out",
         edgeFields: ["evidence_count"],
         nodeFields: [
-          "name",
-          "mnemonic",
+          "protein_name",
+          "uniprot_mnemonic",
           "length_aa",
           "mass_da",
           "function_description",
@@ -173,8 +173,8 @@ export default async function GeneProteinStructurePage({
   const protein: ProteinSummary | null = firstProtein
     ? {
         uniprotId: firstProtein.targetId,
-        name: str(firstProtein.node.name),
-        mnemonic: str(firstProtein.node.mnemonic),
+        name: str(firstProtein.node.protein_name),
+        mnemonic: str(firstProtein.node.uniprot_mnemonic),
         lengthAa: num(firstProtein.node.length_aa),
         massDa: num(firstProtein.node.mass_da),
         functionDescription: str(firstProtein.node.function_description),

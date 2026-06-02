@@ -90,6 +90,107 @@ export const AREA_ORDER: ChangeArea[] = [
 
 export const RELEASES: Release[] = [
   {
+    version: "2026.06.02",
+    date: "2026-06-02",
+    title: "Knowledge graph refresh",
+    tag: "minor",
+    summary:
+      "The platform moved to the rebuilt knowledge graph. New node and relation types landed in the data layer, new gene-page views show them, variant-trait associations were consolidated, and detail-page sections that no longer have backing data were removed.",
+    changes: [
+      {
+        kind: "added",
+        area: "data",
+        text: "New node types: Protein, Transcript, Complex, Motif, Dataset, Scoreset, and CellLine. They appear in graph traversals now; dedicated pages come later.",
+      },
+      {
+        kind: "added",
+        area: "data",
+        text: "Gene-to-gene relations: co-expression (CoXPresdb v8), co-essentiality, genetic interactions, and TF regulation of target genes (TRRUST v2).",
+      },
+      {
+        kind: "added",
+        area: "data",
+        text: "Single-cell gene expression by cell type, from CellxGene Census 2024.",
+      },
+      {
+        kind: "added",
+        area: "data",
+        text: "Allele-specific disruption of TF binding by variants, from AdAstra.",
+      },
+      {
+        kind: "added",
+        area: "data",
+        text: "Drug-to-drug structural similarity, from ChEMBL fingerprints (Tanimoto).",
+      },
+      {
+        kind: "added",
+        area: "data",
+        text: "Variant-centric gene prioritization for diseases and phenotypes, plus pharmacogenomic guidelines.",
+      },
+      {
+        kind: "added",
+        area: "data",
+        text: "Gene links to its protein, transcripts, complexes, perturbation datasets, and DMS scoresets.",
+      },
+      {
+        kind: "updated",
+        area: "data",
+        text: "Variant-trait associations were consolidated into a single relation (they used to be split into disease, phenotype, and EFO-trait buckets). Gene-disease scoring now keys on the Open Targets composite score (ot_score), with validity tier, ClinGen and GenCC classifications, and per-source evidence subscores.",
+      },
+      {
+        kind: "removed",
+        area: "data",
+        text: "Retired the GWAS-Study and EFO-trait (Entity) node types, along with the study-investigates-trait, variant-reported-in-study, and per-bucket gene and variant trait relations.",
+      },
+      {
+        kind: "added",
+        area: "platform",
+        source: "Gene",
+        navSlug: "functional-partners",
+        text: "New Functional Partners view under Gene Annotation puts gene-to-gene relations in one sortable, filterable table: co-expression (CoXPresdb z-score), co-essentiality, genetic interactions, TF regulation, and protein-protein interactions.",
+      },
+      {
+        kind: "added",
+        area: "platform",
+        source: "Gene",
+        navSlug: "expression",
+        text: "Expression view adds single-cell expression by cell type (CellxGene Census) next to bulk tissue expression. Sort by specificity, mean expression, or fraction of cells expressing, and group by organ system.",
+      },
+      {
+        kind: "added",
+        area: "platform",
+        source: "Gene",
+        navSlug: "protein-structure",
+        text: "Protein Structure view now resolves the gene's protein product: UniProt identity, isoform transcripts (Ensembl), and protein-complex memberships (EBI Complex Portal), each with an outbound link.",
+      },
+      {
+        kind: "added",
+        area: "platform",
+        source: "Gene",
+        navSlug: "disease-portfolio",
+        text: "Disease Portfolio adds a Pharmacogenomic Guidelines table and a variant-centric prioritized targets table (genes prioritized for a disease or phenotype).",
+      },
+      {
+        kind: "removed",
+        area: "platform",
+        source: "Detail pages",
+        text: "Disease pages drop the Studies tab. Phenotype pages drop the Variants and Studies tabs. The graph relations behind them were retired.",
+      },
+      {
+        kind: "fixed",
+        area: "platform",
+        source: "Gene",
+        text: "Pathway-leverage map is populated again. Parent and child pathways and member genes were coming back empty after the schema change.",
+      },
+      {
+        kind: "fixed",
+        area: "platform",
+        source: "Graph Explorer",
+        text: "Edge sort and per-edge filters work again. The schema response shape changed and the controls were reading stale field names.",
+      },
+    ],
+  },
+  {
     version: "2026.05.07",
     date: "2026-05-07",
     title: "Perturbation and MaveDB pages",

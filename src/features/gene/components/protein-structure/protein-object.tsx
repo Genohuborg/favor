@@ -11,8 +11,10 @@ import type { ComplexRow, ProteinSummary, TranscriptRow } from "./types";
 // =============================================================================
 
 export function ProteinHeader({ protein }: { protein: ProteinSummary }) {
+  const displayName = protein.mnemonic ?? protein.uniprotId;
   const facts = [
-    protein.uniprotId,
+    // Skip the accession when it's already the displayed name (no mnemonic).
+    protein.uniprotId !== displayName ? protein.uniprotId : null,
     protein.lengthAa !== null
       ? `${protein.lengthAa.toLocaleString()} aa`
       : null,
@@ -25,7 +27,7 @@ export function ProteinHeader({ protein }: { protein: ProteinSummary }) {
     <div className="space-y-1.5">
       <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
         <span className="text-base font-semibold text-foreground">
-          {protein.mnemonic ?? protein.uniprotId}
+          {displayName}
         </span>
         {facts.map((fact) => (
           <span
