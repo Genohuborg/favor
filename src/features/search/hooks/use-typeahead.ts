@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { fetchTypeahead, fetchVariantPrefix } from "../api/search-api";
 import type {
   EntityType,
+  TypeaheadGroup,
   TypeaheadResponse,
   TypeaheadSuggestion,
   VariantPrefixResponse,
@@ -54,37 +55,45 @@ function prefixToSuggestions(
   return suggestions;
 }
 
-/** Merge RocksDB prefix results into ES typeahead response. RocksDB first, deduplicated. */
-function mergeVariantPrefix(
+/**
+ * RocksDB is the source of truth for variants. Replace the ES "variants" group
+ * with RocksDB results: ES variant hits that RocksDB doesn't return are stale
+ * index entries (indexed in Elasticsearch but absent from RocksDB) that 404 on
+ * navigation, so they must never surface. When RocksDB returns no variants — or
+ * is unavailable (`prefix` is null) — the variants group is dropped entirely.
+ */
+function withRocksdbVariants(
   typeahead: TypeaheadResponse,
-  prefix: VariantPrefixResponse,
+  prefix: VariantPrefixResponse | null,
 ): TypeaheadResponse {
-  const rocksSuggestions = prefixToSuggestions(prefix);
-  if (rocksSuggestions.length === 0) return typeahead;
+  const rocksSuggestions = prefix ? prefixToSuggestions(prefix) : [];
 
-  const rocksIds = new Set(rocksSuggestions.map((s) => s.id));
-  const newGroups = [...typeahead.groups];
-  const variantIdx = newGroups.findIndex((g) => g.entity_type === "variants");
+  const otherGroups = typeahead.groups.filter(
+    (g) => g.entity_type !== "variants",
+  );
+  const esVariantCount =
+    typeahead.groups.find((g) => g.entity_type === "variants")?.suggestions
+      .length ?? 0;
 
-  if (variantIdx >= 0) {
-    const dedupedES = newGroups[variantIdx].suggestions.filter(
-      (s) => !rocksIds.has(s.id),
-    );
-    newGroups[variantIdx] = {
-      entity_type: "variants",
-      suggestions: [...rocksSuggestions, ...dedupedES],
-    };
-  } else {
-    newGroups.unshift({
-      entity_type: "variants",
-      suggestions: rocksSuggestions,
-    });
-  }
+  const groups: TypeaheadGroup[] =
+    rocksSuggestions.length > 0
+      ? [
+          { entity_type: "variants", suggestions: rocksSuggestions },
+          ...otherGroups,
+        ]
+      : otherGroups;
 
   return {
-    groups: newGroups,
-    exact_present: typeahead.exact_present || rocksSuggestions.length > 0,
-    total_count: typeahead.total_count + rocksSuggestions.length,
+    groups,
+    total_count: Math.max(
+      0,
+      typeahead.total_count - esVariantCount + rocksSuggestions.length,
+    ),
+    // Variant exactness now comes from RocksDB; keep ES exactness only for the
+    // non-variant groups that remain.
+    exact_present:
+      rocksSuggestions.length > 0 ||
+      (otherGroups.length > 0 && typeahead.exact_present),
   };
 }
 
@@ -202,9 +211,11 @@ export function useTypeahead(options: UseTypeaheadOptions = {}) {
             : null,
         ]);
 
-        // Merge RocksDB results into typeahead response
-        const response = prefixRes
-          ? mergeVariantPrefix(typeaheadRes, prefixRes)
+        // For variant queries, RocksDB is the source of truth for the variants
+        // group (drops stale ES variants that 404). Non-variant queries pass
+        // the ES response through unchanged.
+        const response = isVariantQuery
+          ? withRocksdbVariants(typeaheadRes, prefixRes)
           : typeaheadRes;
 
         // Only update if this is still the latest request (prevents race conditions)
