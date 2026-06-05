@@ -1,7 +1,7 @@
 import { Track } from "@/components/gosling";
 
 const DnaseURL =
-  "https://storage.googleapis.com/favor-viz/DNAse_All_ENCODE_MAR20_2024_merged.bw";
+  "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/DNAse_All_ENCODE_MAR20_2024_merged.bw";
 
 export const dnaseTrack: Track = {
   alignment: "overlay",
