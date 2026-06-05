@@ -1,7 +1,7 @@
 import type { Track } from "@/components/gosling";
 
 const H3k4me3URL =
-  "https://storage.googleapis.com/favor-viz/H3K4me3_All_ENCODE_MAR20_2024_merged.bw";
+  "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/H3K4me3_All_ENCODE_MAR20_2024_merged.bw";
 
 export const h3k4me3Track: Track = {
   alignment: "overlay",
