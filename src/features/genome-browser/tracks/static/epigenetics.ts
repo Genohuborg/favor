@@ -6,7 +6,8 @@ import { Activity } from "lucide-react";
 import type { GoslingTrackSpec, StaticTrack } from "../../types/tracks";
 import { LINKING_ID } from "../constants";
 
-const FAVOR_VIZ = "https://storage.googleapis.com/favor-viz";
+const FAVOR_VIZ =
+  "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz";
 
 function bigwigBarSpec(opts: {
   url: string;
