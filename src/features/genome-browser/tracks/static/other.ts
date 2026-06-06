@@ -8,9 +8,15 @@ import { LINKING_ID } from "../constants";
 const jarvisSpec: GoslingTrackSpec = {
   alignment: "overlay",
   title: "JARVIS: non-coding disease relevance",
+  // gosling.js 2.0.0-alpha.9 has no HiGlass `vector` fetcher; a 1-D vector
+  // tileset reads correctly as a single-category multivec. See mappability.ts.
   data: {
     url: "https://higlass.genohub.org/api/v1/tileset_info/?d=jarvis-hg38",
-    type: "vector",
+    type: "multivec",
+    row: "sample",
+    column: "position",
+    value: "value",
+    categories: ["JARVIS"],
     binSize: 4,
   },
   tracks: [
