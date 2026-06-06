@@ -54,9 +54,15 @@ function bigwigBarSpec(opts: {
 const gnocchiSpec: GoslingTrackSpec = {
   alignment: "overlay",
   title: "Gnocchi: gnomAD non-coding constraint of haploinsufficient variation",
+  // gosling.js 2.0.0-alpha.9 has no HiGlass `vector` fetcher; a 1-D vector
+  // tileset reads correctly as a single-category multivec. See mappability.ts.
   data: {
     url: "https://higlass.genohub.org/api/v1/tileset_info/?d=genocchi-hg38",
-    type: "vector",
+    type: "multivec",
+    row: "sample",
+    column: "position",
+    value: "value",
+    categories: ["Gnocchi"],
   },
   tracks: [
     {
