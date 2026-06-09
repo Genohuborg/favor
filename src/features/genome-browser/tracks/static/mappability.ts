@@ -26,20 +26,9 @@ function mappabilitySpec(k: Kmer, algo: Algo): GoslingTrackSpec {
   return {
     alignment: "overlay",
     title: `Mappability (k${k} ${ALGO_LABEL[algo]})`,
-    // NOTE: gosling.js 2.0.0-alpha.9 dropped the HiGlass `vector` data fetcher
-    // (its dispatch only wires `multivec` / `beddb` / `matrix` to the legacy
-    // HiGlass tile fetcher — `vector` falls through to no fetcher, so the track
-    // renders blank). These are 1-D vector tilesets, which are just a
-    // single-category multivec, so we read them as `multivec` with one
-    // category to route through the working fetcher. See the ClinVar track for
-    // the same multivec pattern.
     data: {
       url: `https://higlass.genohub.org/api/v1/tileset_info/?d=mappability-k${k}-${algo}-hg38`,
-      type: "multivec",
-      row: "sample",
-      column: "position",
-      value: "value",
-      categories: [ALGO_LABEL[algo]],
+      type: "vector",
       binSize: 4,
     },
     tracks: [
