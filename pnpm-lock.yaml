@@ -102,8 +102,8 @@ importers:
         specifier: ^2.5.0
         version: 2.5.0(cytoscape@3.33.1)
       gosling.js:
-        specifier: 2.0.0-alpha.9
-        version: 2.0.0-alpha.9(pixi.js@7.4.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: 2.0.0-alpha.10
+        version: 2.0.0-alpha.10(pixi.js@7.4.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       lucide-react:
         specifier: ^0.555.0
         version: 0.555.0(react@19.2.0)
@@ -3509,8 +3509,8 @@ packages:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
     engines: {node: '>= 0.4'}
 
-  gosling.js@2.0.0-alpha.9:
-    resolution: {integrity: sha512-dZPS3cfpI1d6vWD2CJ8eoSI94HaoW+veyJ5scDLxaT6Ka4o64xY/Sox/8lShGR9brttnEdnuO5zOokBiTh9SFg==}
+  gosling.js@2.0.0-alpha.10:
+    resolution: {integrity: sha512-3Niuj6HUaBTSErZp89BvktUQTxX46FOjlk5/fpERkvQutjKut6fLOftM/3JejCy/RN6ZepiBmY9hJhLPYMOtMQ==}
     peerDependencies:
       pixi.js: ^7.4.0
       react: ^16.6.3 || ^17.0.0 || ^18.0.0
@@ -5484,6 +5484,7 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   validate-npm-package-name@7.0.2:
@@ -9170,7 +9171,7 @@ snapshots:
 
   gopd@1.2.0: {}
 
-  gosling.js@2.0.0-alpha.9(pixi.js@7.4.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  gosling.js@2.0.0-alpha.10(pixi.js@7.4.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@gmod/bam': 1.1.18
       '@gmod/bbi': 3.0.1

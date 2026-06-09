@@ -51,7 +51,7 @@
     "cytoscape": "^3.33.1",
     "cytoscape-cose-bilkent": "^4.1.0",
     "cytoscape-dagre": "^2.5.0",
-    "gosling.js": "2.0.0-alpha.9",
+    "gosling.js": "2.0.0-alpha.10",
     "lucide-react": "^0.555.0",
     "motion": "^12.34.2",
     "nanoid": "^5.1.6",
