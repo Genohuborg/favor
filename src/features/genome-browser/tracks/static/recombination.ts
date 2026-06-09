@@ -12,16 +12,7 @@ function recombSpec(opts: { url: string; title: string }): GoslingTrackSpec {
   return {
     alignment: "overlay",
     title: opts.title,
-    // gosling.js 2.0.0-alpha.9 has no HiGlass `vector` fetcher; a 1-D vector
-    // tileset reads correctly as a single-category multivec. See mappability.ts.
-    data: {
-      url: opts.url,
-      type: "multivec",
-      row: "sample",
-      column: "position",
-      value: "value",
-      categories: [opts.title],
-    },
+    data: { url: opts.url, type: "vector" },
     tracks: [
       {
         mark: "bar",

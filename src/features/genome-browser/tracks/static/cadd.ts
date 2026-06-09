@@ -12,15 +12,9 @@ function caddSpec(allele: "a" | "c" | "g" | "t"): GoslingTrackSpec {
   return {
     alignment: "overlay",
     title: `CADD 1.7 (Mutation ${allele.toUpperCase()})`,
-    // gosling.js 2.0.0-alpha.9 has no HiGlass `vector` fetcher; a 1-D vector
-    // tileset reads correctly as a single-category multivec. See mappability.ts.
     data: {
       url: `${CADD_BASE}-${allele}-hg38`,
-      type: "multivec",
-      row: "sample",
-      column: "position",
-      value: "value",
-      categories: [`CADD ${allele.toUpperCase()}`],
+      type: "vector",
       binSize: 4,
     },
     tracks: [
