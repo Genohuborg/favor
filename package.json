@@ -10,6 +10,7 @@
     "pretty": "prettier --write ."
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^2.0.0",
     "@ai-sdk/deepseek": "^1.0.10",
     "@ai-sdk/openai": "^2.0.17",
     "@ai-sdk/react": "^2.0.19",

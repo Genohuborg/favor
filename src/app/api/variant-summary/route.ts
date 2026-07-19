@@ -1177,7 +1177,7 @@ export async function POST(req: Request) {
   try {
     const {
       vcf,
-      model = "gpt-4o-mini",
+      model = "claude-opus-4-8",
     }: {
       vcf: string;
       model?: string;

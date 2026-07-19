@@ -19,7 +19,7 @@ interface CacheResponse {
   timestamp?: string;
 }
 
-export function VariantSummary({ vcf, modelId = "gpt-4o-mini" }: VariantSummaryProps) {
+export function VariantSummary({ vcf, modelId = "claude-opus-4-8" }: VariantSummaryProps) {
   const [summary, setSummary] = useState<string | null>(null);
   const [status, setStatus] = useState<SummaryStatus>("pending");
   const [error, setError] = useState<string | null>(null);

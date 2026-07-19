@@ -19,7 +19,7 @@ interface CacheResponse {
   timestamp?: string;
 }
 
-export function GeneSummary({ symbol, modelId = "gpt-4o-mini" }: GeneSummaryProps) {
+export function GeneSummary({ symbol, modelId = "claude-opus-4-8" }: GeneSummaryProps) {
   const [summary, setSummary] = useState<string | null>(null);
   const [status, setStatus] = useState<SummaryStatus>("pending");
   const [error, setError] = useState<string | null>(null);

@@ -26,7 +26,7 @@ export const DEFAULT_CHAT_CONFIG: ChatConfig = {
 };
 
 export const DEFAULT_USER_PREFERENCES: UserPreferences = {
-  selectedModelId: "gpt-4o-mini",
+  selectedModelId: "claude-opus-4-8",
   visibilityType: "private",
   attachmentsEnabled: true,
   notificationsEnabled: true,
