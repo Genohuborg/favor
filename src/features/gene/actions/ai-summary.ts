@@ -143,7 +143,7 @@ export async function generateGeneSummary(params: {
       entity_id: params.geneId,
       content_type: "summary",
       prompt,
-      model: params.model ?? "gpt-5.4-mini",
+      model: params.model ?? "claude-opus-4-8",
     }),
   });
 
