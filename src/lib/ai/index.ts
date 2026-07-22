@@ -1,4 +1,3 @@
-import { anthropic } from "@ai-sdk/anthropic";
 import { openai } from "@ai-sdk/openai";
 import { customProvider } from "ai";
 import { createDeepSeek } from "@ai-sdk/deepseek";
@@ -22,7 +21,6 @@ export function getModelConfig(modelId: string) {
 
 export const myProvider = customProvider({
   languageModels: {
-    "claude-opus-4-8": anthropic("claude-opus-4-8"),
     "gpt-4.1-nano": openai("gpt-4.1-nano"),
     "gpt-5-nano": openai("gpt-5-nano"),
     "gpt-4o-mini": openai("gpt-4o-mini"),

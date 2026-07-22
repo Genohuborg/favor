@@ -1,4 +1,4 @@
-export const DEFAULT_MODEL_NAME: string = "claude-opus-4-8";
+export const DEFAULT_MODEL_NAME: string = "gpt-4o-mini";
 
 export interface ChatModel {
   id: string;
@@ -11,13 +11,6 @@ export interface ChatModel {
 }
 
 export const models: Array<ChatModel> = [
-  {
-    id: "claude-opus-4-8",
-    label: "Claude Opus 4.8",
-    apiIdentifier: "claude-opus-4-8",
-    description: "Anthropic's most capable model",
-    context: 1000000,
-  },
   {
     id: "gpt-4.1-nano",
     label: "GPT-4.1 Nano",

@@ -199,7 +199,7 @@ export async function POST(req: Request) {
   try {
     const {
       symbol,
-      model = "claude-opus-4-8",
+      model = "gpt-4o-mini",
     }: {
       symbol: string;
       model?: string;
