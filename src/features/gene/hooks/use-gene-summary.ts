@@ -24,7 +24,7 @@ export type GeneSummaryState =
 
 export function useGeneSummary({
   geneId,
-  modelId = "claude-opus-4-8",
+  modelId = "gpt-5.4-mini",
   enabled = true,
 }: UseGeneSummaryOptions) {
   const queryClient = useQueryClient();

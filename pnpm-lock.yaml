@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@ai-sdk/anthropic':
-        specifier: ^3.0.30
-        version: 3.0.98(zod@3.25.76)
       '@ai-sdk/deepseek':
         specifier: ^2.0.20
         version: 2.0.20(zod@3.25.76)
@@ -204,12 +201,6 @@ importers:
 
 packages:
 
-  '@ai-sdk/anthropic@3.0.98':
-    resolution: {integrity: sha512-JSHw0m15tXsdZWaV64UOjbHFKHGsPVUi9jYApNaz2QOBm987vl+l9aUFnlN1OWmFvDNMIhAPVOYRsFwjK0by/w==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      zod: ^3.25.76 || ^4.1.8
-
   '@ai-sdk/deepseek@2.0.20':
     resolution: {integrity: sha512-MAL04sDTOWUiBjAGWaVgyeE4bYRb9QpKYRlIeCTZFga6I8yQs50XakhWEssrmvVihdpHGkqpDtCHsFqCydsWLA==}
     engines: {node: '>=18'}
@@ -237,16 +228,6 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
-
-  '@ai-sdk/provider-utils@4.0.40':
-    resolution: {integrity: sha512-OL5IrpUm9Y8Dwy+w/vvFwPotS6m52O9W0op2oXgXdCROMJIBalBI0oro6OIBYkPxvm5Xg02GSkoQN25RlR0bnw==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      zod: ^3.25.76 || ^4.1.8
-
-  '@ai-sdk/provider@3.0.14':
-    resolution: {integrity: sha512-5X1k57JBJ4H7H1QjX7CnJYAB1I19r/trVZTMcSms7/kLNZ8RaU4Nt2agcwZzv82Hfx6Q7/TOLU7agAKeFfc8cA==}
-    engines: {node: '>=18'}
 
   '@ai-sdk/provider@3.0.8':
     resolution: {integrity: sha512-oGMAgGoQdBXbZqNG0Ze56CHjDZ1IDYOwGYxYjO5KLSlz5HiNQ9udIXsPZ61VWaHGZ5XW/jyjmr6t2xz2jGVwbQ==}
@@ -3272,10 +3253,6 @@ packages:
     resolution: {integrity: sha512-Vo1ab+QXPzZ4tCa8SwIHJFaSzy4R6SHf7BY79rFBDf0idraZWAkYrDjDj8uWaSm3S2TK+hJ7/t1CEmZ7jXw+pg==}
     engines: {node: '>=18.0.0'}
 
-  eventsource-parser@3.1.0:
-    resolution: {integrity: sha512-kJezFj9YFAMLeORyi7aCLxLbD5/qWMQnoMVlVPyHIll7lgRJCc3JVln9Vgl9nwQi0YkMnhdGTMNn7CkRRAptMg==}
-    engines: {node: '>=18.0.0'}
-
   eventsource@3.0.7:
     resolution: {integrity: sha512-CRT1WTyuQoD771GW56XEZFQ/ZoSfWid1alKGDYMmkt2yl8UXrVR4pspqWNEcqKvVIzg6PAltWjxcSSPrboA4iA==}
     engines: {node: '>=18.0.0'}
@@ -5663,12 +5640,6 @@ packages:
 
 snapshots:
 
-  '@ai-sdk/anthropic@3.0.98(zod@3.25.76)':
-    dependencies:
-      '@ai-sdk/provider': 3.0.14
-      '@ai-sdk/provider-utils': 4.0.40(zod@3.25.76)
-      zod: 3.25.76
-
   '@ai-sdk/deepseek@2.0.20(zod@3.25.76)':
     dependencies:
       '@ai-sdk/provider': 3.0.8
@@ -5700,17 +5671,6 @@ snapshots:
       '@standard-schema/spec': 1.1.0
       eventsource-parser: 3.0.6
       zod: 3.25.76
-
-  '@ai-sdk/provider-utils@4.0.40(zod@3.25.76)':
-    dependencies:
-      '@ai-sdk/provider': 3.0.14
-      '@standard-schema/spec': 1.1.0
-      eventsource-parser: 3.1.0
-      zod: 3.25.76
-
-  '@ai-sdk/provider@3.0.14':
-    dependencies:
-      json-schema: 0.4.0
 
   '@ai-sdk/provider@3.0.8':
     dependencies:
@@ -8853,8 +8813,6 @@ snapshots:
   events@3.3.0: {}
 
   eventsource-parser@3.0.6: {}
-
-  eventsource-parser@3.1.0: {}
 
   eventsource@3.0.7:
     dependencies:

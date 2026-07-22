@@ -1,4 +1,7 @@
-import { anthropic } from "@ai-sdk/anthropic";
+import {
+  type OpenAILanguageModelResponsesOptions,
+  openai,
+} from "@ai-sdk/openai";
 
 // Matches SharedV3ProviderOptions from ai SDK
 type JSONValue =
@@ -11,27 +14,35 @@ type JSONValue =
 type ProviderOptions = Record<string, Record<string, JSONValue | undefined>>;
 
 // Tool-calling model (routing, planning, tool selection).
-// claude-opus-4-8: 1M context, 128K output, Anthropic's most capable Opus model.
-export const nanoModel = anthropic("claude-opus-4-8");
+// gpt-5.4-mini: 400K context, 128K output, faster than gpt-5.4, good
+// at function-calling / subagent dispatch.
+export const nanoModel = openai("gpt-5.4-mini");
 
-// Provider options for the tool-calling model (used in prepareStep).
-// Claude Opus 4.8 uses adaptive thinking; no OpenAI-style reasoningEffort knob.
-export const NANO_PROVIDER_OPTIONS: ProviderOptions | undefined = undefined;
+// Provider options for the tool-calling model (used in prepareStep)
+export const NANO_PROVIDER_OPTIONS: ProviderOptions = {
+  openai: {
+    reasoningEffort: "low",
+  } satisfies OpenAILanguageModelResponsesOptions,
+};
 
-// Synthesis models (user-selectable). Claude Opus 4.8 is the default provider.
-// fast     = Claude Opus 4.8
-// thinking = Claude Opus 4.8 (extended output headroom)
+// Synthesis models (user-selectable).
+// fast = gpt-5.4-mini (faster, 400K context, $0.75/$4.50 per MTok)
+// thinking = gpt-5.4 (1M context, 128K output, $2.50/$15 per MTok)
 const SYNTHESIS_MODES = {
   fast: {
     label: "Fast",
-    description: "Claude Opus 4.8",
-    factory: () => anthropic("claude-opus-4-8"),
-    providerOptions: undefined as ProviderOptions | undefined,
+    description: "GPT-5.4 mini",
+    factory: () => openai("gpt-5.4-mini"),
+    providerOptions: {
+      openai: {
+        reasoningEffort: "low",
+      } satisfies OpenAILanguageModelResponsesOptions,
+    } as ProviderOptions,
   },
   thinking: {
     label: "Thinking",
-    description: "Claude Opus 4.8",
-    factory: () => anthropic("claude-opus-4-8"),
+    description: "GPT-5.4",
+    factory: () => openai("gpt-5.4"),
     providerOptions: undefined as ProviderOptions | undefined,
   },
 };

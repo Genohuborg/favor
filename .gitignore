@@ -17,9 +17,6 @@
 /docs/
 CLAUDE.md
 
-# secrets (API keys) — never commit
-/src/secrete/
-
 # testing
 /coverage
 
