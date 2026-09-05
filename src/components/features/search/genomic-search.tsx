@@ -40,11 +40,14 @@ export function GenomicSearch() {
     () => formatSearchInput(debouncedInput),
     [debouncedInput],
   );
-  // Autocomplete API is being deprecated; force-disable typeahead network
-  // calls. Local recent/saved/example items still render on empty input.
+  // Typeahead re-enabled 2026-09-05. It was force-disabled in 02c21c7 because
+  // the /suggestions endpoint had no backing store: its Elasticsearch index
+  // `autocomplete_combined` did not survive the NERC migration, so every call
+  // 500'd. The index has been rebuilt on Jetstream2 (genes) and rsid
+  // suggestions now come from ClickHouse, so the endpoint answers again.
   const { suggestions, isLoading, hasError } = useSearchSuggestions({
     query: debouncedInput,
-    shouldShowSuggestions: false,
+    shouldShowSuggestions: inputFormat.shouldShowSuggestions,
     selectedGenome,
     recentSearches: [...getSavedSearchItems(), ...getRecentSearches(4)],
   });
