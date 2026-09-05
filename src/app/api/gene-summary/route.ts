@@ -1,3 +1,4 @@
+import { DEFAULT_MODEL_NAME } from "@/lib/ai/models";
 import { myProvider } from "@/lib/ai";
 import { streamText } from "ai";
 import { prisma } from "@/lib/prisma";
@@ -199,7 +200,7 @@ export async function POST(req: Request) {
   try {
     const {
       symbol,
-      model = "gpt-4o-mini",
+      model = DEFAULT_MODEL_NAME,
     }: {
       symbol: string;
       model?: string;

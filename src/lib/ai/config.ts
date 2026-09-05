@@ -1,5 +1,5 @@
 import type { ChatModel } from "./models";
-import { getModelById, getDefaultModel } from "./models";
+import { DEFAULT_MODEL_NAME, getModelById, getDefaultModel } from "./models";
 
 export interface ChatConfig {
   maxMessages: number;
@@ -26,7 +26,7 @@ export const DEFAULT_CHAT_CONFIG: ChatConfig = {
 };
 
 export const DEFAULT_USER_PREFERENCES: UserPreferences = {
-  selectedModelId: "gpt-4o-mini",
+  selectedModelId: DEFAULT_MODEL_NAME,
   visibilityType: "private",
   attachmentsEnabled: true,
   notificationsEnabled: true,

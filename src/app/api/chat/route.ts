@@ -1,7 +1,5 @@
 import { myProvider, tools } from "@/lib/ai";
 import { systemPrompt } from "@/lib/ai/prompts";
-import { isReasoningModel } from "@/lib/ai/models";
-import { OpenAIResponsesProviderOptions } from "@ai-sdk/openai";
 import { streamText, UIMessage, convertToModelMessages, stepCountIs } from "ai";
 
 // Allow streaming responses up to 30 seconds
@@ -16,17 +14,15 @@ export async function POST(req: Request) {
     model: string;
   } = await req.json();
 
+  // No providerOptions: the OpenAI-specific `reasoningEffort` block that used
+  // to live here was sent for every model flagged `reasoning`, which since the
+  // move to Anthropic means only DeepSeek -- a provider that never read it.
   const result = streamText({
     model: myProvider.languageModel(model),
-    providerOptions: isReasoningModel(model) ? {
-      openai: {
-        reasoningEffort: 'low',
-      } satisfies OpenAIResponsesProviderOptions,
-    } : undefined,
     messages: convertToModelMessages(messages),
     tools: tools,
     stopWhen: stepCountIs(10),
-    system:  systemPrompt(model)
+    system: systemPrompt(model),
   });
 
   return result.toUIMessageStreamResponse({

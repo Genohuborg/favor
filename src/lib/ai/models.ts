@@ -1,4 +1,10 @@
-export const DEFAULT_MODEL_NAME: string = "gpt-4o-mini";
+// FAVOR-GPT runs on the Anthropic API. The OpenAI models were removed on
+// 2026-09-05; the key `ANTHROPIC_API_KEY` is read server-side by
+// @ai-sdk/anthropic (see ./index.ts) and never reaches the browser.
+//
+// The ids below are Anthropic API model ids and are used verbatim as the
+// languageModel keys in ./index.ts, so the two lists must stay in step.
+export const DEFAULT_MODEL_NAME: string = "claude-opus-5";
 
 export interface ChatModel {
   id: string;
@@ -12,26 +18,25 @@ export interface ChatModel {
 
 export const models: Array<ChatModel> = [
   {
-    id: "gpt-4.1-nano",
-    label: "GPT-4.1 Nano",
-    apiIdentifier: "gpt-4.1-nano",
-    description: "Ultra-fast and affordable model",
-    context: 1047576,
+    id: "claude-opus-5",
+    label: "Claude Opus 5",
+    apiIdentifier: "claude-opus-5",
+    description: "Anthropic's most capable model",
+    context: 200000,
   },
   {
-    id: "gpt-4o-mini",
-    label: "GPT-4o Mini",
-    apiIdentifier: "gpt-4o-mini",
-    description: "Fast and affordable model",
-    context: 128000,
+    id: "claude-sonnet-5",
+    label: "Claude Sonnet 5",
+    apiIdentifier: "claude-sonnet-5",
+    description: "Balanced capability and speed",
+    context: 200000,
   },
   {
-    id: "gpt-5-nano",
-    label: "GPT-5 Nano",
-    apiIdentifier: "gpt-5-nano",
-    description: "Fast and cost-efficient reasoning model.",
-    context: 400000,
-    reasoning: true,
+    id: "claude-haiku-4-5",
+    label: "Claude Haiku 4.5",
+    apiIdentifier: "claude-haiku-4-5-20251001",
+    description: "Fastest and most affordable model",
+    context: 200000,
   },
   {
     id: "deepseek-chat",

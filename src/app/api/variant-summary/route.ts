@@ -1,3 +1,4 @@
+import { DEFAULT_MODEL_NAME } from "@/lib/ai/models";
 import { myProvider } from "@/lib/ai";
 import { streamText } from "ai";
 import type { Variant } from "@/lib/variant/types";
@@ -1177,7 +1178,7 @@ export async function POST(req: Request) {
   try {
     const {
       vcf,
-      model = "gpt-4o-mini",
+      model = DEFAULT_MODEL_NAME,
     }: {
       vcf: string;
       model?: string;

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { Markdown } from "@/components/ai-elements/markdown";
+import { DEFAULT_MODEL_NAME } from "@/lib/ai/models";
 
 interface GeneSummaryProps {
   symbol: string;
@@ -19,7 +20,7 @@ interface CacheResponse {
   timestamp?: string;
 }
 
-export function GeneSummary({ symbol, modelId = "gpt-4o-mini" }: GeneSummaryProps) {
+export function GeneSummary({ symbol, modelId = DEFAULT_MODEL_NAME }: GeneSummaryProps) {
   const [summary, setSummary] = useState<string | null>(null);
   const [status, setStatus] = useState<SummaryStatus>("pending");
   const [error, setError] = useState<string | null>(null);

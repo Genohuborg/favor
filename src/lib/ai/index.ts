@@ -1,4 +1,4 @@
-import { openai } from "@ai-sdk/openai";
+import { anthropic } from "@ai-sdk/anthropic";
 import { customProvider } from "ai";
 import { createDeepSeek } from "@ai-sdk/deepseek";
 import { AI_CONFIG } from "./constants";
@@ -19,11 +19,13 @@ export function getModelConfig(modelId: string) {
   };
 }
 
+// The bare `anthropic` provider instance reads ANTHROPIC_API_KEY from the
+// environment. Keys map 1:1 to the ids in ./models.ts.
 export const myProvider = customProvider({
   languageModels: {
-    "gpt-4.1-nano": openai("gpt-4.1-nano"),
-    "gpt-5-nano": openai("gpt-5-nano"),
-    "gpt-4o-mini": openai("gpt-4o-mini"),
+    "claude-opus-5": anthropic("claude-opus-5"),
+    "claude-sonnet-5": anthropic("claude-sonnet-5"),
+    "claude-haiku-4-5": anthropic("claude-haiku-4-5-20251001"),
     "deepseek-chat": deepseek("deepseek-reasoner"),
   },
 });

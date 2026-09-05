@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { Markdown } from "@/components/ai-elements/markdown";
+import { DEFAULT_MODEL_NAME } from "@/lib/ai/models";
 
 interface VariantSummaryProps {
   vcf: string;
@@ -19,7 +20,7 @@ interface CacheResponse {
   timestamp?: string;
 }
 
-export function VariantSummary({ vcf, modelId = "gpt-4o-mini" }: VariantSummaryProps) {
+export function VariantSummary({ vcf, modelId = DEFAULT_MODEL_NAME }: VariantSummaryProps) {
   const [summary, setSummary] = useState<string | null>(null);
   const [status, setStatus] = useState<SummaryStatus>("pending");
   const [error, setError] = useState<string | null>(null);
