@@ -3,11 +3,9 @@
 // the gnomAD non-coding constraint (Gnocchi) score.
 
 import { Activity } from "lucide-react";
+import { FAVOR_VIZ, HIGLASS_TILESET_INFO } from "@/config/endpoints";
 import type { GoslingTrackSpec, StaticTrack } from "../../types/tracks";
 import { LINKING_ID } from "../constants";
-
-const FAVOR_VIZ =
-  "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz";
 
 function bigwigBarSpec(opts: {
   url: string;
@@ -55,7 +53,7 @@ const gnocchiSpec: GoslingTrackSpec = {
   alignment: "overlay",
   title: "Gnocchi: gnomAD non-coding constraint of haploinsufficient variation",
   data: {
-    url: "https://higlass.genohub.org/api/v1/tileset_info/?d=genocchi-hg38",
+    url: `${HIGLASS_TILESET_INFO}genocchi-hg38`,
     type: "vector",
   },
   tracks: [
