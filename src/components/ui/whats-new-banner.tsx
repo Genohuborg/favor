@@ -7,29 +7,7 @@ import { Sparkles, X, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils/general";
 import { Badge } from "@/components/ui/badge";
 
-interface NERCStatus {
-  page: {
-    name: string;
-    url: string;
-    status: "UP" | "HASISSUES" | "UNDERMAINTENANCE";
-  };
-  activeIncidents?: Array<{
-    id: string;
-    name: string;
-    started: string;
-    status: string;
-    impact: string;
-    url: string;
-  }>;
-  activeMaintenances?: Array<{
-    id: string;
-    name: string;
-    start: string;
-    status: string;
-    duration: string;
-    url: string;
-  }>;
-}
+import type { HostingStatus } from "@/lib/platform-status/hosting";
 
 interface WhatsNewBannerProps {
   className?: string;
@@ -37,33 +15,39 @@ interface WhatsNewBannerProps {
 
 export function WhatsNewBanner({ className }: WhatsNewBannerProps) {
   const [isVisible, setIsVisible] = useState(true);
-  const [nercStatus, setNercStatus] = useState<NERCStatus | null>(null);
+  const [hostingStatus, setHostingStatus] = useState<HostingStatus | null>(
+    null,
+  );
 
+  // Polls our own origin, never the provider's feed directly. /api/platform-status
+  // fetches upstream server-side and strips the provider's name out of every
+  // string first -- see src/lib/platform-status/hosting.ts. This previously
+  // called nerc.instatus.com straight from the browser, which both named the
+  // provider and, after NERC was decommissioned, reported a permanent outage.
   useEffect(() => {
-    const fetchNercStatus = async () => {
+    const load = async () => {
       try {
-        const response = await fetch("https://nerc.instatus.com/summary.json");
+        const response = await fetch("/api/platform-status");
         if (response.ok) {
-          const data = await response.json();
-          setNercStatus(data);
+          setHostingStatus((await response.json()) as HostingStatus);
         }
-      } catch (err) {
-        // Fail silently - NERC status is not critical
+      } catch {
+        // Fail silently - platform status is not critical to the page.
       }
     };
 
-    fetchNercStatus();
+    load();
   }, []);
 
   if (!isVisible) {
     return null;
   }
 
-  const hasNercIssues =
-    nercStatus &&
-    (nercStatus.page.status !== "UP" ||
-      (nercStatus.activeIncidents?.length || 0) > 0 ||
-      (nercStatus.activeMaintenances?.length || 0) > 0);
+  const hasPlatformIssues =
+    hostingStatus &&
+    (hostingStatus.page.status !== "UP" ||
+      (hostingStatus.activeIncidents?.length || 0) > 0 ||
+      (hostingStatus.activeMaintenances?.length || 0) > 0);
 
   return (
     <div
@@ -82,21 +66,19 @@ export function WhatsNewBanner({ className }: WhatsNewBannerProps) {
       </Button>
 
       <div className="p-4 space-y-3">
-        {/* NERC Status - Only show if there are issues */}
-        {hasNercIssues && (
+        {/* Hosting-platform status - only shown when there are issues */}
+        {hasPlatformIssues && (
           <div className="pr-8">
             <div className="flex items-center gap-2 mb-2">
               <AlertTriangle className="h-4 w-4 text-amber-600" />
               <span className="text-sm font-medium">Service Notice</span>
             </div>
 
-            {(nercStatus.activeMaintenances || []).map((maintenance) => (
+            {(hostingStatus.activeMaintenances || []).map((maintenance) => (
               <div key={maintenance.id} className="text-sm">
                 <span className="font-medium">
-                  {maintenance.name.replace(
-                    /Upcoming NERC system maintenance and upgrade/g,
-                    "FAVOR data center maintenance",
-                  )}{" "}
+                  {/* Name is already provider-redacted server-side. */}
+                  {maintenance.name}{" "}
                   <a
                     href={maintenance.url}
                     target="_blank"
@@ -109,7 +91,7 @@ export function WhatsNewBanner({ className }: WhatsNewBannerProps) {
               </div>
             ))}
 
-            {(nercStatus.activeIncidents || []).map((incident) => (
+            {(hostingStatus.activeIncidents || []).map((incident) => (
               <div key={incident.id} className="text-sm">
                 <span className="font-medium">{incident.name}</span>
                 <div className="text-xs text-muted-foreground mt-1">
@@ -128,18 +110,18 @@ export function WhatsNewBanner({ className }: WhatsNewBannerProps) {
           </div>
         )}
 
-        {/* What's New - Always show but smaller when NERC issues present */}
+        {/* What's New - always shown, smaller when platform issues are present */}
         <div
           className={cn(
             "flex items-center justify-between pr-8",
-            hasNercIssues && "pt-2 border-t",
+            hasPlatformIssues && "pt-2 border-t",
           )}
         >
           <div className="flex items-center gap-3">
             <Sparkles className="h-4 w-4 text-primary" />
             <div className="flex items-center gap-2">
               <span
-                className={cn("font-medium", hasNercIssues ? "text-sm" : "")}
+                className={cn("font-medium", hasPlatformIssues ? "text-sm" : "")}
               >
                 What's New
               </span>
@@ -155,7 +137,7 @@ export function WhatsNewBanner({ className }: WhatsNewBannerProps) {
             asChild
             className={cn(
               "text-primary hover:underline",
-              hasNercIssues ? "text-xs" : "text-sm",
+              hasPlatformIssues ? "text-xs" : "text-sm",
             )}
           >
             <Link href="/whats-new">View Updates</Link>

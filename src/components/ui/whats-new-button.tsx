@@ -6,54 +6,37 @@ import { Button } from "@/components/ui/button";
 import { Sparkles, AlertTriangle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-interface NERCStatus {
-  page: {
-    name: string;
-    url: string;
-    status: "UP" | "HASISSUES" | "UNDERMAINTENANCE";
-  };
-  activeIncidents?: Array<{
-    id: string;
-    name: string;
-    started: string;
-    status: string;
-    impact: string;
-    url: string;
-  }>;
-  activeMaintenances?: Array<{
-    id: string;
-    name: string;
-    start: string;
-    status: string;
-    duration: string;
-    url: string;
-  }>;
-}
+import type { HostingStatus } from "@/lib/platform-status/hosting";
 
 export function WhatsNewButton() {
-  const [nercStatus, setNercStatus] = useState<NERCStatus | null>(null);
+  const [hostingStatus, setHostingStatus] = useState<HostingStatus | null>(
+    null,
+  );
 
+  // Same source swap as whats-new-banner: poll our own origin, which fetches
+  // upstream server-side and redacts the provider's name. This used to call
+  // nerc.instatus.com directly, which after decommissioning meant a dead host.
+  // Only the icon depends on it, so a failure just leaves the default sparkle.
   useEffect(() => {
-    const fetchNercStatus = async () => {
+    const load = async () => {
       try {
-        const response = await fetch("https://nerc.instatus.com/summary.json");
+        const response = await fetch("/api/platform-status");
         if (response.ok) {
-          const data = await response.json();
-          setNercStatus(data);
+          setHostingStatus((await response.json()) as HostingStatus);
         }
-      } catch (err) {
-        // Fail silently - NERC status is not critical
+      } catch {
+        // Fail silently - platform status is not critical to the page.
       }
     };
 
-    fetchNercStatus();
+    load();
   }, []);
 
-  const hasNercIssues =
-    nercStatus &&
-    (nercStatus.page.status !== "UP" ||
-      (nercStatus.activeIncidents?.length || 0) > 0 ||
-      (nercStatus.activeMaintenances?.length || 0) > 0);
+  const hasPlatformIssues =
+    hostingStatus &&
+    (hostingStatus.page.status !== "UP" ||
+      (hostingStatus.activeIncidents?.length || 0) > 0 ||
+      (hostingStatus.activeMaintenances?.length || 0) > 0);
 
   return (
     <Button
@@ -62,7 +45,7 @@ export function WhatsNewButton() {
       className="relative rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-all duration-200 hover:text-foreground hover:bg-accent/50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 h-auto"
     >
       <Link href="/whats-new" className="flex items-center gap-2">
-        {hasNercIssues ? (
+        {hasPlatformIssues ? (
           <AlertTriangle className="h-4 w-4 text-amber-600" />
         ) : (
           <Sparkles className="h-4 w-4 text-primary" />
