@@ -1,3 +1,5 @@
+import { FAVOR_VIZ } from "@/lib/config/object-store";
+
 export interface AssayInfo {
   name: string;
   bigwig?: string;
@@ -22,22 +24,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_90_or_above_years_with_mild_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -50,22 +52,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_89_years_with_mild_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -78,22 +80,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_mild_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -106,22 +108,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_88_years_with_mild_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -134,22 +136,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_mild_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -162,22 +164,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_83_years_with_mild_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -190,22 +192,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -218,22 +220,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_86_years_with_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -246,22 +248,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_81_years_with_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -274,22 +276,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease__h3k4me3.bigWig`,
         },
       ],
     },
@@ -302,22 +304,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_89_years_with_alzheimer_s_disease__h3k4me3.bigWig`,
         },
       ],
     },
@@ -330,22 +332,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_88_years_with_alzheimer_s_disease__h3k4me3.bigWig`,
         },
       ],
     },
@@ -358,22 +360,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_86_years_with_alzheimer_s_disease__h3k4me3.bigWig`,
         },
       ],
     },
@@ -386,22 +388,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_85_years_with_alzheimer_s_disease__h3k4me3.bigWig`,
         },
       ],
     },
@@ -414,22 +416,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_81_years_with_alzheimer_s_disease__h3k4me3.bigWig`,
         },
       ],
     },
@@ -442,22 +444,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_74_years_with_alzheimer_s_disease__h3k4me3.bigWig`,
         },
       ],
     },
@@ -470,7 +472,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/sk_n_sh_treated_with_6_\u03bcm_all_trans_retinoic_acid_for_48_hours/sk_n_sh_treated_with_6_\u03bcm_all_trans_retinoic_acid_for_48_hours__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/sk_n_sh_treated_with_6_\u03bcm_all_trans_retinoic_acid_for_48_hours/sk_n_sh_treated_with_6_\u03bcm_all_trans_retinoic_acid_for_48_hours__dnase.bigWig`,
         },
         {
           name: "atac",
@@ -492,7 +494,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/sk_n_sh/sk_n_sh__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/sk_n_sh/sk_n_sh__dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -534,22 +536,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_/dorsolateral_prefrontal_cortex_male_adult_87_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_/dorsolateral_prefrontal_cortex_male_adult_87_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_/dorsolateral_prefrontal_cortex_male_adult_87_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_/dorsolateral_prefrontal_cortex_male_adult_87_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_/dorsolateral_prefrontal_cortex_male_adult_87_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_/dorsolateral_prefrontal_cortex_male_adult_87_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_/dorsolateral_prefrontal_cortex_male_adult_87_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_/dorsolateral_prefrontal_cortex_male_adult_87_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -562,22 +564,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_86_years_/dorsolateral_prefrontal_cortex_male_adult_86_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_86_years_/dorsolateral_prefrontal_cortex_male_adult_86_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_86_years_/dorsolateral_prefrontal_cortex_male_adult_86_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_86_years_/dorsolateral_prefrontal_cortex_male_adult_86_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_86_years_/dorsolateral_prefrontal_cortex_male_adult_86_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_86_years_/dorsolateral_prefrontal_cortex_male_adult_86_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_86_years_/dorsolateral_prefrontal_cortex_male_adult_86_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_86_years_/dorsolateral_prefrontal_cortex_male_adult_86_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -590,22 +592,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_84_years_/dorsolateral_prefrontal_cortex_male_adult_84_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_84_years_/dorsolateral_prefrontal_cortex_male_adult_84_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_84_years_/dorsolateral_prefrontal_cortex_male_adult_84_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_84_years_/dorsolateral_prefrontal_cortex_male_adult_84_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_84_years_/dorsolateral_prefrontal_cortex_male_adult_84_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_84_years_/dorsolateral_prefrontal_cortex_male_adult_84_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_84_years_/dorsolateral_prefrontal_cortex_male_adult_84_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_84_years_/dorsolateral_prefrontal_cortex_male_adult_84_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -618,22 +620,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_83_years_/dorsolateral_prefrontal_cortex_male_adult_83_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_83_years_/dorsolateral_prefrontal_cortex_male_adult_83_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_83_years_/dorsolateral_prefrontal_cortex_male_adult_83_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_83_years_/dorsolateral_prefrontal_cortex_male_adult_83_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_83_years_/dorsolateral_prefrontal_cortex_male_adult_83_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_83_years_/dorsolateral_prefrontal_cortex_male_adult_83_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_83_years_/dorsolateral_prefrontal_cortex_male_adult_83_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_83_years_/dorsolateral_prefrontal_cortex_male_adult_83_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -646,22 +648,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_82_years_/dorsolateral_prefrontal_cortex_male_adult_82_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_82_years_/dorsolateral_prefrontal_cortex_male_adult_82_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_82_years_/dorsolateral_prefrontal_cortex_male_adult_82_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_82_years_/dorsolateral_prefrontal_cortex_male_adult_82_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_82_years_/dorsolateral_prefrontal_cortex_male_adult_82_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_82_years_/dorsolateral_prefrontal_cortex_male_adult_82_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_82_years_/dorsolateral_prefrontal_cortex_male_adult_82_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_82_years_/dorsolateral_prefrontal_cortex_male_adult_82_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -674,22 +676,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_78_years_/dorsolateral_prefrontal_cortex_male_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_78_years_/dorsolateral_prefrontal_cortex_male_adult_78_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_78_years_/dorsolateral_prefrontal_cortex_male_adult_78_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_78_years_/dorsolateral_prefrontal_cortex_male_adult_78_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_78_years_/dorsolateral_prefrontal_cortex_male_adult_78_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_78_years_/dorsolateral_prefrontal_cortex_male_adult_78_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_78_years_/dorsolateral_prefrontal_cortex_male_adult_78_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_78_years_/dorsolateral_prefrontal_cortex_male_adult_78_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -702,22 +704,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_71_years_/dorsolateral_prefrontal_cortex_male_adult_71_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_71_years_/dorsolateral_prefrontal_cortex_male_adult_71_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_71_years_/dorsolateral_prefrontal_cortex_male_adult_71_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_71_years_/dorsolateral_prefrontal_cortex_male_adult_71_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_71_years_/dorsolateral_prefrontal_cortex_male_adult_71_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_71_years_/dorsolateral_prefrontal_cortex_male_adult_71_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_71_years_/dorsolateral_prefrontal_cortex_male_adult_71_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_71_years_/dorsolateral_prefrontal_cortex_male_adult_71_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -730,22 +732,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -758,22 +760,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_/dorsolateral_prefrontal_cortex_female_adult_89_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_/dorsolateral_prefrontal_cortex_female_adult_89_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_/dorsolateral_prefrontal_cortex_female_adult_89_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_/dorsolateral_prefrontal_cortex_female_adult_89_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_/dorsolateral_prefrontal_cortex_female_adult_89_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_/dorsolateral_prefrontal_cortex_female_adult_89_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_/dorsolateral_prefrontal_cortex_female_adult_89_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_89_years_/dorsolateral_prefrontal_cortex_female_adult_89_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -786,22 +788,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_/dorsolateral_prefrontal_cortex_female_adult_88_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_/dorsolateral_prefrontal_cortex_female_adult_88_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_/dorsolateral_prefrontal_cortex_female_adult_88_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_/dorsolateral_prefrontal_cortex_female_adult_88_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_/dorsolateral_prefrontal_cortex_female_adult_88_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_/dorsolateral_prefrontal_cortex_female_adult_88_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_/dorsolateral_prefrontal_cortex_female_adult_88_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_88_years_/dorsolateral_prefrontal_cortex_female_adult_88_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -814,22 +816,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_/dorsolateral_prefrontal_cortex_female_adult_87_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_/dorsolateral_prefrontal_cortex_female_adult_87_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_/dorsolateral_prefrontal_cortex_female_adult_87_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_/dorsolateral_prefrontal_cortex_female_adult_87_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_/dorsolateral_prefrontal_cortex_female_adult_87_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_/dorsolateral_prefrontal_cortex_female_adult_87_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_/dorsolateral_prefrontal_cortex_female_adult_87_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_/dorsolateral_prefrontal_cortex_female_adult_87_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -842,22 +844,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_84_years_/dorsolateral_prefrontal_cortex_female_adult_84_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_84_years_/dorsolateral_prefrontal_cortex_female_adult_84_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_84_years_/dorsolateral_prefrontal_cortex_female_adult_84_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_84_years_/dorsolateral_prefrontal_cortex_female_adult_84_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_84_years_/dorsolateral_prefrontal_cortex_female_adult_84_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_84_years_/dorsolateral_prefrontal_cortex_female_adult_84_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_84_years_/dorsolateral_prefrontal_cortex_female_adult_84_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_84_years_/dorsolateral_prefrontal_cortex_female_adult_84_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -870,22 +872,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_/dorsolateral_prefrontal_cortex_female_adult_83_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_/dorsolateral_prefrontal_cortex_female_adult_83_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_/dorsolateral_prefrontal_cortex_female_adult_83_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_/dorsolateral_prefrontal_cortex_female_adult_83_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_/dorsolateral_prefrontal_cortex_female_adult_83_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_/dorsolateral_prefrontal_cortex_female_adult_83_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_/dorsolateral_prefrontal_cortex_female_adult_83_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_83_years_/dorsolateral_prefrontal_cortex_female_adult_83_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -898,22 +900,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_82_years_/dorsolateral_prefrontal_cortex_female_adult_82_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_82_years_/dorsolateral_prefrontal_cortex_female_adult_82_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_82_years_/dorsolateral_prefrontal_cortex_female_adult_82_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_82_years_/dorsolateral_prefrontal_cortex_female_adult_82_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_82_years_/dorsolateral_prefrontal_cortex_female_adult_82_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_82_years_/dorsolateral_prefrontal_cortex_female_adult_82_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_82_years_/dorsolateral_prefrontal_cortex_female_adult_82_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_82_years_/dorsolateral_prefrontal_cortex_female_adult_82_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -926,22 +928,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_79_years_/dorsolateral_prefrontal_cortex_female_adult_79_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_79_years_/dorsolateral_prefrontal_cortex_female_adult_79_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_79_years_/dorsolateral_prefrontal_cortex_female_adult_79_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_79_years_/dorsolateral_prefrontal_cortex_female_adult_79_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_79_years_/dorsolateral_prefrontal_cortex_female_adult_79_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_79_years_/dorsolateral_prefrontal_cortex_female_adult_79_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_79_years_/dorsolateral_prefrontal_cortex_female_adult_79_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_79_years_/dorsolateral_prefrontal_cortex_female_adult_79_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -954,22 +956,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_78_years_/dorsolateral_prefrontal_cortex_female_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_78_years_/dorsolateral_prefrontal_cortex_female_adult_78_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_78_years_/dorsolateral_prefrontal_cortex_female_adult_78_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_78_years_/dorsolateral_prefrontal_cortex_female_adult_78_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_78_years_/dorsolateral_prefrontal_cortex_female_adult_78_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_78_years_/dorsolateral_prefrontal_cortex_female_adult_78_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_78_years_/dorsolateral_prefrontal_cortex_female_adult_78_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_78_years_/dorsolateral_prefrontal_cortex_female_adult_78_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -982,22 +984,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/glutamatergic_neuron_in_vitro_differentiated_cells_/glutamatergic_neuron_in_vitro_differentiated_cells___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/glutamatergic_neuron_in_vitro_differentiated_cells_/glutamatergic_neuron_in_vitro_differentiated_cells___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/glutamatergic_neuron_in_vitro_differentiated_cells_/glutamatergic_neuron_in_vitro_differentiated_cells___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/glutamatergic_neuron_in_vitro_differentiated_cells_/glutamatergic_neuron_in_vitro_differentiated_cells___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/glutamatergic_neuron_in_vitro_differentiated_cells_/glutamatergic_neuron_in_vitro_differentiated_cells___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/glutamatergic_neuron_in_vitro_differentiated_cells_/glutamatergic_neuron_in_vitro_differentiated_cells___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/glutamatergic_neuron_in_vitro_differentiated_cells_/glutamatergic_neuron_in_vitro_differentiated_cells___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/glutamatergic_neuron_in_vitro_differentiated_cells_/glutamatergic_neuron_in_vitro_differentiated_cells___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1010,7 +1012,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/bipolar_neuron_in_vitro_differentiated_cells_/bipolar_neuron_in_vitro_differentiated_cells___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/bipolar_neuron_in_vitro_differentiated_cells_/bipolar_neuron_in_vitro_differentiated_cells___dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -1032,7 +1034,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/astrocyte/astrocyte__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/astrocyte/astrocyte__dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -1054,22 +1056,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/astrocyte_in_vitro_differentiated_cells_/astrocyte_in_vitro_differentiated_cells___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/astrocyte_in_vitro_differentiated_cells_/astrocyte_in_vitro_differentiated_cells___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/astrocyte_in_vitro_differentiated_cells_/astrocyte_in_vitro_differentiated_cells___ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/astrocyte_in_vitro_differentiated_cells_/astrocyte_in_vitro_differentiated_cells___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/astrocyte_in_vitro_differentiated_cells_/astrocyte_in_vitro_differentiated_cells___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/astrocyte_in_vitro_differentiated_cells_/astrocyte_in_vitro_differentiated_cells___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/astrocyte_in_vitro_differentiated_cells_/astrocyte_in_vitro_differentiated_cells___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/astrocyte_in_vitro_differentiated_cells_/astrocyte_in_vitro_differentiated_cells___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1082,17 +1084,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -1105,17 +1107,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_alzheimer_s_disease_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -1128,17 +1130,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__ctcf.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_female_adult_87_years_with_alzheimer_s_disease_cognitive_impairment__h3k4me3.bigWig`,
         },
       ],
     },
@@ -1151,7 +1153,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/sk_n_mc/sk_n_mc__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/sk_n_mc/sk_n_mc__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
@@ -1204,7 +1206,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/choroid_plexus_epithelial_cell/choroid_plexus_epithelial_cell__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/choroid_plexus_epithelial_cell/choroid_plexus_epithelial_cell__dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -1223,7 +1225,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/brain_organoid_90_days_post_differentiation_/brain_organoid_90_days_post_differentiation___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/brain_organoid_90_days_post_differentiation_/brain_organoid_90_days_post_differentiation___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
@@ -1242,7 +1244,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/brain_organoid_180_days_post_differentiation_/brain_organoid_180_days_post_differentiation___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/brain_organoid_180_days_post_differentiation_/brain_organoid_180_days_post_differentiation___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
@@ -1278,7 +1280,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/be2c/be2c__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/be2c/be2c__dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -1297,7 +1299,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/astrocyte_of_the_cerebellum/astrocyte_of_the_cerebellum__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/astrocyte_of_the_cerebellum/astrocyte_of_the_cerebellum__dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -1316,12 +1318,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/temporal_lobe_male_adult_81_years_/temporal_lobe_male_adult_81_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/temporal_lobe_male_adult_81_years_/temporal_lobe_male_adult_81_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/temporal_lobe_male_adult_81_years_/temporal_lobe_male_adult_81_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/temporal_lobe_male_adult_81_years_/temporal_lobe_male_adult_81_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1334,12 +1336,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/temporal_lobe_female_adult_75_years_/temporal_lobe_female_adult_75_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/temporal_lobe_female_adult_75_years_/temporal_lobe_female_adult_75_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/temporal_lobe_female_adult_75_years_/temporal_lobe_female_adult_75_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/temporal_lobe_female_adult_75_years_/temporal_lobe_female_adult_75_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1355,7 +1357,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/substantia_nigra_male_adult_81_years_/substantia_nigra_male_adult_81_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/substantia_nigra_male_adult_81_years_/substantia_nigra_male_adult_81_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1368,12 +1370,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/neurosphere_embryo_15_weeks_/neurosphere_embryo_15_weeks___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/neurosphere_embryo_15_weeks_/neurosphere_embryo_15_weeks___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/neurosphere_embryo_15_weeks_/neurosphere_embryo_15_weeks___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/neurosphere_embryo_15_weeks_/neurosphere_embryo_15_weeks___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1386,12 +1388,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_81_years_/dorsolateral_prefrontal_cortex_male_adult_81_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_81_years_/dorsolateral_prefrontal_cortex_male_adult_81_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_81_years_/dorsolateral_prefrontal_cortex_male_adult_81_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_81_years_/dorsolateral_prefrontal_cortex_male_adult_81_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1404,12 +1406,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_75_years_/dorsolateral_prefrontal_cortex_female_adult_75_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_75_years_/dorsolateral_prefrontal_cortex_female_adult_75_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_75_years_/dorsolateral_prefrontal_cortex_female_adult_75_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_75_years_/dorsolateral_prefrontal_cortex_female_adult_75_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1422,12 +1424,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/layer_of_hippocampus_male_adult_81_years_/layer_of_hippocampus_male_adult_81_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/layer_of_hippocampus_male_adult_81_years_/layer_of_hippocampus_male_adult_81_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/layer_of_hippocampus_male_adult_81_years_/layer_of_hippocampus_male_adult_81_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/layer_of_hippocampus_male_adult_81_years_/layer_of_hippocampus_male_adult_81_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1440,12 +1442,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/layer_of_hippocampus_male_adult_73_years_/layer_of_hippocampus_male_adult_73_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/layer_of_hippocampus_male_adult_73_years_/layer_of_hippocampus_male_adult_73_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/layer_of_hippocampus_male_adult_73_years_/layer_of_hippocampus_male_adult_73_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/layer_of_hippocampus_male_adult_73_years_/layer_of_hippocampus_male_adult_73_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1458,12 +1460,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/layer_of_hippocampus_female_adult_75_years_/layer_of_hippocampus_female_adult_75_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/layer_of_hippocampus_female_adult_75_years_/layer_of_hippocampus_female_adult_75_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/layer_of_hippocampus_female_adult_75_years_/layer_of_hippocampus_female_adult_75_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/layer_of_hippocampus_female_adult_75_years_/layer_of_hippocampus_female_adult_75_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1476,7 +1478,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/h54/h54__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/h54/h54__dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -1492,7 +1494,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/d721med/d721med__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/d721med/d721med__dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -1508,12 +1510,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/cingulate_gyrus_male_adult_81_years_/cingulate_gyrus_male_adult_81_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/cingulate_gyrus_male_adult_81_years_/cingulate_gyrus_male_adult_81_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/cingulate_gyrus_male_adult_81_years_/cingulate_gyrus_male_adult_81_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/cingulate_gyrus_male_adult_81_years_/cingulate_gyrus_male_adult_81_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1526,12 +1528,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/cingulate_gyrus_female_adult_75_years_/cingulate_gyrus_female_adult_75_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/cingulate_gyrus_female_adult_75_years_/cingulate_gyrus_female_adult_75_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/cingulate_gyrus_female_adult_75_years_/cingulate_gyrus_female_adult_75_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/cingulate_gyrus_female_adult_75_years_/cingulate_gyrus_female_adult_75_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1544,12 +1546,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/caudate_nucleus_male_adult_81_years_/caudate_nucleus_male_adult_81_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/caudate_nucleus_male_adult_81_years_/caudate_nucleus_male_adult_81_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/caudate_nucleus_male_adult_81_years_/caudate_nucleus_male_adult_81_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/caudate_nucleus_male_adult_81_years_/caudate_nucleus_male_adult_81_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1562,12 +1564,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/caudate_nucleus_female_adult_75_years_/caudate_nucleus_female_adult_75_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/caudate_nucleus_female_adult_75_years_/caudate_nucleus_female_adult_75_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/caudate_nucleus_female_adult_75_years_/caudate_nucleus_female_adult_75_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/caudate_nucleus_female_adult_75_years_/caudate_nucleus_female_adult_75_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1580,12 +1582,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/brain_male_embryo_122_days_/brain_male_embryo_122_days___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/brain_male_embryo_122_days_/brain_male_embryo_122_days___dnase.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/brain_male_embryo_122_days_/brain_male_embryo_122_days___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/brain_male_embryo_122_days_/brain_male_embryo_122_days___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1598,12 +1600,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/angular_gyrus_male_adult_81_years_/angular_gyrus_male_adult_81_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/angular_gyrus_male_adult_81_years_/angular_gyrus_male_adult_81_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/angular_gyrus_male_adult_81_years_/angular_gyrus_male_adult_81_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/angular_gyrus_male_adult_81_years_/angular_gyrus_male_adult_81_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1616,12 +1618,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/angular_gyrus_female_adult_75_years_/angular_gyrus_female_adult_75_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/brain/angular_gyrus_female_adult_75_years_/angular_gyrus_female_adult_75_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/angular_gyrus_female_adult_75_years_/angular_gyrus_female_adult_75_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/angular_gyrus_female_adult_75_years_/angular_gyrus_female_adult_75_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -1634,7 +1636,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_90_or_above_years_with_mild_cognitive_impairment/posterior_cingulate_gyrus_female_adult_90_or_above_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_90_or_above_years_with_mild_cognitive_impairment/posterior_cingulate_gyrus_female_adult_90_or_above_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1647,7 +1649,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_90_or_above_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_male_adult_90_or_above_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_90_or_above_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_male_adult_90_or_above_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1660,7 +1662,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_89_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_male_adult_89_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_89_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_male_adult_89_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1673,7 +1675,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_84_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_male_adult_84_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_84_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_male_adult_84_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1686,7 +1688,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_90_or_above_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_90_or_above_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_90_or_above_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_90_or_above_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1699,7 +1701,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_89_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_89_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_89_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_89_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1712,7 +1714,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_88_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_88_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_88_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_88_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1725,7 +1727,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_87_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_87_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_87_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_87_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1738,7 +1740,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_83_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_83_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_83_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_83_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1751,7 +1753,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_78_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_78_years_with_mild_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_78_years_with_mild_cognitive_impairment/head_of_caudate_nucleus_female_adult_78_years_with_mild_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1764,7 +1766,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_90_or_above_years_with_cognitive_impairment/head_of_caudate_nucleus_female_adult_90_or_above_years_with_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_90_or_above_years_with_cognitive_impairment/head_of_caudate_nucleus_female_adult_90_or_above_years_with_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1777,7 +1779,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_86_years_with_cognitive_impairment/head_of_caudate_nucleus_female_adult_86_years_with_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_86_years_with_cognitive_impairment/head_of_caudate_nucleus_female_adult_86_years_with_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1790,7 +1792,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_81_years_with_cognitive_impairment/head_of_caudate_nucleus_female_adult_81_years_with_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_81_years_with_cognitive_impairment/head_of_caudate_nucleus_female_adult_81_years_with_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -1803,7 +1805,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_male_adult_80_years_with_cognitive_impairment_alzheimer_s_disease/posterior_cingulate_gyrus_male_adult_80_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_male_adult_80_years_with_cognitive_impairment_alzheimer_s_disease/posterior_cingulate_gyrus_male_adult_80_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1816,7 +1818,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_male_adult_73_years_with_cognitive_impairment_alzheimer_s_disease/posterior_cingulate_gyrus_male_adult_73_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_male_adult_73_years_with_cognitive_impairment_alzheimer_s_disease/posterior_cingulate_gyrus_male_adult_73_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1829,7 +1831,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease/posterior_cingulate_gyrus_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease/posterior_cingulate_gyrus_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1842,7 +1844,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_with_cognitive_impairment_alzheimer_s_disease/dorsolateral_prefrontal_cortex_male_adult_87_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_87_years_with_cognitive_impairment_alzheimer_s_disease/dorsolateral_prefrontal_cortex_male_adult_87_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1855,7 +1857,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_90_or_above_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1868,7 +1870,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease/dorsolateral_prefrontal_cortex_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1881,7 +1883,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_87_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_87_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_87_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_87_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1894,7 +1896,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_84_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_84_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_84_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_84_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1907,7 +1909,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_80_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_80_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_80_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_80_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1920,7 +1922,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_73_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_73_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_73_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_73_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1933,7 +1935,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_90_or_above_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_90_or_above_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_90_or_above_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_90_or_above_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1946,7 +1948,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_87_years_with_cognitive_impairment_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1959,7 +1961,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_male_adult_90_or_above_years_with_alzheimer_s_disease/posterior_cingulate_gyrus_male_adult_90_or_above_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_male_adult_90_or_above_years_with_alzheimer_s_disease/posterior_cingulate_gyrus_male_adult_90_or_above_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1972,7 +1974,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_90_or_above_years_with_alzheimer_s_disease/posterior_cingulate_gyrus_female_adult_90_or_above_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_90_or_above_years_with_alzheimer_s_disease/posterior_cingulate_gyrus_female_adult_90_or_above_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1985,7 +1987,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_89_years_with_alzheimer_s_disease/posterior_cingulate_gyrus_female_adult_89_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_89_years_with_alzheimer_s_disease/posterior_cingulate_gyrus_female_adult_89_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -1998,7 +2000,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_88_years_with_alzheimer_s_disease/posterior_cingulate_gyrus_female_adult_88_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_88_years_with_alzheimer_s_disease/posterior_cingulate_gyrus_female_adult_88_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -2011,7 +2013,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_86_years_with_alzheimer_s_disease/posterior_cingulate_gyrus_female_adult_86_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_86_years_with_alzheimer_s_disease/posterior_cingulate_gyrus_female_adult_86_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -2024,7 +2026,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_90_or_above_years_with_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_90_or_above_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_90_or_above_years_with_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_90_or_above_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -2037,7 +2039,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_87_years_with_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_87_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_87_years_with_alzheimer_s_disease/head_of_caudate_nucleus_male_adult_87_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -2050,7 +2052,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_90_or_above_years_with_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_90_or_above_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_90_or_above_years_with_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_90_or_above_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -2063,7 +2065,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_89_years_with_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_89_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_89_years_with_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_89_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -2076,7 +2078,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_86_years_with_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_86_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_86_years_with_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_86_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -2089,7 +2091,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_81_years_with_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_81_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_81_years_with_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_81_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -2102,7 +2104,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_74_years_with_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_74_years_with_alzheimer_s_disease__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_74_years_with_alzheimer_s_disease/head_of_caudate_nucleus_female_adult_74_years_with_alzheimer_s_disease__dnase.bigWig`,
         },
       ],
     },
@@ -2115,7 +2117,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/dorsolateral_prefrontal_cortex_male_adult_73_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_73_years_with_alzheimer_s_disease_cognitive_impairment__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/dorsolateral_prefrontal_cortex_male_adult_73_years_with_alzheimer_s_disease_cognitive_impairment/dorsolateral_prefrontal_cortex_male_adult_73_years_with_alzheimer_s_disease_cognitive_impairment__dnase.bigWig`,
         },
       ],
     },
@@ -2128,7 +2130,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/superior_temporal_gyrus_male_adult_84_years_/superior_temporal_gyrus_male_adult_84_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/superior_temporal_gyrus_male_adult_84_years_/superior_temporal_gyrus_male_adult_84_years___dnase.bigWig`,
         },
       ],
     },
@@ -2141,7 +2143,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/substantia_nigra_female_adult_75_years_/substantia_nigra_female_adult_75_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/substantia_nigra_female_adult_75_years_/substantia_nigra_female_adult_75_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -2154,7 +2156,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/smooth_muscle_cell_of_the_brain_vasculature_female/smooth_muscle_cell_of_the_brain_vasculature_female__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/smooth_muscle_cell_of_the_brain_vasculature_female/smooth_muscle_cell_of_the_brain_vasculature_female__dnase.bigWig`,
         },
       ],
     },
@@ -2167,7 +2169,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/sk_n_dz_treated_with_dimethyl_sulfoxide_for_72_hours/sk_n_dz_treated_with_dimethyl_sulfoxide_for_72_hours__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/sk_n_dz_treated_with_dimethyl_sulfoxide_for_72_hours/sk_n_dz_treated_with_dimethyl_sulfoxide_for_72_hours__dnase.bigWig`,
         },
       ],
     },
@@ -2180,7 +2182,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/sk_n_dz/sk_n_dz__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/sk_n_dz/sk_n_dz__dnase.bigWig`,
         },
       ],
     },
@@ -2193,7 +2195,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/putamen_male_adult_78_years_/putamen_male_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/putamen_male_adult_78_years_/putamen_male_adult_78_years___dnase.bigWig`,
         },
       ],
     },
@@ -2206,7 +2208,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_male_adult_83_years_/posterior_cingulate_gyrus_male_adult_83_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_male_adult_83_years_/posterior_cingulate_gyrus_male_adult_83_years___dnase.bigWig`,
         },
       ],
     },
@@ -2219,7 +2221,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_male_adult_82_years_/posterior_cingulate_gyrus_male_adult_82_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_male_adult_82_years_/posterior_cingulate_gyrus_male_adult_82_years___dnase.bigWig`,
         },
       ],
     },
@@ -2232,7 +2234,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_male_adult_78_years_/posterior_cingulate_gyrus_male_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_male_adult_78_years_/posterior_cingulate_gyrus_male_adult_78_years___dnase.bigWig`,
         },
       ],
     },
@@ -2245,7 +2247,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_90_or_above_years_/posterior_cingulate_gyrus_female_adult_90_or_above_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_90_or_above_years_/posterior_cingulate_gyrus_female_adult_90_or_above_years___dnase.bigWig`,
         },
       ],
     },
@@ -2258,7 +2260,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_89_years_/posterior_cingulate_gyrus_female_adult_89_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_89_years_/posterior_cingulate_gyrus_female_adult_89_years___dnase.bigWig`,
         },
       ],
     },
@@ -2271,7 +2273,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_88_years_/posterior_cingulate_gyrus_female_adult_88_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_88_years_/posterior_cingulate_gyrus_female_adult_88_years___dnase.bigWig`,
         },
       ],
     },
@@ -2284,7 +2286,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_87_years_/posterior_cingulate_gyrus_female_adult_87_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_87_years_/posterior_cingulate_gyrus_female_adult_87_years___dnase.bigWig`,
         },
       ],
     },
@@ -2297,7 +2299,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_85_years_/posterior_cingulate_gyrus_female_adult_85_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_85_years_/posterior_cingulate_gyrus_female_adult_85_years___dnase.bigWig`,
         },
       ],
     },
@@ -2310,7 +2312,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_84_years_/posterior_cingulate_gyrus_female_adult_84_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_84_years_/posterior_cingulate_gyrus_female_adult_84_years___dnase.bigWig`,
         },
       ],
     },
@@ -2323,7 +2325,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_82_years_/posterior_cingulate_gyrus_female_adult_82_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_82_years_/posterior_cingulate_gyrus_female_adult_82_years___dnase.bigWig`,
         },
       ],
     },
@@ -2336,7 +2338,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_77_years_/posterior_cingulate_gyrus_female_adult_77_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_77_years_/posterior_cingulate_gyrus_female_adult_77_years___dnase.bigWig`,
         },
       ],
     },
@@ -2349,7 +2351,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/posterior_cingulate_gyrus_female_adult_75_years_/posterior_cingulate_gyrus_female_adult_75_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/posterior_cingulate_gyrus_female_adult_75_years_/posterior_cingulate_gyrus_female_adult_75_years___dnase.bigWig`,
         },
       ],
     },
@@ -2362,7 +2364,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/pons_male_adult_78_years_/pons_male_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/pons_male_adult_78_years_/pons_male_adult_78_years___dnase.bigWig`,
         },
       ],
     },
@@ -2375,7 +2377,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/occipital_lobe_male_adult_84_years_/occipital_lobe_male_adult_84_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/occipital_lobe_male_adult_84_years_/occipital_lobe_male_adult_84_years___dnase.bigWig`,
         },
       ],
     },
@@ -2388,7 +2390,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/neurosphere_female_embryo_17_weeks_/neurosphere_female_embryo_17_weeks___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/neurosphere_female_embryo_17_weeks_/neurosphere_female_embryo_17_weeks___h3k4me3.bigWig`,
         },
       ],
     },
@@ -2423,7 +2425,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/middle_frontal_gyrus_male_adult_78_years_/middle_frontal_gyrus_male_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/middle_frontal_gyrus_male_adult_78_years_/middle_frontal_gyrus_male_adult_78_years___dnase.bigWig`,
         },
       ],
     },
@@ -2436,7 +2438,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/midbrain_male_adult_78_years_male_adult_84_years_/midbrain_male_adult_78_years_male_adult_84_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/midbrain_male_adult_78_years_male_adult_84_years_/midbrain_male_adult_78_years_male_adult_84_years___dnase.bigWig`,
         },
       ],
     },
@@ -2449,7 +2451,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/medulla_oblongata_male_adult_84_years_male_adult_78_years_/medulla_oblongata_male_adult_84_years_male_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/medulla_oblongata_male_adult_84_years_male_adult_78_years_/medulla_oblongata_male_adult_84_years_male_adult_78_years___dnase.bigWig`,
         },
       ],
     },
@@ -2462,7 +2464,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/m059j/m059j__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/m059j/m059j__dnase.bigWig`,
         },
       ],
     },
@@ -2475,7 +2477,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/inferior_parietal_cortex_male_adult_84_years_/inferior_parietal_cortex_male_adult_84_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/inferior_parietal_cortex_male_adult_84_years_/inferior_parietal_cortex_male_adult_84_years___dnase.bigWig`,
         },
       ],
     },
@@ -2488,7 +2490,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_90_or_above_years_/head_of_caudate_nucleus_male_adult_90_or_above_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_90_or_above_years_/head_of_caudate_nucleus_male_adult_90_or_above_years___dnase.bigWig`,
         },
       ],
     },
@@ -2501,7 +2503,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_87_years_/head_of_caudate_nucleus_male_adult_87_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_87_years_/head_of_caudate_nucleus_male_adult_87_years___dnase.bigWig`,
         },
       ],
     },
@@ -2514,7 +2516,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_86_years_/head_of_caudate_nucleus_male_adult_86_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_86_years_/head_of_caudate_nucleus_male_adult_86_years___dnase.bigWig`,
         },
       ],
     },
@@ -2527,7 +2529,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_85_years_/head_of_caudate_nucleus_male_adult_85_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_85_years_/head_of_caudate_nucleus_male_adult_85_years___dnase.bigWig`,
         },
       ],
     },
@@ -2540,7 +2542,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_84_years_/head_of_caudate_nucleus_male_adult_84_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_84_years_/head_of_caudate_nucleus_male_adult_84_years___dnase.bigWig`,
         },
       ],
     },
@@ -2553,7 +2555,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_83_years_/head_of_caudate_nucleus_male_adult_83_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_83_years_/head_of_caudate_nucleus_male_adult_83_years___dnase.bigWig`,
         },
       ],
     },
@@ -2566,7 +2568,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_82_years_/head_of_caudate_nucleus_male_adult_82_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_82_years_/head_of_caudate_nucleus_male_adult_82_years___dnase.bigWig`,
         },
       ],
     },
@@ -2579,7 +2581,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_78_years_/head_of_caudate_nucleus_male_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_78_years_/head_of_caudate_nucleus_male_adult_78_years___dnase.bigWig`,
         },
       ],
     },
@@ -2592,7 +2594,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_male_adult_71_years_/head_of_caudate_nucleus_male_adult_71_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_male_adult_71_years_/head_of_caudate_nucleus_male_adult_71_years___dnase.bigWig`,
         },
       ],
     },
@@ -2605,7 +2607,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_90_or_above_years_/head_of_caudate_nucleus_female_adult_90_or_above_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_90_or_above_years_/head_of_caudate_nucleus_female_adult_90_or_above_years___dnase.bigWig`,
         },
       ],
     },
@@ -2618,7 +2620,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_89_years_/head_of_caudate_nucleus_female_adult_89_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_89_years_/head_of_caudate_nucleus_female_adult_89_years___dnase.bigWig`,
         },
       ],
     },
@@ -2631,7 +2633,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_88_years_/head_of_caudate_nucleus_female_adult_88_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_88_years_/head_of_caudate_nucleus_female_adult_88_years___dnase.bigWig`,
         },
       ],
     },
@@ -2644,7 +2646,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_87_years_/head_of_caudate_nucleus_female_adult_87_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_87_years_/head_of_caudate_nucleus_female_adult_87_years___dnase.bigWig`,
         },
       ],
     },
@@ -2657,7 +2659,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_83_years_/head_of_caudate_nucleus_female_adult_83_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_83_years_/head_of_caudate_nucleus_female_adult_83_years___dnase.bigWig`,
         },
       ],
     },
@@ -2670,7 +2672,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_82_years_/head_of_caudate_nucleus_female_adult_82_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_82_years_/head_of_caudate_nucleus_female_adult_82_years___dnase.bigWig`,
         },
       ],
     },
@@ -2683,7 +2685,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_79_years_/head_of_caudate_nucleus_female_adult_79_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_79_years_/head_of_caudate_nucleus_female_adult_79_years___dnase.bigWig`,
         },
       ],
     },
@@ -2696,7 +2698,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_78_years_/head_of_caudate_nucleus_female_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_78_years_/head_of_caudate_nucleus_female_adult_78_years___dnase.bigWig`,
         },
       ],
     },
@@ -2709,7 +2711,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/head_of_caudate_nucleus_female_adult_77_years_/head_of_caudate_nucleus_female_adult_77_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/head_of_caudate_nucleus_female_adult_77_years_/head_of_caudate_nucleus_female_adult_77_years___dnase.bigWig`,
         },
       ],
     },
@@ -2722,7 +2724,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/h4/h4__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/h4/h4__dnase.bigWig`,
         },
       ],
     },
@@ -2735,7 +2737,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/globus_pallidus_male_adult_84_years_male_adult_78_years_/globus_pallidus_male_adult_84_years_male_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/globus_pallidus_male_adult_84_years_male_adult_78_years_/globus_pallidus_male_adult_84_years_male_adult_78_years___dnase.bigWig`,
         },
       ],
     },
@@ -2748,7 +2750,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/germinal_matrix_male_embryo_20_weeks_/germinal_matrix_male_embryo_20_weeks___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/germinal_matrix_male_embryo_20_weeks_/germinal_matrix_male_embryo_20_weeks___h3k4me3.bigWig`,
         },
       ],
     },
@@ -2761,7 +2763,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/frontal_cortex_male_adult_27_years_male_adult_35_years_/frontal_cortex_male_adult_27_years_male_adult_35_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/frontal_cortex_male_adult_27_years_male_adult_35_years_/frontal_cortex_male_adult_27_years_male_adult_35_years___dnase.bigWig`,
         },
       ],
     },
@@ -2774,7 +2776,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/frontal_cortex_female_adult_80_years_female_adult_67_years_/frontal_cortex_female_adult_80_years_female_adult_67_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/frontal_cortex_female_adult_80_years_female_adult_67_years_/frontal_cortex_female_adult_80_years_female_adult_67_years___dnase.bigWig`,
         },
       ],
     },
@@ -2798,7 +2800,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/daoy/daoy__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/daoy/daoy__dnase.bigWig`,
         },
       ],
     },
@@ -2811,7 +2813,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/d341med/d341med__dnase.bigWig",
+            `${FAVOR_VIZ}/brain/d341med/d341med__dnase.bigWig`,
         },
       ],
     },
@@ -2824,7 +2826,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/cerebellum_male_adult_53_years_/cerebellum_male_adult_53_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/brain/cerebellum_male_adult_53_years_/cerebellum_male_adult_53_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -2837,7 +2839,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/cerebellum_male_adult_27_years_male_adult_35_years_/cerebellum_male_adult_27_years_male_adult_35_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/cerebellum_male_adult_27_years_male_adult_35_years_/cerebellum_male_adult_27_years_male_adult_35_years___dnase.bigWig`,
         },
       ],
     },
@@ -2850,7 +2852,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/cerebellar_cortex_male_adult_84_years_male_adult_78_years_/cerebellar_cortex_male_adult_84_years_male_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/cerebellar_cortex_male_adult_84_years_male_adult_78_years_/cerebellar_cortex_male_adult_84_years_male_adult_78_years___dnase.bigWig`,
         },
       ],
     },
@@ -2863,7 +2865,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/caudate_nucleus_male_adult_78_years_/caudate_nucleus_male_adult_78_years___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/caudate_nucleus_male_adult_78_years_/caudate_nucleus_male_adult_78_years___dnase.bigWig`,
         },
       ],
     },
@@ -2898,7 +2900,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/brain_male_embryo_104_days_/brain_male_embryo_104_days___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/brain_male_embryo_104_days_/brain_male_embryo_104_days___dnase.bigWig`,
         },
       ],
     },
@@ -2922,7 +2924,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/brain_female_embryo_96_days_/brain_female_embryo_96_days___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/brain_female_embryo_96_days_/brain_female_embryo_96_days___dnase.bigWig`,
         },
       ],
     },
@@ -2968,7 +2970,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/brain/brain_female_embryo_117_days_/brain_female_embryo_117_days___dnase.bigWig",
+            `${FAVOR_VIZ}/brain/brain_female_embryo_117_days_/brain_female_embryo_117_days___dnase.bigWig`,
         },
       ],
     },
@@ -3049,17 +3051,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/omental_fat_pad_female_adult_51_years_/omental_fat_pad_female_adult_51_years___dnase.bigWig",
+            `${FAVOR_VIZ}/adipose/omental_fat_pad_female_adult_51_years_/omental_fat_pad_female_adult_51_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/omental_fat_pad_female_adult_51_years_/omental_fat_pad_female_adult_51_years___atac.bigWig",
+            `${FAVOR_VIZ}/adipose/omental_fat_pad_female_adult_51_years_/omental_fat_pad_female_adult_51_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/omental_fat_pad_female_adult_51_years_/omental_fat_pad_female_adult_51_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/adipose/omental_fat_pad_female_adult_51_years_/omental_fat_pad_female_adult_51_years___ctcf.bigWig`,
         },
       ],
     },
@@ -3072,12 +3074,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/subcutaneous_adipose_tissue_female_adult_53_years_/subcutaneous_adipose_tissue_female_adult_53_years___atac.bigWig",
+            `${FAVOR_VIZ}/adipose/subcutaneous_adipose_tissue_female_adult_53_years_/subcutaneous_adipose_tissue_female_adult_53_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/subcutaneous_adipose_tissue_female_adult_53_years_/subcutaneous_adipose_tissue_female_adult_53_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/adipose/subcutaneous_adipose_tissue_female_adult_53_years_/subcutaneous_adipose_tissue_female_adult_53_years___ctcf.bigWig`,
         },
       ],
     },
@@ -3090,12 +3092,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_49_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_49_years_nuclear_fraction__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_49_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_49_years_nuclear_fraction__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_49_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_49_years_nuclear_fraction__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_49_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_49_years_nuclear_fraction__h3k4me3.bigWig`,
         },
       ],
     },
@@ -3108,7 +3110,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_81_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_81_years_nuclear_fraction__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_81_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_81_years_nuclear_fraction__h3k4me3.bigWig`,
         },
       ],
     },
@@ -3121,7 +3123,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_59_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_59_years_nuclear_fraction__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_59_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_59_years_nuclear_fraction__h3k4me3.bigWig`,
         },
       ],
     },
@@ -3134,7 +3136,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_41_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_41_years_nuclear_fraction__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_41_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_41_years_nuclear_fraction__h3k4me3.bigWig`,
         },
       ],
     },
@@ -3147,7 +3149,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_25_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_25_years_nuclear_fraction__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/adipose/subcutaneous_abdominal_adipose_tissue_female_adult_25_years_nuclear_fraction/subcutaneous_abdominal_adipose_tissue_female_adult_25_years_nuclear_fraction__h3k4me3.bigWig`,
         },
       ],
     },
@@ -3160,7 +3162,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/omental_fat_pad_male_adult_54_years_/omental_fat_pad_male_adult_54_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/adipose/omental_fat_pad_male_adult_54_years_/omental_fat_pad_male_adult_54_years___ctcf.bigWig`,
         },
       ],
     },
@@ -3173,7 +3175,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/omental_fat_pad_male_adult_37_years_/omental_fat_pad_male_adult_37_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/adipose/omental_fat_pad_male_adult_37_years_/omental_fat_pad_male_adult_37_years___ctcf.bigWig`,
         },
       ],
     },
@@ -3186,7 +3188,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/adipose/omental_fat_pad_female_adult_53_years_/omental_fat_pad_female_adult_53_years___dnase.bigWig",
+            `${FAVOR_VIZ}/adipose/omental_fat_pad_female_adult_53_years_/omental_fat_pad_female_adult_53_years___dnase.bigWig`,
         },
       ],
     },
@@ -3201,17 +3203,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_atrium_auricular_region_female_adult_51_years_/right_atrium_auricular_region_female_adult_51_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/right_atrium_auricular_region_female_adult_51_years_/right_atrium_auricular_region_female_adult_51_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_atrium_auricular_region_female_adult_51_years_/right_atrium_auricular_region_female_adult_51_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/right_atrium_auricular_region_female_adult_51_years_/right_atrium_auricular_region_female_adult_51_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_atrium_auricular_region_female_adult_51_years_/right_atrium_auricular_region_female_adult_51_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/right_atrium_auricular_region_female_adult_51_years_/right_atrium_auricular_region_female_adult_51_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
@@ -3230,27 +3232,27 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_69_years_/heart_right_ventricle_male_adult_69_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_69_years_/heart_right_ventricle_male_adult_69_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_69_years_/heart_right_ventricle_male_adult_69_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_69_years_/heart_right_ventricle_male_adult_69_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_69_years_/heart_right_ventricle_male_adult_69_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_69_years_/heart_right_ventricle_male_adult_69_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_69_years_/heart_right_ventricle_male_adult_69_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_69_years_/heart_right_ventricle_male_adult_69_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_69_years_/heart_right_ventricle_male_adult_69_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_69_years_/heart_right_ventricle_male_adult_69_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3263,27 +3265,27 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_66_years_/heart_right_ventricle_male_adult_66_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_66_years_/heart_right_ventricle_male_adult_66_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_66_years_/heart_right_ventricle_male_adult_66_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_66_years_/heart_right_ventricle_male_adult_66_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_66_years_/heart_right_ventricle_male_adult_66_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_66_years_/heart_right_ventricle_male_adult_66_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_66_years_/heart_right_ventricle_male_adult_66_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_66_years_/heart_right_ventricle_male_adult_66_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_66_years_/heart_right_ventricle_male_adult_66_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_66_years_/heart_right_ventricle_male_adult_66_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3296,27 +3298,27 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_61_years_/heart_right_ventricle_male_adult_61_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_61_years_/heart_right_ventricle_male_adult_61_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_61_years_/heart_right_ventricle_male_adult_61_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_61_years_/heart_right_ventricle_male_adult_61_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_61_years_/heart_right_ventricle_male_adult_61_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_61_years_/heart_right_ventricle_male_adult_61_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_61_years_/heart_right_ventricle_male_adult_61_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_61_years_/heart_right_ventricle_male_adult_61_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_61_years_/heart_right_ventricle_male_adult_61_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_61_years_/heart_right_ventricle_male_adult_61_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3329,27 +3331,27 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_43_years_/heart_right_ventricle_male_adult_43_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_43_years_/heart_right_ventricle_male_adult_43_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_43_years_/heart_right_ventricle_male_adult_43_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_43_years_/heart_right_ventricle_male_adult_43_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_43_years_/heart_right_ventricle_male_adult_43_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_43_years_/heart_right_ventricle_male_adult_43_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_43_years_/heart_right_ventricle_male_adult_43_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_43_years_/heart_right_ventricle_male_adult_43_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_43_years_/heart_right_ventricle_male_adult_43_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_43_years_/heart_right_ventricle_male_adult_43_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3362,27 +3364,27 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_46_years_/heart_right_ventricle_female_adult_46_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_46_years_/heart_right_ventricle_female_adult_46_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_46_years_/heart_right_ventricle_female_adult_46_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_46_years_/heart_right_ventricle_female_adult_46_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_46_years_/heart_right_ventricle_female_adult_46_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_46_years_/heart_right_ventricle_female_adult_46_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_46_years_/heart_right_ventricle_female_adult_46_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_46_years_/heart_right_ventricle_female_adult_46_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_46_years_/heart_right_ventricle_female_adult_46_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_46_years_/heart_right_ventricle_female_adult_46_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3395,27 +3397,27 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_43_years_/heart_left_ventricle_male_adult_43_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_43_years_/heart_left_ventricle_male_adult_43_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_43_years_/heart_left_ventricle_male_adult_43_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_43_years_/heart_left_ventricle_male_adult_43_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_43_years_/heart_left_ventricle_male_adult_43_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_43_years_/heart_left_ventricle_male_adult_43_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_43_years_/heart_left_ventricle_male_adult_43_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_43_years_/heart_left_ventricle_male_adult_43_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_43_years_/heart_left_ventricle_male_adult_43_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_43_years_/heart_left_ventricle_male_adult_43_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3428,27 +3430,27 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_59_years_/heart_left_ventricle_female_adult_59_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_59_years_/heart_left_ventricle_female_adult_59_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_59_years_/heart_left_ventricle_female_adult_59_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_59_years_/heart_left_ventricle_female_adult_59_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_59_years_/heart_left_ventricle_female_adult_59_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_59_years_/heart_left_ventricle_female_adult_59_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_59_years_/heart_left_ventricle_female_adult_59_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_59_years_/heart_left_ventricle_female_adult_59_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_59_years_/heart_left_ventricle_female_adult_59_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_59_years_/heart_left_ventricle_female_adult_59_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3461,27 +3463,27 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_53_years_/heart_left_ventricle_female_adult_53_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_53_years_/heart_left_ventricle_female_adult_53_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_53_years_/heart_left_ventricle_female_adult_53_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_53_years_/heart_left_ventricle_female_adult_53_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_53_years_/heart_left_ventricle_female_adult_53_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_53_years_/heart_left_ventricle_female_adult_53_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_53_years_/heart_left_ventricle_female_adult_53_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_53_years_/heart_left_ventricle_female_adult_53_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_53_years_/heart_left_ventricle_female_adult_53_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_53_years_/heart_left_ventricle_female_adult_53_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3494,22 +3496,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_atrium_auricular_region_female_adult_53_years_/right_atrium_auricular_region_female_adult_53_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/right_atrium_auricular_region_female_adult_53_years_/right_atrium_auricular_region_female_adult_53_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_atrium_auricular_region_female_adult_53_years_/right_atrium_auricular_region_female_adult_53_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/right_atrium_auricular_region_female_adult_53_years_/right_atrium_auricular_region_female_adult_53_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_atrium_auricular_region_female_adult_53_years_/right_atrium_auricular_region_female_adult_53_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/right_atrium_auricular_region_female_adult_53_years_/right_atrium_auricular_region_female_adult_53_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_atrium_auricular_region_female_adult_53_years_/right_atrium_auricular_region_female_adult_53_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/right_atrium_auricular_region_female_adult_53_years_/right_atrium_auricular_region_female_adult_53_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3522,12 +3524,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/mesothelial_cell_of_epicardium_in_vitro_differentiated_cells_/mesothelial_cell_of_epicardium_in_vitro_differentiated_cells___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/mesothelial_cell_of_epicardium_in_vitro_differentiated_cells_/mesothelial_cell_of_epicardium_in_vitro_differentiated_cells___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/mesothelial_cell_of_epicardium_in_vitro_differentiated_cells_/mesothelial_cell_of_epicardium_in_vitro_differentiated_cells___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/mesothelial_cell_of_epicardium_in_vitro_differentiated_cells_/mesothelial_cell_of_epicardium_in_vitro_differentiated_cells___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
@@ -3546,7 +3548,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/left_ventricle_myocardium_inferior_male_adult_60_years_/left_ventricle_myocardium_inferior_male_adult_60_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/left_ventricle_myocardium_inferior_male_adult_60_years_/left_ventricle_myocardium_inferior_male_adult_60_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -3568,22 +3570,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_40_years_/heart_right_ventricle_male_adult_40_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_40_years_/heart_right_ventricle_male_adult_40_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_40_years_/heart_right_ventricle_male_adult_40_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_40_years_/heart_right_ventricle_male_adult_40_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_40_years_/heart_right_ventricle_male_adult_40_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_40_years_/heart_right_ventricle_male_adult_40_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_40_years_/heart_right_ventricle_male_adult_40_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_40_years_/heart_right_ventricle_male_adult_40_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3596,22 +3598,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_59_years_/heart_right_ventricle_female_adult_59_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_59_years_/heart_right_ventricle_female_adult_59_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_59_years_/heart_right_ventricle_female_adult_59_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_59_years_/heart_right_ventricle_female_adult_59_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_59_years_/heart_right_ventricle_female_adult_59_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_59_years_/heart_right_ventricle_female_adult_59_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_59_years_/heart_right_ventricle_female_adult_59_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_59_years_/heart_right_ventricle_female_adult_59_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3624,22 +3626,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_56_years_/heart_right_ventricle_female_adult_56_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_56_years_/heart_right_ventricle_female_adult_56_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_56_years_/heart_right_ventricle_female_adult_56_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_56_years_/heart_right_ventricle_female_adult_56_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_56_years_/heart_right_ventricle_female_adult_56_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_56_years_/heart_right_ventricle_female_adult_56_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_adult_56_years_/heart_right_ventricle_female_adult_56_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_adult_56_years_/heart_right_ventricle_female_adult_56_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3652,22 +3654,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_66_years_/heart_left_ventricle_male_adult_66_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_66_years_/heart_left_ventricle_male_adult_66_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_66_years_/heart_left_ventricle_male_adult_66_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_66_years_/heart_left_ventricle_male_adult_66_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_66_years_/heart_left_ventricle_male_adult_66_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_66_years_/heart_left_ventricle_male_adult_66_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_66_years_/heart_left_ventricle_male_adult_66_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_66_years_/heart_left_ventricle_male_adult_66_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3680,22 +3682,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_61_years_/heart_left_ventricle_male_adult_61_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_61_years_/heart_left_ventricle_male_adult_61_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_61_years_/heart_left_ventricle_male_adult_61_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_61_years_/heart_left_ventricle_male_adult_61_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_61_years_/heart_left_ventricle_male_adult_61_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_61_years_/heart_left_ventricle_male_adult_61_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_61_years_/heart_left_ventricle_male_adult_61_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_61_years_/heart_left_ventricle_male_adult_61_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3708,22 +3710,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_56_years_/heart_left_ventricle_female_adult_56_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_56_years_/heart_left_ventricle_female_adult_56_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_56_years_/heart_left_ventricle_female_adult_56_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_56_years_/heart_left_ventricle_female_adult_56_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_56_years_/heart_left_ventricle_female_adult_56_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_56_years_/heart_left_ventricle_female_adult_56_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_56_years_/heart_left_ventricle_female_adult_56_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_56_years_/heart_left_ventricle_female_adult_56_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3736,22 +3738,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_51_years_/heart_left_ventricle_female_adult_51_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_51_years_/heart_left_ventricle_female_adult_51_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_51_years_/heart_left_ventricle_female_adult_51_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_51_years_/heart_left_ventricle_female_adult_51_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_51_years_/heart_left_ventricle_female_adult_51_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_51_years_/heart_left_ventricle_female_adult_51_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_51_years_/heart_left_ventricle_female_adult_51_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_51_years_/heart_left_ventricle_female_adult_51_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3764,22 +3766,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_46_years_/heart_left_ventricle_female_adult_46_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_46_years_/heart_left_ventricle_female_adult_46_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_46_years_/heart_left_ventricle_female_adult_46_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_46_years_/heart_left_ventricle_female_adult_46_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_46_years_/heart_left_ventricle_female_adult_46_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_46_years_/heart_left_ventricle_female_adult_46_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_adult_46_years_/heart_left_ventricle_female_adult_46_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_adult_46_years_/heart_left_ventricle_female_adult_46_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3792,17 +3794,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_73_years_/heart_right_ventricle_male_adult_73_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_73_years_/heart_right_ventricle_male_adult_73_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_73_years_/heart_right_ventricle_male_adult_73_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_73_years_/heart_right_ventricle_male_adult_73_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_73_years_/heart_right_ventricle_male_adult_73_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_73_years_/heart_right_ventricle_male_adult_73_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3815,17 +3817,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_73_years_/heart_left_ventricle_male_adult_73_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_73_years_/heart_left_ventricle_male_adult_73_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_73_years_/heart_left_ventricle_male_adult_73_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_73_years_/heart_left_ventricle_male_adult_73_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_73_years_/heart_left_ventricle_male_adult_73_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_73_years_/heart_left_ventricle_male_adult_73_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3838,17 +3840,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_40_years_/heart_left_ventricle_male_adult_40_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_40_years_/heart_left_ventricle_male_adult_40_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_40_years_/heart_left_ventricle_male_adult_40_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_40_years_/heart_left_ventricle_male_adult_40_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_40_years_/heart_left_ventricle_male_adult_40_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_40_years_/heart_left_ventricle_male_adult_40_years___h3k27ac.bigWig`,
         },
       ],
     },
@@ -3861,17 +3863,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/cardiac_fibroblast_female_adult/cardiac_fibroblast_female_adult__dnase.bigWig",
+            `${FAVOR_VIZ}/heart/cardiac_fibroblast_female_adult/cardiac_fibroblast_female_adult__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/cardiac_fibroblast_female_adult/cardiac_fibroblast_female_adult__ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/cardiac_fibroblast_female_adult/cardiac_fibroblast_female_adult__ctcf.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/cardiac_fibroblast_female_adult/cardiac_fibroblast_female_adult__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/cardiac_fibroblast_female_adult/cardiac_fibroblast_female_adult__h3k4me3.bigWig`,
         },
       ],
     },
@@ -3884,12 +3886,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_ventricle_myocardium_superior_male_adult_60_years_/right_ventricle_myocardium_superior_male_adult_60_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/right_ventricle_myocardium_superior_male_adult_60_years_/right_ventricle_myocardium_superior_male_adult_60_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_ventricle_myocardium_superior_male_adult_60_years_/right_ventricle_myocardium_superior_male_adult_60_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/right_ventricle_myocardium_superior_male_adult_60_years_/right_ventricle_myocardium_superior_male_adult_60_years___atac.bigWig`,
         },
       ],
     },
@@ -3902,12 +3904,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_ventricle_myocardium_inferior_male_adult_60_years_/right_ventricle_myocardium_inferior_male_adult_60_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/right_ventricle_myocardium_inferior_male_adult_60_years_/right_ventricle_myocardium_inferior_male_adult_60_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_ventricle_myocardium_inferior_male_adult_60_years_/right_ventricle_myocardium_inferior_male_adult_60_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/right_ventricle_myocardium_inferior_male_adult_60_years_/right_ventricle_myocardium_inferior_male_adult_60_years___atac.bigWig`,
         },
       ],
     },
@@ -3920,12 +3922,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_cardiac_atrium_male_adult_60_years_/right_cardiac_atrium_male_adult_60_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/right_cardiac_atrium_male_adult_60_years_/right_cardiac_atrium_male_adult_60_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_cardiac_atrium_male_adult_60_years_/right_cardiac_atrium_male_adult_60_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/right_cardiac_atrium_male_adult_60_years_/right_cardiac_atrium_male_adult_60_years___atac.bigWig`,
         },
       ],
     },
@@ -3938,12 +3940,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_cardiac_atrium_male_adult_34_years_/right_cardiac_atrium_male_adult_34_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/right_cardiac_atrium_male_adult_34_years_/right_cardiac_atrium_male_adult_34_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_cardiac_atrium_male_adult_34_years_/right_cardiac_atrium_male_adult_34_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/right_cardiac_atrium_male_adult_34_years_/right_cardiac_atrium_male_adult_34_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -3956,12 +3958,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_cardiac_atrium_female_adult_59_years_/right_cardiac_atrium_female_adult_59_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/right_cardiac_atrium_female_adult_59_years_/right_cardiac_atrium_female_adult_59_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_cardiac_atrium_female_adult_59_years_/right_cardiac_atrium_female_adult_59_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/right_cardiac_atrium_female_adult_59_years_/right_cardiac_atrium_female_adult_59_years___atac.bigWig`,
         },
       ],
     },
@@ -3974,12 +3976,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/left_ventricle_myocardium_superior_male_adult_60_years_/left_ventricle_myocardium_superior_male_adult_60_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/left_ventricle_myocardium_superior_male_adult_60_years_/left_ventricle_myocardium_superior_male_adult_60_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/left_ventricle_myocardium_superior_male_adult_60_years_/left_ventricle_myocardium_superior_male_adult_60_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/left_ventricle_myocardium_superior_male_adult_60_years_/left_ventricle_myocardium_superior_male_adult_60_years___atac.bigWig`,
         },
       ],
     },
@@ -3992,12 +3994,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_child_3_years_/heart_right_ventricle_male_child_3_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_child_3_years_/heart_right_ventricle_male_child_3_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_child_3_years_/heart_right_ventricle_male_child_3_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_child_3_years_/heart_right_ventricle_male_child_3_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4010,12 +4012,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_54_years_/heart_right_ventricle_male_adult_54_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_54_years_/heart_right_ventricle_male_adult_54_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_54_years_/heart_right_ventricle_male_adult_54_years___atac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_54_years_/heart_right_ventricle_male_adult_54_years___atac.bigWig`,
         },
       ],
     },
@@ -4028,12 +4030,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_34_years_/heart_right_ventricle_male_adult_34_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_34_years_/heart_right_ventricle_male_adult_34_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_34_years_/heart_right_ventricle_male_adult_34_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_34_years_/heart_right_ventricle_male_adult_34_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4046,12 +4048,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_child_3_years_/heart_left_ventricle_male_child_3_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_child_3_years_/heart_left_ventricle_male_child_3_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_child_3_years_/heart_left_ventricle_male_child_3_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_child_3_years_/heart_left_ventricle_male_child_3_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4064,12 +4066,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_54_years_/heart_left_ventricle_male_adult_54_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_54_years_/heart_left_ventricle_male_adult_54_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_54_years_/heart_left_ventricle_male_adult_54_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_54_years_/heart_left_ventricle_male_adult_54_years___ctcf.bigWig`,
         },
       ],
     },
@@ -4082,12 +4084,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_34_years_/heart_left_ventricle_male_adult_34_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_34_years_/heart_left_ventricle_male_adult_34_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_34_years_/heart_left_ventricle_male_adult_34_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_34_years_/heart_left_ventricle_male_adult_34_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4100,7 +4102,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/cardiovascular_progenitor_cell_in_vitro_differentiated_cells_/cardiovascular_progenitor_cell_in_vitro_differentiated_cells___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/cardiovascular_progenitor_cell_in_vitro_differentiated_cells_/cardiovascular_progenitor_cell_in_vitro_differentiated_cells___dnase.bigWig`,
         },
         {
           name: "h3k4me3",
@@ -4116,7 +4118,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/cardiac_fibroblast/cardiac_fibroblast__dnase.bigWig",
+            `${FAVOR_VIZ}/heart/cardiac_fibroblast/cardiac_fibroblast__dnase.bigWig`,
         },
         {
           name: "h3k4me3",
@@ -4132,7 +4134,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/right_cardiac_atrium_female_adult_46_years_/right_cardiac_atrium_female_adult_46_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/right_cardiac_atrium_female_adult_46_years_/right_cardiac_atrium_female_adult_46_years___dnase.bigWig`,
         },
       ],
     },
@@ -4145,7 +4147,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/left_cardiac_atrium_female_embryo_101_days_/left_cardiac_atrium_female_embryo_101_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/left_cardiac_atrium_female_embryo_101_days_/left_cardiac_atrium_female_embryo_101_days___dnase.bigWig`,
         },
       ],
     },
@@ -4158,7 +4160,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/left_cardiac_atrium_female_adult_59_years_/left_cardiac_atrium_female_adult_59_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/left_cardiac_atrium_female_adult_59_years_/left_cardiac_atrium_female_adult_59_years___dnase.bigWig`,
         },
       ],
     },
@@ -4182,7 +4184,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_male_embryo_91_days_/heart_male_embryo_91_days___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/heart/heart_male_embryo_91_days_/heart_male_embryo_91_days___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4195,7 +4197,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_male_embryo_72_days_male_embryo_76_days_/heart_male_embryo_72_days_male_embryo_76_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_male_embryo_72_days_male_embryo_76_days_/heart_male_embryo_72_days_male_embryo_76_days___dnase.bigWig`,
         },
       ],
     },
@@ -4208,7 +4210,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_male_embryo_120_days_/heart_male_embryo_120_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_male_embryo_120_days_/heart_male_embryo_120_days___dnase.bigWig`,
         },
       ],
     },
@@ -4232,7 +4234,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_male_embryo_105_days_/heart_male_embryo_105_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_male_embryo_105_days_/heart_male_embryo_105_days___dnase.bigWig`,
         },
       ],
     },
@@ -4256,7 +4258,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_male_adult_27_years_male_adult_35_years_/heart_male_adult_27_years_male_adult_35_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_male_adult_27_years_male_adult_35_years_/heart_male_adult_27_years_male_adult_35_years___dnase.bigWig`,
         },
       ],
     },
@@ -4269,7 +4271,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_female_embryo_91_days_/heart_female_embryo_91_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_female_embryo_91_days_/heart_female_embryo_91_days___dnase.bigWig`,
         },
       ],
     },
@@ -4282,7 +4284,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_female_embryo_147_days_/heart_female_embryo_147_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_female_embryo_147_days_/heart_female_embryo_147_days___dnase.bigWig`,
         },
       ],
     },
@@ -4306,7 +4308,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_female_embryo_98_days_female_embryo_116_days_/heart_female_embryo_98_days_female_embryo_116_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_female_embryo_98_days_female_embryo_116_days_/heart_female_embryo_98_days_female_embryo_116_days___dnase.bigWig`,
         },
       ],
     },
@@ -4319,7 +4321,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_female_embryo_110_days_/heart_female_embryo_110_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_female_embryo_110_days_/heart_female_embryo_110_days___dnase.bigWig`,
         },
       ],
     },
@@ -4365,7 +4367,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_embryo_80_days_/heart_embryo_80_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_embryo_80_days_/heart_embryo_80_days___dnase.bigWig`,
         },
       ],
     },
@@ -4400,7 +4402,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_male_adult_55_years_/heart_right_ventricle_male_adult_55_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_male_adult_55_years_/heart_right_ventricle_male_adult_55_years___dnase.bigWig`,
         },
       ],
     },
@@ -4413,7 +4415,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_right_ventricle_female_embryo_103_days_female_embryo_101_days_/heart_right_ventricle_female_embryo_103_days_female_embryo_101_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_right_ventricle_female_embryo_103_days_female_embryo_101_days_/heart_right_ventricle_female_embryo_103_days_female_embryo_101_days___dnase.bigWig`,
         },
       ],
     },
@@ -4426,7 +4428,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_male_adult_69_years_/heart_left_ventricle_male_adult_69_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_male_adult_69_years_/heart_left_ventricle_male_adult_69_years___dnase.bigWig`,
         },
       ],
     },
@@ -4450,7 +4452,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/heart_left_ventricle_female_embryo_101_days_female_embryo_103_days_/heart_left_ventricle_female_embryo_101_days_female_embryo_103_days___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/heart_left_ventricle_female_embryo_101_days_female_embryo_103_days_/heart_left_ventricle_female_embryo_101_days_female_embryo_103_days___dnase.bigWig`,
         },
       ],
     },
@@ -4463,7 +4465,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/heart/cardiac_septum_female_adult_41_years_/cardiac_septum_female_adult_41_years___dnase.bigWig",
+            `${FAVOR_VIZ}/heart/cardiac_septum_female_adult_41_years_/cardiac_septum_female_adult_41_years___dnase.bigWig`,
         },
       ],
     },
@@ -4478,17 +4480,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_female_adult_53_years_/right_lobe_of_liver_female_adult_53_years___dnase.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_female_adult_53_years_/right_lobe_of_liver_female_adult_53_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_female_adult_53_years_/right_lobe_of_liver_female_adult_53_years___atac.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_female_adult_53_years_/right_lobe_of_liver_female_adult_53_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_female_adult_53_years_/right_lobe_of_liver_female_adult_53_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_female_adult_53_years_/right_lobe_of_liver_female_adult_53_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
@@ -4507,7 +4509,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/hepg2/hepg2__dnase.bigWig",
+            `${FAVOR_VIZ}/liver/hepg2/hepg2__dnase.bigWig`,
         },
         {
           name: "atac",
@@ -4552,12 +4554,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/liver_male_adult_32_years_with_nonobstructive_coronary_artery_disease/liver_male_adult_32_years_with_nonobstructive_coronary_artery_disease__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/liver/liver_male_adult_32_years_with_nonobstructive_coronary_artery_disease/liver_male_adult_32_years_with_nonobstructive_coronary_artery_disease__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/liver_male_adult_32_years_with_nonobstructive_coronary_artery_disease/liver_male_adult_32_years_with_nonobstructive_coronary_artery_disease__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/liver/liver_male_adult_32_years_with_nonobstructive_coronary_artery_disease/liver_male_adult_32_years_with_nonobstructive_coronary_artery_disease__h3k4me3.bigWig`,
         },
       ],
     },
@@ -4570,12 +4572,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_male_adult_45_years_/right_lobe_of_liver_male_adult_45_years___dnase.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_male_adult_45_years_/right_lobe_of_liver_male_adult_45_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_male_adult_45_years_/right_lobe_of_liver_male_adult_45_years___atac.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_male_adult_45_years_/right_lobe_of_liver_male_adult_45_years___atac.bigWig`,
         },
       ],
     },
@@ -4588,12 +4590,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_female_child_16_years_/right_lobe_of_liver_female_child_16_years___dnase.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_female_child_16_years_/right_lobe_of_liver_female_child_16_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_female_child_16_years_/right_lobe_of_liver_female_child_16_years___atac.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_female_child_16_years_/right_lobe_of_liver_female_child_16_years___atac.bigWig`,
         },
       ],
     },
@@ -4606,12 +4608,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_female_adult_47_years_/right_lobe_of_liver_female_adult_47_years___dnase.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_female_adult_47_years_/right_lobe_of_liver_female_adult_47_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_female_adult_47_years_/right_lobe_of_liver_female_adult_47_years___atac.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_female_adult_47_years_/right_lobe_of_liver_female_adult_47_years___atac.bigWig`,
         },
       ],
     },
@@ -4624,12 +4626,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_female_adult_41_years_/right_lobe_of_liver_female_adult_41_years___dnase.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_female_adult_41_years_/right_lobe_of_liver_female_adult_41_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/right_lobe_of_liver_female_adult_41_years_/right_lobe_of_liver_female_adult_41_years___atac.bigWig",
+            `${FAVOR_VIZ}/liver/right_lobe_of_liver_female_adult_41_years_/right_lobe_of_liver_female_adult_41_years___atac.bigWig`,
         },
       ],
     },
@@ -4642,12 +4644,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/liver_male_adult_31_years_/liver_male_adult_31_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/liver/liver_male_adult_31_years_/liver_male_adult_31_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/liver_male_adult_31_years_/liver_male_adult_31_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/liver/liver_male_adult_31_years_/liver_male_adult_31_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4660,12 +4662,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/liver_female_adult_25_years_/liver_female_adult_25_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/liver/liver_female_adult_25_years_/liver_female_adult_25_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/liver_female_adult_25_years_/liver_female_adult_25_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/liver/liver_female_adult_25_years_/liver_female_adult_25_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4678,7 +4680,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/liver_male_adult_78_years_/liver_male_adult_78_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/liver/liver_male_adult_78_years_/liver_male_adult_78_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4713,7 +4715,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/liver_embryo_59_days_embryo_80_days_/liver_embryo_59_days_embryo_80_days___dnase.bigWig",
+            `${FAVOR_VIZ}/liver/liver_embryo_59_days_embryo_80_days_/liver_embryo_59_days_embryo_80_days___dnase.bigWig`,
         },
       ],
     },
@@ -4726,7 +4728,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/left_lobe_of_liver_male_adult_45_years_/left_lobe_of_liver_male_adult_45_years___dnase.bigWig",
+            `${FAVOR_VIZ}/liver/left_lobe_of_liver_male_adult_45_years_/left_lobe_of_liver_male_adult_45_years___dnase.bigWig`,
         },
       ],
     },
@@ -4739,7 +4741,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/huh_7/huh_7__dnase.bigWig",
+            `${FAVOR_VIZ}/liver/huh_7/huh_7__dnase.bigWig`,
         },
       ],
     },
@@ -4752,7 +4754,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/huh_7_5/huh_7_5__dnase.bigWig",
+            `${FAVOR_VIZ}/liver/huh_7_5/huh_7_5__dnase.bigWig`,
         },
       ],
     },
@@ -4765,7 +4767,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/liver/hepatocyte/hepatocyte__dnase.bigWig",
+            `${FAVOR_VIZ}/liver/hepatocyte/hepatocyte__dnase.bigWig`,
         },
       ],
     },
@@ -4780,27 +4782,27 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_left_lung_male_adult_60_years_/lower_lobe_of_left_lung_male_adult_60_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_left_lung_male_adult_60_years_/lower_lobe_of_left_lung_male_adult_60_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_left_lung_male_adult_60_years_/lower_lobe_of_left_lung_male_adult_60_years___atac.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_left_lung_male_adult_60_years_/lower_lobe_of_left_lung_male_adult_60_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_left_lung_male_adult_60_years_/lower_lobe_of_left_lung_male_adult_60_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_left_lung_male_adult_60_years_/lower_lobe_of_left_lung_male_adult_60_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_left_lung_male_adult_60_years_/lower_lobe_of_left_lung_male_adult_60_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_left_lung_male_adult_60_years_/lower_lobe_of_left_lung_male_adult_60_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_left_lung_male_adult_60_years_/lower_lobe_of_left_lung_male_adult_60_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_left_lung_male_adult_60_years_/lower_lobe_of_left_lung_male_adult_60_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4813,27 +4815,27 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_female_child_16_years_/left_lung_female_child_16_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_female_child_16_years_/left_lung_female_child_16_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_female_child_16_years_/left_lung_female_child_16_years___atac.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_female_child_16_years_/left_lung_female_child_16_years___atac.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_female_child_16_years_/left_lung_female_child_16_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_female_child_16_years_/left_lung_female_child_16_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_female_child_16_years_/left_lung_female_child_16_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_female_child_16_years_/left_lung_female_child_16_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_female_child_16_years_/left_lung_female_child_16_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_female_child_16_years_/left_lung_female_child_16_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4846,22 +4848,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_male_adult_54_years_/upper_lobe_of_left_lung_male_adult_54_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_male_adult_54_years_/upper_lobe_of_left_lung_male_adult_54_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_male_adult_54_years_/upper_lobe_of_left_lung_male_adult_54_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_male_adult_54_years_/upper_lobe_of_left_lung_male_adult_54_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_male_adult_54_years_/upper_lobe_of_left_lung_male_adult_54_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_male_adult_54_years_/upper_lobe_of_left_lung_male_adult_54_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_male_adult_54_years_/upper_lobe_of_left_lung_male_adult_54_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_male_adult_54_years_/upper_lobe_of_left_lung_male_adult_54_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4874,22 +4876,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_male_adult_37_years_/upper_lobe_of_left_lung_male_adult_37_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_male_adult_37_years_/upper_lobe_of_left_lung_male_adult_37_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_male_adult_37_years_/upper_lobe_of_left_lung_male_adult_37_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_male_adult_37_years_/upper_lobe_of_left_lung_male_adult_37_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_male_adult_37_years_/upper_lobe_of_left_lung_male_adult_37_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_male_adult_37_years_/upper_lobe_of_left_lung_male_adult_37_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_male_adult_37_years_/upper_lobe_of_left_lung_male_adult_37_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_male_adult_37_years_/upper_lobe_of_left_lung_male_adult_37_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4902,22 +4904,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_female_adult_53_years_/upper_lobe_of_left_lung_female_adult_53_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_female_adult_53_years_/upper_lobe_of_left_lung_female_adult_53_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_female_adult_53_years_/upper_lobe_of_left_lung_female_adult_53_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_female_adult_53_years_/upper_lobe_of_left_lung_female_adult_53_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_female_adult_53_years_/upper_lobe_of_left_lung_female_adult_53_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_female_adult_53_years_/upper_lobe_of_left_lung_female_adult_53_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_female_adult_53_years_/upper_lobe_of_left_lung_female_adult_53_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_female_adult_53_years_/upper_lobe_of_left_lung_female_adult_53_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4930,22 +4932,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_female_adult_51_years_/upper_lobe_of_left_lung_female_adult_51_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_female_adult_51_years_/upper_lobe_of_left_lung_female_adult_51_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_female_adult_51_years_/upper_lobe_of_left_lung_female_adult_51_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_female_adult_51_years_/upper_lobe_of_left_lung_female_adult_51_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_female_adult_51_years_/upper_lobe_of_left_lung_female_adult_51_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_female_adult_51_years_/upper_lobe_of_left_lung_female_adult_51_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_female_adult_51_years_/upper_lobe_of_left_lung_female_adult_51_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_female_adult_51_years_/upper_lobe_of_left_lung_female_adult_51_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -4978,22 +4980,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_left_lung_female_adult_59_years_/lower_lobe_of_left_lung_female_adult_59_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_left_lung_female_adult_59_years_/lower_lobe_of_left_lung_female_adult_59_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_left_lung_female_adult_59_years_/lower_lobe_of_left_lung_female_adult_59_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_left_lung_female_adult_59_years_/lower_lobe_of_left_lung_female_adult_59_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_left_lung_female_adult_59_years_/lower_lobe_of_left_lung_female_adult_59_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_left_lung_female_adult_59_years_/lower_lobe_of_left_lung_female_adult_59_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_left_lung_female_adult_59_years_/lower_lobe_of_left_lung_female_adult_59_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_left_lung_female_adult_59_years_/lower_lobe_of_left_lung_female_adult_59_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -5006,22 +5008,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_male_adult_40_years_/left_lung_male_adult_40_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_male_adult_40_years_/left_lung_male_adult_40_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_male_adult_40_years_/left_lung_male_adult_40_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_male_adult_40_years_/left_lung_male_adult_40_years___ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_male_adult_40_years_/left_lung_male_adult_40_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_male_adult_40_years_/left_lung_male_adult_40_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_male_adult_40_years_/left_lung_male_adult_40_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_male_adult_40_years_/left_lung_male_adult_40_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -5034,7 +5036,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/imr_90/imr_90__dnase.bigWig",
+            `${FAVOR_VIZ}/lung/imr_90/imr_90__dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -5062,7 +5064,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/ag04450/ag04450__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/ag04450/ag04450__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
@@ -5098,12 +5100,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/fibroblast_of_lung_male_adult_45_years_/fibroblast_of_lung_male_adult_45_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/fibroblast_of_lung_male_adult_45_years_/fibroblast_of_lung_male_adult_45_years___dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/fibroblast_of_lung_male_adult_45_years_/fibroblast_of_lung_male_adult_45_years___ctcf.bigWig",
+            `${FAVOR_VIZ}/lung/fibroblast_of_lung_male_adult_45_years_/fibroblast_of_lung_male_adult_45_years___ctcf.bigWig`,
         },
         {
           name: "h3k4me3",
@@ -5136,7 +5138,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/fibroblast_of_lung/fibroblast_of_lung__dnase.bigWig",
+            `${FAVOR_VIZ}/lung/fibroblast_of_lung/fibroblast_of_lung__dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -5155,7 +5157,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/bronchial_epithelial_cell/bronchial_epithelial_cell__dnase.bigWig",
+            `${FAVOR_VIZ}/lung/bronchial_epithelial_cell/bronchial_epithelial_cell__dnase.bigWig`,
         },
         {
           name: "ctcf",
@@ -5191,7 +5193,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/a549_treated_with_0_02_percent_ethanol_for_1_hour/a549_treated_with_0_02_percent_ethanol_for_1_hour__ctcf.bigWig",
+            `${FAVOR_VIZ}/lung/a549_treated_with_0_02_percent_ethanol_for_1_hour/a549_treated_with_0_02_percent_ethanol_for_1_hour__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
@@ -5238,12 +5240,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_right_lung_male_adult_60_years_/upper_lobe_of_right_lung_male_adult_60_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_right_lung_male_adult_60_years_/upper_lobe_of_right_lung_male_adult_60_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_right_lung_male_adult_60_years_/upper_lobe_of_right_lung_male_adult_60_years___atac.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_right_lung_male_adult_60_years_/upper_lobe_of_right_lung_male_adult_60_years___atac.bigWig`,
         },
       ],
     },
@@ -5256,12 +5258,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_male_child_3_years_/lung_male_child_3_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/lung_male_child_3_years_/lung_male_child_3_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_male_child_3_years_/lung_male_child_3_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/lung_male_child_3_years_/lung_male_child_3_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -5277,7 +5279,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_female_embryo_120_days_/lung_female_embryo_120_days___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/lung_female_embryo_120_days_/lung_female_embryo_120_days___h3k4me3.bigWig`,
         },
       ],
     },
@@ -5290,12 +5292,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_female_adult_47_years_/lung_female_adult_47_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/lung_female_adult_47_years_/lung_female_adult_47_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_female_adult_47_years_/lung_female_adult_47_years___atac.bigWig",
+            `${FAVOR_VIZ}/lung/lung_female_adult_47_years_/lung_female_adult_47_years___atac.bigWig`,
         },
       ],
     },
@@ -5308,12 +5310,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_female_adult_30_years_/lung_female_adult_30_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/lung_female_adult_30_years_/lung_female_adult_30_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_female_adult_30_years_/lung_female_adult_30_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/lung_female_adult_30_years_/lung_female_adult_30_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -5329,7 +5331,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_embryo_101_days_/lung_embryo_101_days___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/lung/lung_embryo_101_days_/lung_embryo_101_days___h3k4me3.bigWig`,
         },
       ],
     },
@@ -5342,12 +5344,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_right_lung_male_adult_60_years_/lower_lobe_of_right_lung_male_adult_60_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_right_lung_male_adult_60_years_/lower_lobe_of_right_lung_male_adult_60_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_right_lung_male_adult_60_years_/lower_lobe_of_right_lung_male_adult_60_years___atac.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_right_lung_male_adult_60_years_/lower_lobe_of_right_lung_male_adult_60_years___atac.bigWig`,
         },
       ],
     },
@@ -5360,12 +5362,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/calu3/calu3__dnase.bigWig",
+            `${FAVOR_VIZ}/lung/calu3/calu3__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/calu3/calu3__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/lung/calu3/calu3__h3k27ac.bigWig`,
         },
       ],
     },
@@ -5389,7 +5391,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_male_adult_60_years_/upper_lobe_of_left_lung_male_adult_60_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_male_adult_60_years_/upper_lobe_of_left_lung_male_adult_60_years___dnase.bigWig`,
         },
       ],
     },
@@ -5402,7 +5404,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/upper_lobe_of_left_lung_female_adult_61_years_/upper_lobe_of_left_lung_female_adult_61_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/upper_lobe_of_left_lung_female_adult_61_years_/upper_lobe_of_left_lung_female_adult_61_years___dnase.bigWig`,
         },
       ],
     },
@@ -5437,7 +5439,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/right_lung_male_embryo_115_days_/right_lung_male_embryo_115_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/right_lung_male_embryo_115_days_/right_lung_male_embryo_115_days___dnase.bigWig`,
         },
       ],
     },
@@ -5450,7 +5452,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/right_lung_male_embryo_105_days_/right_lung_male_embryo_105_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/right_lung_male_embryo_105_days_/right_lung_male_embryo_105_days___dnase.bigWig`,
         },
       ],
     },
@@ -5485,7 +5487,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/right_lung_female_embryo_117_days_/right_lung_female_embryo_117_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/right_lung_female_embryo_117_days_/right_lung_female_embryo_117_days___dnase.bigWig`,
         },
       ],
     },
@@ -5498,7 +5500,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/right_lung_female_embryo_110_days_/right_lung_female_embryo_110_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/right_lung_female_embryo_110_days_/right_lung_female_embryo_110_days___dnase.bigWig`,
         },
       ],
     },
@@ -5511,7 +5513,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/right_lung_female_embryo_108_days_/right_lung_female_embryo_108_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/right_lung_female_embryo_108_days_/right_lung_female_embryo_108_days___dnase.bigWig`,
         },
       ],
     },
@@ -5546,7 +5548,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/nci_h460/nci_h460__dnase.bigWig",
+            `${FAVOR_VIZ}/lung/nci_h460/nci_h460__dnase.bigWig`,
         },
       ],
     },
@@ -5559,7 +5561,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/nci_h226/nci_h226__dnase.bigWig",
+            `${FAVOR_VIZ}/lung/nci_h226/nci_h226__dnase.bigWig`,
         },
       ],
     },
@@ -5627,7 +5629,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_female_embryo_96_days_/lung_female_embryo_96_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/lung_female_embryo_96_days_/lung_female_embryo_96_days___dnase.bigWig`,
         },
       ],
     },
@@ -5640,7 +5642,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_female_embryo_85_days_/lung_female_embryo_85_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/lung_female_embryo_85_days_/lung_female_embryo_85_days___dnase.bigWig`,
         },
       ],
     },
@@ -5653,7 +5655,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_female_embryo_76_days_/lung_female_embryo_76_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/lung_female_embryo_76_days_/lung_female_embryo_76_days___dnase.bigWig`,
         },
       ],
     },
@@ -5666,7 +5668,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lung_female_embryo_108_days_/lung_female_embryo_108_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/lung_female_embryo_108_days_/lung_female_embryo_108_days___dnase.bigWig`,
         },
       ],
     },
@@ -5712,7 +5714,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/lower_lobe_of_left_lung_female_adult_61_years_/lower_lobe_of_left_lung_female_adult_61_years___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/lower_lobe_of_left_lung_female_adult_61_years_/lower_lobe_of_left_lung_female_adult_61_years___dnase.bigWig`,
         },
       ],
     },
@@ -5725,7 +5727,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_male_embryo_96_days_/left_lung_male_embryo_96_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_male_embryo_96_days_/left_lung_male_embryo_96_days___dnase.bigWig`,
         },
       ],
     },
@@ -5760,7 +5762,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_male_embryo_115_days_/left_lung_male_embryo_115_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_male_embryo_115_days_/left_lung_male_embryo_115_days___dnase.bigWig`,
         },
       ],
     },
@@ -5773,7 +5775,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_male_embryo_113_days_/left_lung_male_embryo_113_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_male_embryo_113_days_/left_lung_male_embryo_113_days___dnase.bigWig`,
         },
       ],
     },
@@ -5808,7 +5810,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_female_embryo_91_days_/left_lung_female_embryo_91_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_female_embryo_91_days_/left_lung_female_embryo_91_days___dnase.bigWig`,
         },
       ],
     },
@@ -5821,7 +5823,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_female_embryo_117_days_/left_lung_female_embryo_117_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_female_embryo_117_days_/left_lung_female_embryo_117_days___dnase.bigWig`,
         },
       ],
     },
@@ -5834,7 +5836,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_female_embryo_110_days_/left_lung_female_embryo_110_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_female_embryo_110_days_/left_lung_female_embryo_110_days___dnase.bigWig`,
         },
       ],
     },
@@ -5858,7 +5860,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/lung/left_lung_female_embryo_107_days_/left_lung_female_embryo_107_days___dnase.bigWig",
+            `${FAVOR_VIZ}/lung/left_lung_female_embryo_107_days_/left_lung_female_embryo_107_days___dnase.bigWig`,
         },
       ],
     },
@@ -5873,7 +5875,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/k562/k562__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/k562/k562__dnase.bigWig`,
         },
         {
           name: "atac",
@@ -5898,7 +5900,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/gm12878/gm12878__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/gm12878/gm12878__dnase.bigWig`,
         },
         {
           name: "atac",
@@ -5923,7 +5925,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/dnd_41/dnd_41__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/dnd_41/dnd_41__dnase.bigWig`,
         },
         {
           name: "atac",
@@ -5948,7 +5950,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_helper_17_cell_male_adult_50_years_/t_helper_17_cell_male_adult_50_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/t_helper_17_cell_male_adult_50_years_/t_helper_17_cell_male_adult_50_years___dnase.bigWig`,
         },
         {
           name: "atac",
@@ -5956,12 +5958,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_helper_17_cell_male_adult_50_years_/t_helper_17_cell_male_adult_50_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/t_helper_17_cell_male_adult_50_years_/t_helper_17_cell_male_adult_50_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_helper_17_cell_male_adult_50_years_/t_helper_17_cell_male_adult_50_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/t_helper_17_cell_male_adult_50_years_/t_helper_17_cell_male_adult_50_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -5974,22 +5976,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_cell_male_adult_38_years_/t_cell_male_adult_38_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/t_cell_male_adult_38_years_/t_cell_male_adult_38_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_cell_male_adult_38_years_/t_cell_male_adult_38_years___atac.bigWig",
+            `${FAVOR_VIZ}/blood/t_cell_male_adult_38_years_/t_cell_male_adult_38_years___atac.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_cell_male_adult_38_years_/t_cell_male_adult_38_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/t_cell_male_adult_38_years_/t_cell_male_adult_38_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_cell_male_adult_38_years_/t_cell_male_adult_38_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/t_cell_male_adult_38_years_/t_cell_male_adult_38_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6002,7 +6004,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_cell_female_adult_21_years_/t_cell_female_adult_21_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/t_cell_female_adult_21_years_/t_cell_female_adult_21_years___dnase.bigWig`,
         },
         {
           name: "atac",
@@ -6010,12 +6012,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_cell_female_adult_21_years_/t_cell_female_adult_21_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/t_cell_female_adult_21_years_/t_cell_female_adult_21_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_cell_female_adult_21_years_/t_cell_female_adult_21_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/t_cell_female_adult_21_years_/t_cell_female_adult_21_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6048,22 +6050,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/natural_killer_cell_male_adult_33_years_/natural_killer_cell_male_adult_33_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/natural_killer_cell_male_adult_33_years_/natural_killer_cell_male_adult_33_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/natural_killer_cell_male_adult_33_years_/natural_killer_cell_male_adult_33_years___atac.bigWig",
+            `${FAVOR_VIZ}/blood/natural_killer_cell_male_adult_33_years_/natural_killer_cell_male_adult_33_years___atac.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/natural_killer_cell_male_adult_33_years_/natural_killer_cell_male_adult_33_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/natural_killer_cell_male_adult_33_years_/natural_killer_cell_male_adult_33_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/natural_killer_cell_male_adult_33_years_/natural_killer_cell_male_adult_33_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/natural_killer_cell_male_adult_33_years_/natural_killer_cell_male_adult_33_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6076,7 +6078,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/natural_killer_cell_female_adult_41_years_/natural_killer_cell_female_adult_41_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/natural_killer_cell_female_adult_41_years_/natural_killer_cell_female_adult_41_years___dnase.bigWig`,
         },
         {
           name: "atac",
@@ -6084,12 +6086,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/natural_killer_cell_female_adult_41_years_/natural_killer_cell_female_adult_41_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/natural_killer_cell_female_adult_41_years_/natural_killer_cell_female_adult_41_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/natural_killer_cell_female_adult_41_years_/natural_killer_cell_female_adult_41_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/natural_killer_cell_female_adult_41_years_/natural_killer_cell_female_adult_41_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6102,22 +6104,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years___dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years___atac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years___atac.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_42_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6130,7 +6132,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years___dnase.bigWig`,
         },
         {
           name: "atac",
@@ -6138,12 +6140,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6156,7 +6158,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years___dnase.bigWig`,
         },
         {
           name: "atac",
@@ -6164,12 +6166,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_50_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6182,7 +6184,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell_male_adult_40_years_/naive_b_cell_male_adult_40_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell_male_adult_40_years_/naive_b_cell_male_adult_40_years___dnase.bigWig`,
         },
         {
           name: "atac",
@@ -6190,12 +6192,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell_male_adult_40_years_/naive_b_cell_male_adult_40_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell_male_adult_40_years_/naive_b_cell_male_adult_40_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell_male_adult_40_years_/naive_b_cell_male_adult_40_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell_male_adult_40_years_/naive_b_cell_male_adult_40_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6208,7 +6210,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell_female_adult_39_years_/naive_b_cell_female_adult_39_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell_female_adult_39_years_/naive_b_cell_female_adult_39_years___dnase.bigWig`,
         },
         {
           name: "atac",
@@ -6216,12 +6218,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell_female_adult_39_years_/naive_b_cell_female_adult_39_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell_female_adult_39_years_/naive_b_cell_female_adult_39_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell_female_adult_39_years_/naive_b_cell_female_adult_39_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell_female_adult_39_years_/naive_b_cell_female_adult_39_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6254,7 +6256,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/memory_b_cell_male_adult_40_years_/memory_b_cell_male_adult_40_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/memory_b_cell_male_adult_40_years_/memory_b_cell_male_adult_40_years___dnase.bigWig`,
         },
         {
           name: "atac",
@@ -6262,12 +6264,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/memory_b_cell_male_adult_40_years_/memory_b_cell_male_adult_40_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/memory_b_cell_male_adult_40_years_/memory_b_cell_male_adult_40_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/memory_b_cell_male_adult_40_years_/memory_b_cell_male_adult_40_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/memory_b_cell_male_adult_40_years_/memory_b_cell_male_adult_40_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6280,12 +6282,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/hl_60/hl_60__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/hl_60/hl_60__dnase.bigWig`,
         },
         {
           name: "ctcf",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/hl_60/hl_60__ctcf.bigWig",
+            `${FAVOR_VIZ}/blood/hl_60/hl_60__ctcf.bigWig`,
         },
         {
           name: "h3k27ac",
@@ -6304,7 +6306,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years___dnase.bigWig`,
         },
         {
           name: "atac",
@@ -6312,12 +6314,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_33_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6336,7 +6338,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd8_positive_alpha_beta_t_cell_male_adult_21_years_/cd8_positive_alpha_beta_t_cell_male_adult_21_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/cd8_positive_alpha_beta_t_cell_male_adult_21_years_/cd8_positive_alpha_beta_t_cell_male_adult_21_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
@@ -6395,17 +6397,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__atac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__atac.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6418,22 +6420,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__atac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__atac.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_anti_cd3_and_anti_cd28_coated_beads_for_36_hours__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6446,22 +6448,22 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours__dnase.bigWig`,
         },
         {
           name: "atac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours__atac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours__atac.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours/activated_b_cell_male_adult_22_years_treated_with_0_5_\u03bcm_cpg_odn_for_24_hours__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6474,17 +6476,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_with_multiple_sclerosis__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6497,17 +6499,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_with_multiple_sclerosis__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6520,17 +6522,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell_with_multiple_sclerosis/naive_b_cell_with_multiple_sclerosis__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell_with_multiple_sclerosis/naive_b_cell_with_multiple_sclerosis__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell_with_multiple_sclerosis/naive_b_cell_with_multiple_sclerosis__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell_with_multiple_sclerosis/naive_b_cell_with_multiple_sclerosis__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell_with_multiple_sclerosis/naive_b_cell_with_multiple_sclerosis__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell_with_multiple_sclerosis/naive_b_cell_with_multiple_sclerosis__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6543,7 +6545,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_memory_t_cell_with_multiple_sclerosis/cd4_positive_alpha_beta_memory_t_cell_with_multiple_sclerosis__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_memory_t_cell_with_multiple_sclerosis/cd4_positive_alpha_beta_memory_t_cell_with_multiple_sclerosis__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
@@ -6551,7 +6553,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_memory_t_cell_with_multiple_sclerosis/cd4_positive_alpha_beta_memory_t_cell_with_multiple_sclerosis__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_memory_t_cell_with_multiple_sclerosis/cd4_positive_alpha_beta_memory_t_cell_with_multiple_sclerosis__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6570,7 +6572,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/t_cell_male_adult_37_years_/t_cell_male_adult_37_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/t_cell_male_adult_37_years_/t_cell_male_adult_37_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6634,17 +6636,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_naive_cd4_positive_alpha_beta_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6657,17 +6659,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_t_cell_male_adult_21_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6680,17 +6682,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6703,17 +6705,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_t_cell_male_adult_20_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6726,17 +6728,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days/activated_cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_treated_with_10_ng_ml_interleukin_2_for_5_days_anti_cd3_and_anti_cd28_coated_beads_for_7_days__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6752,12 +6754,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/natural_killer_cell_male_adult_37_years_/natural_killer_cell_male_adult_37_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/natural_killer_cell_male_adult_37_years_/natural_killer_cell_male_adult_37_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/natural_killer_cell_male_adult_37_years_/natural_killer_cell_male_adult_37_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/natural_killer_cell_male_adult_37_years_/natural_killer_cell_male_adult_37_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6770,17 +6772,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_33_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6793,17 +6795,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years_/naive_thymus_derived_cd8_positive_alpha_beta_t_cell_male_adult_30_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6816,17 +6818,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell/naive_thymus_derived_cd8_positive_alpha_beta_t_cell__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell/naive_thymus_derived_cd8_positive_alpha_beta_t_cell__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell/naive_thymus_derived_cd8_positive_alpha_beta_t_cell__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell/naive_thymus_derived_cd8_positive_alpha_beta_t_cell__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell/naive_thymus_derived_cd8_positive_alpha_beta_t_cell__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd8_positive_alpha_beta_t_cell/naive_thymus_derived_cd8_positive_alpha_beta_t_cell__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6839,17 +6841,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_48_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6862,17 +6864,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_43_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6885,17 +6887,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years_/naive_thymus_derived_cd4_positive_alpha_beta_t_cell_male_adult_35_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -6908,17 +6910,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell/naive_thymus_derived_cd4_positive_alpha_beta_t_cell__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell/naive_thymus_derived_cd4_positive_alpha_beta_t_cell__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell/naive_thymus_derived_cd4_positive_alpha_beta_t_cell__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell/naive_thymus_derived_cd4_positive_alpha_beta_t_cell__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell/naive_thymus_derived_cd4_positive_alpha_beta_t_cell__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_thymus_derived_cd4_positive_alpha_beta_t_cell/naive_thymus_derived_cd4_positive_alpha_beta_t_cell__h3k4me3.bigWig`,
         },
       ],
     },
@@ -6931,17 +6933,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell/naive_b_cell__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell/naive_b_cell__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell/naive_b_cell__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell/naive_b_cell__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/naive_b_cell/naive_b_cell__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/naive_b_cell/naive_b_cell__h3k4me3.bigWig`,
         },
       ],
     },
@@ -7022,17 +7024,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/effector_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -7062,17 +7064,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years_/central_memory_cd8_positive_alpha_beta_t_cell_male_adult_36_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -7085,17 +7087,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years_/cd8_positive_alpha_beta_memory_t_cell_male_adult_30_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -7108,17 +7110,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd8_positive_alpha_beta_memory_t_cell/cd8_positive_alpha_beta_memory_t_cell__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/cd8_positive_alpha_beta_memory_t_cell/cd8_positive_alpha_beta_memory_t_cell__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd8_positive_alpha_beta_memory_t_cell/cd8_positive_alpha_beta_memory_t_cell__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/cd8_positive_alpha_beta_memory_t_cell/cd8_positive_alpha_beta_memory_t_cell__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd8_positive_alpha_beta_memory_t_cell/cd8_positive_alpha_beta_memory_t_cell__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/cd8_positive_alpha_beta_memory_t_cell/cd8_positive_alpha_beta_memory_t_cell__h3k4me3.bigWig`,
         },
       ],
     },
@@ -7134,12 +7136,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_t_cell_male_adult_21_years_/cd4_positive_alpha_beta_t_cell_male_adult_21_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_t_cell_male_adult_21_years_/cd4_positive_alpha_beta_t_cell_male_adult_21_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_t_cell_male_adult_21_years_/cd4_positive_alpha_beta_t_cell_male_adult_21_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_t_cell_male_adult_21_years_/cd4_positive_alpha_beta_t_cell_male_adult_21_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -7152,17 +7154,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_t_cell_male_adult_20_years_/cd4_positive_alpha_beta_t_cell_male_adult_20_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_t_cell_male_adult_20_years_/cd4_positive_alpha_beta_t_cell_male_adult_20_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_t_cell_male_adult_20_years_/cd4_positive_alpha_beta_t_cell_male_adult_20_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_t_cell_male_adult_20_years_/cd4_positive_alpha_beta_t_cell_male_adult_20_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_t_cell_male_adult_20_years_/cd4_positive_alpha_beta_t_cell_male_adult_20_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_t_cell_male_adult_20_years_/cd4_positive_alpha_beta_t_cell_male_adult_20_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -7175,17 +7177,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years_/cd4_positive_alpha_beta_memory_t_cell_male_adult_43_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -7198,17 +7200,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_memory_t_cell/cd4_positive_alpha_beta_memory_t_cell__dnase.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_memory_t_cell/cd4_positive_alpha_beta_memory_t_cell__dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_memory_t_cell/cd4_positive_alpha_beta_memory_t_cell__h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_memory_t_cell/cd4_positive_alpha_beta_memory_t_cell__h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd4_positive_alpha_beta_memory_t_cell/cd4_positive_alpha_beta_memory_t_cell__h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/cd4_positive_alpha_beta_memory_t_cell/cd4_positive_alpha_beta_memory_t_cell__h3k4me3.bigWig`,
         },
       ],
     },
@@ -7221,17 +7223,17 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd14_positive_monocyte_male_adult_30_years_/cd14_positive_monocyte_male_adult_30_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/cd14_positive_monocyte_male_adult_30_years_/cd14_positive_monocyte_male_adult_30_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd14_positive_monocyte_male_adult_30_years_/cd14_positive_monocyte_male_adult_30_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/cd14_positive_monocyte_male_adult_30_years_/cd14_positive_monocyte_male_adult_30_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/cd14_positive_monocyte_male_adult_30_years_/cd14_positive_monocyte_male_adult_30_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/cd14_positive_monocyte_male_adult_30_years_/cd14_positive_monocyte_male_adult_30_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -7247,12 +7249,12 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "h3k27ac",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/b_cell_male_adult_37_years_/b_cell_male_adult_37_years___h3k27ac.bigWig",
+            `${FAVOR_VIZ}/blood/b_cell_male_adult_37_years_/b_cell_male_adult_37_years___h3k27ac.bigWig`,
         },
         {
           name: "h3k4me3",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/b_cell_male_adult_37_years_/b_cell_male_adult_37_years___h3k4me3.bigWig",
+            `${FAVOR_VIZ}/blood/b_cell_male_adult_37_years_/b_cell_male_adult_37_years___h3k4me3.bigWig`,
         },
       ],
     },
@@ -7265,7 +7267,7 @@ export const TissueConfig: { [key: string]: SubtissueInfo[] } = {
         {
           name: "dnase",
           bigwig:
-            "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/blood/b_cell_female_adult_27_years_/b_cell_female_adult_27_years___dnase.bigWig",
+            `${FAVOR_VIZ}/blood/b_cell_female_adult_27_years_/b_cell_female_adult_27_years___dnase.bigWig`,
         },
         {
           name: "h3k27ac",

@@ -1,7 +1,8 @@
+import { FAVOR_VIZ } from "@/lib/config/object-store";
 import { Track } from "@/components/gosling";
 
 const h3k27acURL =
-  "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/H3K27ac_All_ENCODE_MAR20_2024_merged.bw";
+  `${FAVOR_VIZ}/H3K27ac_All_ENCODE_MAR20_2024_merged.bw`;
 
 export const h3k27acTrack: Track = {
   alignment: "overlay",

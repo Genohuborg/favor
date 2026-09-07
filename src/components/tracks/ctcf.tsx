@@ -1,7 +1,8 @@
+import { FAVOR_VIZ } from "@/lib/config/object-store";
 import { Track } from "@/components/gosling";
 
 const CTCFURL =
-  "https://minio-s3-favor-4ee4be.apps.shift.nerc.mghpcc.org/favor-hg38/FAVOR-viz/CTCF_All_ENCODE_MAR20_2024_merged.bw";
+  `${FAVOR_VIZ}/CTCF_All_ENCODE_MAR20_2024_merged.bw`;
 
 export const ctcfTrack: Track = {
   alignment: "overlay",
