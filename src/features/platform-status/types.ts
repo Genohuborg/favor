@@ -6,9 +6,14 @@ export type IncidentState =
   | "monitoring"
   | "resolved";
 
-export type Scope = "openshift" | "openstack" | "core-api" | "vercel" | "other";
+/**
+ * "cloud" is the compute/storage provider. It replaced the
+ * NERC-era "openshift" and "openstack" scopes on 2026-08-30 — those named a
+ * platform FAVOR no longer runs on, and split one concern in two.
+ */
+export type Scope = "cloud" | "core-api" | "vercel" | "other";
 
-export type SourceId = "nerc" | "vercel" | "self";
+export type SourceId = "hosting" | "vercel" | "self";
 
 export interface ActiveIncident {
   id: string;

@@ -1,4 +1,4 @@
-import { fetchNerc } from "./sources/nerc";
+import { fetchHostingStatus } from "./sources/hosting";
 import { fetchSelf } from "./sources/self";
 import { fetchVercel } from "./sources/vercel";
 import {
@@ -10,13 +10,7 @@ import {
   worst,
 } from "./types";
 
-const SCOPES: Scope[] = [
-  "openshift",
-  "openstack",
-  "core-api",
-  "vercel",
-  "other",
-];
+const SCOPES: Scope[] = ["cloud", "core-api", "vercel", "other"];
 
 async function settle<T>(
   id: SourceId,
@@ -31,13 +25,13 @@ async function settle<T>(
 
 export async function aggregate(): Promise<PlatformStatus> {
   const results = await Promise.all([
-    settle("nerc", fetchNerc),
+    settle("hosting", fetchHostingStatus),
     settle("vercel", fetchVercel),
     settle("self", fetchSelf),
   ]);
 
   const sources: Record<SourceId, "ok" | "error"> = {
-    nerc: "ok",
+    hosting: "ok",
     vercel: "ok",
     self: "ok",
   };

@@ -66,13 +66,21 @@ const IMPACT_TONE: Record<Impact, { bar: string; dot: string; label: string }> =
   };
 
 function scopeCopy(scopes: Scope[]): string {
-  const coreSet = new Set<Scope>(["openshift", "core-api", "vercel"]);
-  const hasCore = scopes.some((s) => coreSet.has(s));
-  const hasForums = scopes.includes("openstack");
-  if (hasCore && hasForums) return "platform-wide";
-  if (hasCore) return "affects core services";
-  if (hasForums) return "affects Forums";
-  return "NERC infrastructure";
+  // "cloud" is the hosting platform's own infrastructure, "core-api" our
+  // backend, "vercel" this frontend — any of the three can take FAVOR down, so
+  // all three are core. "other" is a platform component FAVOR does not use (a
+  // regional cloud, the provider's docs site), which is worth showing but not
+  // alarming about.
+  //
+  // The returned strings are RENDERED. Do not name the hosting provider here —
+  // this line used to read "Jetstream2 infrastructure" and was the one place
+  // the provider's name reached the UI directly rather than via the upstream
+  // feed. See sources/hosting.ts for the policy.
+  const coreSet = new Set<Scope>(["cloud", "core-api", "vercel"]);
+  const core = scopes.filter((s) => coreSet.has(s));
+  if (core.length > 1) return "platform-wide";
+  if (core.length === 1) return "affects core services";
+  return "Hosting Platform infrastructure";
 }
 
 function isSuppressed(incident: ActiveIncident, dismissed: DismissedMap) {
