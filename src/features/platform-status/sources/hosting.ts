@@ -41,7 +41,10 @@ export function redactProvider(text: string): string {
   return text
     .replace(/jetstream\s*2?/gi, PROVIDER_LABEL)
     .replace(/\bNERC\b/gi, PROVIDER_LABEL)
-    .replace(new RegExp(`${PROVIDER_LABEL}(\\s+${PROVIDER_LABEL})+`, "gi"), PROVIDER_LABEL)
+    .replace(
+      new RegExp(`${PROVIDER_LABEL}(\\s+${PROVIDER_LABEL})+`, "gi"),
+      PROVIDER_LABEL,
+    )
     .replace(/\s{2,}/g, " ")
     .trim();
 }
@@ -186,7 +189,9 @@ export async function fetchHostingStatus(): Promise<ActiveIncident[]> {
     out.push({
       id: `hosting:component:${name}`,
       source: "hosting",
-      name: redactProvider(`${original?.name ?? name}: ${original?.status ?? "degraded"}`),
+      name: redactProvider(
+        `${original?.name ?? name}: ${original?.status ?? "degraded"}`,
+      ),
       impact: IMPACT_BY_CODE[code] ?? "minor",
       state: "monitoring",
       scopes: [scopeForComponent(name)],
